@@ -1,2 +1,4 @@
 *.m4v
+*.mp4
 *.mov
+*.whisper-temp.wav
