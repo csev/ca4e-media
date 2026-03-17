@@ -1,0 +1,31 @@
+ hello and welcome to computer architecture for everybody let me start with a question
+ why should a software developer or honestly anyone learn about hardware because today computers can
+ feel like magic you open a laptop you run a program and somehow everything just works but before we
+ decide that computer technology is magic i want to take you on a journey imagine that we're looking
+ at that laptop together we start zooming in past the keyboard past the case past the circuit boards
+ until we're staring at a chinese chip but we don't stop there then we zoom in even further
+ into the wiring into logic pathways and finally a single transistor that's what this course is
+ about it's not about becoming a hardware engineer not memorizing electrical equations but gaining a
+ little more x-ray vision into the machines that we use every day this course is for a few different
+ kinds of learners maybe you're young and just starting to learn programming and you want deeper
+ intuition about what your code is really doing maybe you went to college years ago and took a
+ hardware class that felt weird or abstract or too difficult or intimidating and you never quite
+ felt like you understood it think of this course as a nice second chance to actually understand
+ what you were taught back then maybe you're a computer science student worried about an
+ upcoming architecture class this course will not replace that class but it will make it feel
+ familiar approachable and give you a rough outline of the concepts you're going to learn
+ or maybe you're just a long time practicing software engineer someone who already builds
+ real systems but it would help you to understand a little bit more about what's going on under the
+ hood now a quick word about ai if you like using ai tools this course is actually a great place to
+ use them many of the ideas we explore nand gates logic circuits machine instructions are all things
+ that ai understands really well so if something feels confusing and my lecture doesn't go into
+ enough detail ask ai to explain it in a different way ask for diagrams ask for examples as a matter
+ of fact much of the software autograders that you're going to be using was built with the help of ai
+ so in this class ai is not cheating it's a study partner a collaborator another view another lens
+ that helps you see deeper the exercises in this course are meant to feel more like video games
+ than traditional assignments you'll experiment you'll explore you'll gently design pieces of
+ hardware logic without the pressure of actually becoming a professional chip designer my goal is
+ simple by the end of this course i don't expect you to be a hardware expert but i do hope that
+ when you look at a computer you will imagine the layers inside machine language cpus circuits
+ transistors and maybe you'll smile just a little because computers won't feel so much like magic
+ anymore welcome to computer architecture for everybody let's start peeling back the layers

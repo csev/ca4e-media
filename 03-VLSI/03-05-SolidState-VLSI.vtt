@@ -1,0 +1,302 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.600
+ welcome to our lecture on VLSI, very large scale integration we're going to lay out some circuits
+
+00:00:05.600 --> 00:00:12.800
+ using basically a paint program to build millions of transistors and use photolithography so when i was
+
+00:00:12.800 --> 00:00:19.840
+ in master's degree long time ago i used a tool called magic this was an open source VLSI layout
+
+00:00:19.840 --> 00:00:26.000
+ tool that's created at berkeley in 1983 and it's very very popular because it's free and if you
+
+00:00:26.000 --> 00:00:34.320
+ google things like how to build a VLSI NAND gate you will see lots and lots of magic demonstrations
+
+00:00:34.320 --> 00:00:40.800
+ on youtube i decided not to have you use magic it's just a little too much it's really a powerful
+
+00:00:40.800 --> 00:00:47.680
+ and sophisticated tool so what i did was build little simple circuit layout tools so all my
+
+00:00:47.680 --> 00:00:53.520
+ tools are built for this course they're not real layout tools you can't really do layout with them
+
+00:00:53.520 --> 00:00:57.440
+ all i care about is the learning objectives in this course they run in the browser don't require
+
+00:00:57.440 --> 00:01:03.680
+ any installation but don't push them too hard if you build super complex circuits that might be
+
+00:01:03.680 --> 00:01:09.680
+ valid circuits my emulators will fall apart just do the homework in them play in them have a good
+
+00:01:09.680 --> 00:01:15.200
+ time but don't try to get too sophisticated if you really want to install more sophisticated
+
+00:01:15.200 --> 00:01:20.080
+ emulators either you know on your computer or online well you have fun with that this is just
+
+00:01:20.080 --> 00:01:27.920
+ to get you started so the first thing we're going to talk about is how to map the VLSI
+
+00:01:27.920 --> 00:01:34.480
+ CMOS NOT so we have a NOT gate the abstraction zero goes to one one goes to zero and we have
+
+00:01:34.480 --> 00:01:40.400
+ a CMOS layout where we have an a pMOS transistor at the top and an nMOS transistor at the bottom
+
+00:01:40.400 --> 00:01:47.840
+ we've gone through that in some detail and on the right is the VLSI layout for that so let's talk a
+
+00:01:47.840 --> 00:01:56.320
+ little bit about what it takes to do VLSI layout so the mystic program that i wrote for you does
+
+00:01:56.320 --> 00:02:02.960
+ painting on a grid and you can paint various things you can paint multiple things in one little
+
+00:02:02.960 --> 00:02:12.320
+ grid cell like the blue light blue in this case going across the top is metal and the pink is
+
+00:02:12.320 --> 00:02:19.920
+ polysilicon and the green is n-doped silicon and the orange is p-doped silicon and you lay these out
+
+00:02:19.920 --> 00:02:25.120
+ by simply drawing them and you'll see that there's also a voltage source on the metal in the top
+
+00:02:25.120 --> 00:02:31.920
+ example now these are not necessarily connected they can pass by each other and in particular
+
+00:02:31.920 --> 00:02:37.520
+ metal passes by everything unless you connect it and you connect it by punching a little hole in
+
+00:02:37.520 --> 00:02:42.800
+ it using what's called a via and it's a vertical net connector between the layers so you can see
+
+00:02:42.800 --> 00:02:48.560
+ in the top diagram that the polysilicon n-doped silicon and p-doped silicon does not have any
+
+00:02:48.560 --> 00:02:53.440
+ positive charge that's because they're not really connected to the metal but if you put vias at each
+
+00:02:53.440 --> 00:03:00.000
+ of the connections then the positive charge moves from the metal to the poly silicon n-doped silicon
+
+00:03:00.000 --> 00:03:09.360
+ and p-doped silicon now to make a transistor it takes polysilicon plus n-doped or p-doped silicon
+
+00:03:09.360 --> 00:03:15.760
+ and you create the transistor whether it's an n-moss transistor or p-moss transistor when you cross
+
+00:03:15.760 --> 00:03:23.040
+ polysilicon crosses n-doped it makes an n-moss transistor and when polysilicon crosses p-doped
+
+00:03:23.600 --> 00:03:31.040
+ it produces a p-moss transistor so if we look we see metal across the top we see a vertical n-doped
+
+00:03:31.040 --> 00:03:39.600
+ and a vertical p-doped coming down with a via and then we have a horizontal polysilicon with a plus
+
+00:03:39.600 --> 00:03:48.480
+ charge on it and at the moment that it's crossing the green or the n-doped it causes a transistor and
+
+00:03:49.040 --> 00:03:55.520
+ given that that is an n-moss transistor when positive voltage is transmitted through it then
+
+00:03:55.520 --> 00:04:01.360
+ it copies the voltage through it the p-moss on the other hand when it's presented with a one
+
+00:04:01.360 --> 00:04:07.440
+ basically it blocks and so you can see the positive voltage flowing down the p-moss
+
+00:04:07.440 --> 00:04:13.840
+ but stopping at the transistor and so these overlaps between the n-doped and p-doped and the
+
+00:04:13.840 --> 00:04:19.120
+ polysilicon are the transistors and if you look at the bottom one you see the exact same circuit
+
+00:04:19.120 --> 00:04:25.600
+ that has a zero or negative on it and you see that the n-moss transistor is blocking and the p-moss
+
+00:04:25.600 --> 00:04:32.400
+ transistor is conducting now the layout here my little layout is greatly simplified and my circuit
+
+00:04:32.400 --> 00:04:37.840
+ emulation is greatly simplified it's good enough to do not gates and NAND gates and NOR gates
+
+00:04:37.840 --> 00:04:43.280
+ and if you're really interested you can ask AI to explain the differences between VLSI layout
+
+00:04:43.280 --> 00:04:48.960
+ and actual manufacturing layout because there's actual differences in the construction for
+
+00:04:48.960 --> 00:04:54.240
+ example you're you can draw it on my system but you're not supposed to overlap n and p
+
+00:04:54.240 --> 00:05:00.080
+ dope silicon due to manufacturing but you want to connect them you throw a little piece of metal
+
+00:05:00.080 --> 00:05:07.520
+ in a couple of vias and then you can connect them so if you're using the circuit simulation software
+
+00:05:07.520 --> 00:05:12.800
+ you can turn on this layer mode where you point at a layer and it shows the layers from top to
+
+00:05:12.800 --> 00:05:19.200
+ bottom and again this isn't perfectly right but you can see like on the left you can see a
+
+00:05:19.200 --> 00:05:27.680
+ polysilicon and a p-doped silicon and you see them connect and that makes a p-moss transistor
+
+00:05:27.680 --> 00:05:32.240
+ you can see that on the on the layer chart where the p and the poly are touching and that's where
+
+00:05:32.240 --> 00:05:36.560
+ the transistor is being created and then if you look on the right where you have the metal
+
+00:05:37.120 --> 00:05:43.200
+ and the p-doped silicon they are connected via a via and you can think of the via as a little hole
+
+00:05:43.200 --> 00:05:46.320
+ that's drilled through all the layers with a little kind of bit of metal
+
+00:05:46.320 --> 00:05:52.000
+ poured in so they're all actually connected and so that via is how the metal the positive charge
+
+00:05:52.000 --> 00:05:59.440
+ goes from the metal at the top to the p-doped silicon going down vertically so here is a c-moss
+
+00:05:59.440 --> 00:06:07.120
+ knot and you can see that it creates a p-moss transistor at the top and an n-moss transistor
+
+00:06:07.120 --> 00:06:14.080
+ at the bottom it uses metal to move the voltages around and via is to connect the various silicon
+
+00:06:14.080 --> 00:06:20.480
+ layers at the right point and so you see the input on the right on the left side is a zero
+
+00:06:20.480 --> 00:06:24.960
+ and then goes to the two transistors the p-moss at the top and the n-moss at the bottom
+
+00:06:25.600 --> 00:06:31.920
+ and you can see one of them in the case of the input zero the n-moss at the bottom is non
+
+00:06:31.920 --> 00:06:39.600
+ conducting and so the ground is not going to output but the top p-moss transistor is conducting so the
+
+00:06:39.600 --> 00:06:44.480
+ positive is is then copied to the output just like in the circuits we were looking at before
+
+00:06:44.480 --> 00:06:49.920
+ and if you switch the input to one then the p-moss transistor at the top stops conducting
+
+00:06:49.920 --> 00:06:55.600
+ and the n-moss transistor at the bottom starts conducting and so the the negative the ground that's
+
+00:06:55.600 --> 00:07:01.920
+ coming up from the bottom is conducted through the n-moss transistor to the output and so now we have
+
+00:07:01.920 --> 00:07:08.800
+ a knot and i won't go through everything about this but you can then extend this to make things
+
+00:07:08.800 --> 00:07:16.720
+ more complex than not and so we talked a little bit about nan gates nan gates have two p-moss
+
+00:07:16.720 --> 00:07:23.840
+ transistors at the top and two n-moss transistors at the bottom it's kind of like a kind of half
+
+00:07:23.840 --> 00:07:31.040
+ parallel half in series not gate and and if you trace the little picture you can see that i've
+
+00:07:31.040 --> 00:07:35.680
+ i've created that you can see there's four transistors and i will do a demonstration where
+
+00:07:35.680 --> 00:07:40.720
+ it actually reads the whole circuit so you can watch it in slow motion but you can see the voltage
+
+00:07:40.720 --> 00:07:45.840
+ at the top that's the voltage in the ground at the bottom and you can see the voltage coming down
+
+00:07:46.720 --> 00:07:53.920
+ through some vias to some p-doped silicon you can see the two inputs and you can see them
+
+00:07:53.920 --> 00:08:00.400
+ in this case they're both one and they are in effect being transported you see a place where
+
+00:08:00.400 --> 00:08:05.920
+ the the second input is being connected to polysilicon then it's going over top of a
+
+00:08:05.920 --> 00:08:13.760
+ different polysilicon then it is going on top of a p-doped silicon and then it is connecting to a
+
+00:08:13.760 --> 00:08:20.880
+ horizontal polysilicon so that it can be make a transistor for the other of the p-moss transistors
+
+00:08:20.880 --> 00:08:25.200
+ that make the nan gate up now if we look at the bottom the bottom is thing where we're deciding
+
+00:08:25.200 --> 00:08:29.760
+ whether negative is going out or not and in this case because they're both positive there's two
+
+00:08:29.760 --> 00:08:36.960
+ n-moss transistors you can see the the green n-doped silicon going up and because both inputs are
+
+00:08:36.960 --> 00:08:43.840
+ positive both of those transistors are transmitting and so what's being copied to output is the
+
+00:08:43.840 --> 00:08:50.240
+ negative from ground so if we switch to a different row in the truth table a of zero and b of one we
+
+00:08:50.240 --> 00:08:57.360
+ can see how the nan gate changes a little bit right so the zero goes and makes it so that the
+
+00:08:57.360 --> 00:09:04.000
+ p plus is conducting at the top that's conducting a plus down then that is going to make the output
+
+00:09:04.000 --> 00:09:11.920
+ b plus and then you watch that same ground that same zero go down to the top n-moss transistor and
+
+00:09:11.920 --> 00:09:20.400
+ then that blocks that n-moss transistor that keeps ground from flowing out and so it's you can trace
+
+00:09:20.400 --> 00:09:26.000
+ all of the traces and all the connections and all the vias and see there's transistors and connections
+
+00:09:26.000 --> 00:09:33.520
+ and they basically implement the circuit diagram of the nan this has been a long series of lectures
+
+00:09:33.520 --> 00:09:39.040
+ talking about semiconductors we started about tubes and how do tubes and transistors need
+
+00:09:39.040 --> 00:09:44.400
+ to be tuned for digital applications where they have sort of the the quick transition at the one
+
+00:09:44.400 --> 00:09:49.840
+ third point for digital applications again these are analog devices although we want to treat them
+
+00:09:49.840 --> 00:09:55.040
+ and think of them as digital then we go from transistors to gates which makes it so that
+
+00:09:55.040 --> 00:10:02.720
+ we can think digital even though the underlying thing is an analog transistor then we watch the
+
+00:10:02.720 --> 00:10:08.160
+ evolution of transistor technology from p-moss to n-moss and then currently c-moss and how
+
+00:10:08.160 --> 00:10:13.760
+ photolithography makes it so we can put more and more transistors on the chip over time and
+
+00:10:13.760 --> 00:10:18.800
+ manufacturing has gotten better over time and we did a really brief introduction to how to design
+
+00:10:18.800 --> 00:10:26.000
+ vlsi design chips using vlsi layout tools so i hope you found that interesting up next we're
+
+00:10:26.000 --> 00:10:32.400
+ going to switch from transistors to pure digital logic and design much more sophisticated circuits
+
+00:10:32.400 --> 00:10:45.360
+ using exclusively digital logic and gates
+

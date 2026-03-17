@@ -1,0 +1,95 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.040
+ hello and welcome to computer architecture for everybody let me start with a question
+
+00:00:05.040 --> 00:00:13.280
+ why should a software developer or honestly anyone learn about hardware because today computers can
+
+00:00:13.280 --> 00:00:21.120
+ feel like magic you open a laptop you run a program and somehow everything just works but before we
+
+00:00:21.120 --> 00:00:26.720
+ decide that computer technology is magic i want to take you on a journey imagine that we're looking
+
+00:00:26.720 --> 00:00:35.760
+ at that laptop together we start zooming in past the keyboard past the case past the circuit boards
+
+00:00:35.760 --> 00:00:41.120
+ until we're staring at a chinese chip but we don't stop there then we zoom in even further
+
+00:00:41.120 --> 00:00:49.360
+ into the wiring into logic pathways and finally a single transistor that's what this course is
+
+00:00:49.360 --> 00:00:55.520
+ about it's not about becoming a hardware engineer not memorizing electrical equations but gaining a
+
+00:00:55.520 --> 00:01:03.200
+ little more x-ray vision into the machines that we use every day this course is for a few different
+
+00:01:03.200 --> 00:01:07.680
+ kinds of learners maybe you're young and just starting to learn programming and you want deeper
+
+00:01:07.680 --> 00:01:12.720
+ intuition about what your code is really doing maybe you went to college years ago and took a
+
+00:01:12.720 --> 00:01:18.640
+ hardware class that felt weird or abstract or too difficult or intimidating and you never quite
+
+00:01:18.640 --> 00:01:24.240
+ felt like you understood it think of this course as a nice second chance to actually understand
+
+00:01:24.240 --> 00:01:28.000
+ what you were taught back then maybe you're a computer science student worried about an
+
+00:01:28.000 --> 00:01:33.920
+ upcoming architecture class this course will not replace that class but it will make it feel
+
+00:01:33.920 --> 00:01:38.560
+ familiar approachable and give you a rough outline of the concepts you're going to learn
+
+00:01:38.560 --> 00:01:44.000
+ or maybe you're just a long time practicing software engineer someone who already builds
+
+00:01:44.000 --> 00:01:49.760
+ real systems but it would help you to understand a little bit more about what's going on under the
+
+00:01:49.760 --> 00:01:58.480
+ hood now a quick word about ai if you like using ai tools this course is actually a great place to
+
+00:01:58.480 --> 00:02:06.880
+ use them many of the ideas we explore nand gates logic circuits machine instructions are all things
+
+00:02:06.880 --> 00:02:14.000
+ that ai understands really well so if something feels confusing and my lecture doesn't go into
+
+00:02:14.000 --> 00:02:20.960
+ enough detail ask ai to explain it in a different way ask for diagrams ask for examples as a matter
+
+00:02:20.960 --> 00:02:26.640
+ of fact much of the software autograders that you're going to be using was built with the help of ai
+
+00:02:26.640 --> 00:02:35.120
+ so in this class ai is not cheating it's a study partner a collaborator another view another lens
+
+00:02:35.120 --> 00:02:39.920
+ that helps you see deeper the exercises in this course are meant to feel more like video games
+
+00:02:39.920 --> 00:02:44.720
+ than traditional assignments you'll experiment you'll explore you'll gently design pieces of
+
+00:02:44.720 --> 00:02:50.320
+ hardware logic without the pressure of actually becoming a professional chip designer my goal is
+
+00:02:50.320 --> 00:02:56.320
+ simple by the end of this course i don't expect you to be a hardware expert but i do hope that
+
+00:02:56.320 --> 00:03:03.760
+ when you look at a computer you will imagine the layers inside machine language cpus circuits
+
+00:03:03.760 --> 00:03:10.800
+ transistors and maybe you'll smile just a little because computers won't feel so much like magic
+
+00:03:10.800 --> 00:03:18.240
+ anymore welcome to computer architecture for everybody let's start peeling back the layers
+

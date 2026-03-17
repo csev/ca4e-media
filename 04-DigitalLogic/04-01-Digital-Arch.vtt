@@ -1,0 +1,425 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.700
+ Hello, and welcome to our lecture on computer architecture.
+
+00:00:03.700 --> 00:00:06.440
+ Now, to some degree, that might seem like a contradiction in terms,
+
+00:00:06.440 --> 00:00:09.760
+ because the whole name of the course is computer architecture.
+
+00:00:09.760 --> 00:00:12.880
+ But we're kind of at the point where we have gotten to
+
+00:00:12.880 --> 00:00:14.960
+ the level where we've built up
+
+00:00:14.960 --> 00:00:17.980
+ enough basic stuff to really start talking about computer architecture,
+
+00:00:17.980 --> 00:00:20.580
+ like what's a central processing unit?
+
+00:00:20.580 --> 00:00:22.360
+ We know what gates are.
+
+00:00:22.360 --> 00:00:23.760
+ We're going to start with the gates,
+
+00:00:23.760 --> 00:00:25.160
+ we're not going to worry about transistors,
+
+00:00:25.160 --> 00:00:26.140
+ we're not going to worry about tubes,
+
+00:00:26.140 --> 00:00:27.680
+ we're not going to worry about slide rules,
+
+00:00:27.680 --> 00:00:29.680
+ and then we're going to just go from there.
+
+00:00:29.680 --> 00:00:33.400
+ Actually, for me, this phase is a little more comfortable.
+
+00:00:33.400 --> 00:00:36.480
+ I was never a computer engineer or electrical engineer,
+
+00:00:36.480 --> 00:00:39.000
+ and I understand transistors.
+
+00:00:39.000 --> 00:00:43.160
+ So that first half was fun for me to do a bunch of research for you and share with
+
+00:00:43.160 --> 00:00:47.160
+ you what I thought was important about transistors and tubes, etc.
+
+00:00:47.160 --> 00:00:49.500
+ But now we're going to start with gates.
+
+00:00:49.500 --> 00:00:51.240
+ What can we do with an AND gate,
+
+00:00:51.240 --> 00:00:54.340
+ an OR gate, NOT gate, exclusive OR, etc.
+
+00:00:54.340 --> 00:00:56.480
+ First, we're going to learn how to start adding numbers,
+
+00:00:56.480 --> 00:00:59.320
+ because calculation and multiplication in addition are important.
+
+00:00:59.320 --> 00:01:01.600
+ We're going to learn about full adders and half adders.
+
+00:01:01.600 --> 00:01:03.560
+ We have to learn about number representation.
+
+00:01:03.560 --> 00:01:05.840
+ How do computers represent numbers?
+
+00:01:05.840 --> 00:01:08.860
+ Base 2, base 10, and hexadecimal.
+
+00:01:08.860 --> 00:01:12.000
+ Then we're going to figure out how we actually store data.
+
+00:01:12.000 --> 00:01:13.680
+ Using gates to store data,
+
+00:01:13.680 --> 00:01:15.840
+ we'll learn about latches and flip-flops.
+
+00:01:15.840 --> 00:01:20.120
+ Once we start getting larger and more complicated circuits,
+
+00:01:20.120 --> 00:01:24.480
+ we're starting to talk about delay and speed and clock rate and all those things.
+
+00:01:24.480 --> 00:01:27.720
+ Then we'll start thinking about how you build
+
+00:01:27.720 --> 00:01:32.040
+ a computer that can execute programs, machine code,
+
+00:01:32.040 --> 00:01:34.680
+ where you write software in zeros and ones.
+
+00:01:34.680 --> 00:01:39.360
+ Then ultimately, we'll take a look at how CPUs are put together,
+
+00:01:39.360 --> 00:01:41.960
+ the architecture of CPUs.
+
+00:01:41.960 --> 00:01:46.120
+ We often start with computer architecture to talk about the whole computer,
+
+00:01:46.120 --> 00:01:48.800
+ like there's things like motherboards.
+
+00:01:48.800 --> 00:01:51.880
+ Let me give you a close-up view of a motherboard.
+
+00:01:51.880 --> 00:01:54.620
+ But actually, this really isn't just any old motherboard.
+
+00:01:54.620 --> 00:01:57.820
+ When I started teaching programming back in 2008,
+
+00:01:57.820 --> 00:02:00.880
+ this was the motherboard that I would pass around the class.
+
+00:02:00.880 --> 00:02:02.840
+ This is from a desktop computer.
+
+00:02:02.840 --> 00:02:06.560
+ It's, I think it's probably like a 300 megahertz computer,
+
+00:02:06.560 --> 00:02:08.080
+ which is really slow.
+
+00:02:08.080 --> 00:02:11.680
+ I also passed around the CPU that went to this.
+
+00:02:11.680 --> 00:02:15.760
+ So there's the CPU that went to this particular computer.
+
+00:02:15.760 --> 00:02:20.360
+ I passed it around the class because I wanted people to feel,
+
+00:02:20.360 --> 00:02:23.800
+ I wanted them to feel the wires that come out of
+
+00:02:23.800 --> 00:02:27.040
+ these things to get a sense of this is all very electrical.
+
+00:02:27.040 --> 00:02:28.360
+ I've been talking from the beginning of
+
+00:02:28.360 --> 00:02:31.160
+ the course to the level of this is all very electrical.
+
+00:02:31.160 --> 00:02:32.640
+ So if you look at the back of this,
+
+00:02:32.640 --> 00:02:34.320
+ there are little tiny wires,
+
+00:02:34.320 --> 00:02:37.560
+ many of them going on like little streets and chips are
+
+00:02:37.560 --> 00:02:42.760
+ like buildings that are in a neighborhood and the wires go between them.
+
+00:02:42.760 --> 00:02:46.120
+ The other thing I wanted people to do is pass this around,
+
+00:02:46.120 --> 00:02:48.400
+ because you can't feel it here,
+
+00:02:48.400 --> 00:02:50.900
+ but these are pointy little things where
+
+00:02:50.900 --> 00:02:53.500
+ the chips and connectors come through the board,
+
+00:02:53.500 --> 00:02:55.120
+ and they're soldered together and that's where
+
+00:02:55.120 --> 00:02:58.960
+ these connectors are connecting to these wires.
+
+00:02:58.960 --> 00:03:04.160
+ So I just wanted people to get a sense that inside of a computer,
+
+00:03:04.160 --> 00:03:07.120
+ there was something, and it was physical,
+
+00:03:07.120 --> 00:03:11.040
+ and it was a thing like a CPU.
+
+00:03:11.040 --> 00:03:13.280
+ The CPU has little pins on it,
+
+00:03:13.280 --> 00:03:14.960
+ and I wanted people to touch the pins.
+
+00:03:14.960 --> 00:03:17.960
+ You can see many people over the years have touched these pins,
+
+00:03:17.960 --> 00:03:20.040
+ and they're all bent up.
+
+00:03:20.040 --> 00:03:23.960
+ So here, I used to pass around this memory chip, and again,
+
+00:03:23.960 --> 00:03:28.240
+ this is all from 2008 so that people could get
+
+00:03:28.240 --> 00:03:34.440
+ a physical feeling of what was inside of computers doing all of this work.
+
+00:03:34.440 --> 00:03:37.280
+ So generally, if you think about all those wires,
+
+00:03:37.280 --> 00:03:40.640
+ they generally are taking a zero or a one back and forth,
+
+00:03:40.640 --> 00:03:42.920
+ and that's what we like about gates,
+
+00:03:42.920 --> 00:03:46.680
+ and gates simplify the analogness of
+
+00:03:46.680 --> 00:03:51.040
+ all circuits and make it so that we can think of them digitally.
+
+00:03:51.040 --> 00:03:56.760
+ So this is a slide from a lecture that I created in 2008,
+
+00:03:56.760 --> 00:03:59.560
+ where I basically said this is what a computer does.
+
+00:03:59.560 --> 00:04:03.300
+ It has a central processing unit which processes instructions.
+
+00:04:03.300 --> 00:04:04.560
+ It has main memory,
+
+00:04:04.560 --> 00:04:06.980
+ which is where the instructions and data are stored.
+
+00:04:06.980 --> 00:04:09.520
+ It has secondary memory,
+
+00:04:09.520 --> 00:04:14.160
+ which is like disk drives where you save files and load data, etc.
+
+00:04:14.160 --> 00:04:17.640
+ Databases live on disk drives and then put output devices
+
+00:04:17.640 --> 00:04:21.560
+ like keyboards and mice and things like that.
+
+00:04:21.560 --> 00:04:24.800
+ So the definitions that I used back then were,
+
+00:04:24.800 --> 00:04:26.920
+ a central processing unit runs the program,
+
+00:04:26.920 --> 00:04:31.320
+ the CPU is programmed physically to wonder what to do next.
+
+00:04:31.320 --> 00:04:33.040
+ It's not really smart,
+
+00:04:33.040 --> 00:04:37.080
+ but it is very, very fast and we program it to be smart.
+
+00:04:37.080 --> 00:04:40.440
+ Input devices like keyboard, mouse, and touchscreen.
+
+00:04:40.440 --> 00:04:43.000
+ Output devices like the screen, speakers, printer,
+
+00:04:43.000 --> 00:04:45.020
+ DVD burner, or whatever.
+
+00:04:45.020 --> 00:04:46.760
+ Main memory is small, fast,
+
+00:04:46.760 --> 00:04:49.800
+ temporary storage and secondary memory is the larger,
+
+00:04:49.800 --> 00:04:53.720
+ more permanent storage that you can power cycle and not come off.
+
+00:04:53.720 --> 00:05:00.240
+ So this notion that central processing units are built to think about what next,
+
+00:05:00.240 --> 00:05:02.300
+ means that we are inside the computer.
+
+00:05:02.300 --> 00:05:03.760
+ When we write software,
+
+00:05:03.760 --> 00:05:06.000
+ we live in the main memory of the computer and
+
+00:05:06.000 --> 00:05:09.800
+ our instructions feed the what next, the CPU.
+
+00:05:09.800 --> 00:05:10.920
+ We'll see toward the end,
+
+00:05:10.920 --> 00:05:12.760
+ we'll understand what the fetch execute cycle,
+
+00:05:12.760 --> 00:05:15.840
+ which is fetch, what is it I'm supposed to do next?
+
+00:05:15.840 --> 00:05:17.800
+ I did that and I'll grab the next one.
+
+00:05:17.800 --> 00:05:19.720
+ That's the fetch execute cycle.
+
+00:05:19.720 --> 00:05:22.880
+ Now we can program this in something like say Python,
+
+00:05:22.880 --> 00:05:24.140
+ but really it's not.
+
+00:05:24.140 --> 00:05:26.600
+ It's really programmed in machine language,
+
+00:05:26.600 --> 00:05:27.840
+ which is zeros and ones.
+
+00:05:27.840 --> 00:05:31.200
+ By the end of this lecture and the beginning of the next lecture,
+
+00:05:31.200 --> 00:05:33.480
+ you will be programming in zeros and ones.
+
+00:05:33.480 --> 00:05:36.960
+ Believe me, this one is a little difficult,
+
+00:05:36.960 --> 00:05:42.280
+ so you just take your time and follow along with how this goes.
+
+00:05:42.280 --> 00:05:44.420
+ So from the last lecture,
+
+00:05:44.420 --> 00:05:47.640
+ we really saw the growth of transistors where we had
+
+00:05:47.640 --> 00:05:50.860
+ 16 transistors on a little tiny circuit to
+
+00:05:50.860 --> 00:05:55.920
+ laying out hundreds and millions and billions of transistors on little tiny chips.
+
+00:05:55.920 --> 00:06:00.820
+ So with that, we can create increasingly complicated processes.
+
+00:06:00.820 --> 00:06:03.160
+ Now the way this design process usually works,
+
+00:06:03.160 --> 00:06:07.080
+ and we did VLSI layout in the previous lectures,
+
+00:06:07.080 --> 00:06:11.320
+ we tend not to do VLSI layout for modern computers.
+
+00:06:11.320 --> 00:06:16.780
+ We tend to build reusable components like an adder or a latch or something like that,
+
+00:06:16.780 --> 00:06:18.800
+ and then we wire those all together,
+
+00:06:18.800 --> 00:06:23.280
+ and then software takes our abstract design of gates and latches
+
+00:06:23.280 --> 00:06:25.580
+ that think in terms of zeros and ones,
+
+00:06:25.580 --> 00:06:30.200
+ and components like adders and multipliers and ripple carry adders, etc.,
+
+00:06:30.200 --> 00:06:33.480
+ and then turn that into a transistor layout.
+
+00:06:33.480 --> 00:06:37.100
+ Some of the things that CPUs do are so important,
+
+00:06:37.100 --> 00:06:41.720
+ like adding and multiplying and little caches and registers,
+
+00:06:41.720 --> 00:06:45.920
+ that we might tune the hardware layout in the transistors a little bit,
+
+00:06:45.920 --> 00:06:49.040
+ but in general, software does all of the work and takes
+
+00:06:49.040 --> 00:06:52.920
+ our abstract design and turns it into an optimal layout for our chip.
+
+00:06:52.920 --> 00:06:56.160
+ Then of course, we use photolithography.
+
+00:06:56.160 --> 00:07:01.400
+ So up next, we're going to talk about how we use gates to add numbers.
+
+00:07:01.400 --> 00:07:04.640
+ Again, going to the point where we have gates,
+
+00:07:04.640 --> 00:07:08.860
+ now how can we construct multiple gate circuits that
+
+00:07:08.860 --> 00:07:12.320
+ accomplish the kinds of things that microprocessors want to do.
+
+00:07:12.320 --> 00:07:23.960
+ [MUSIC]
+

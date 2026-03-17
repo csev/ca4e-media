@@ -1,0 +1,134 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.480
+ Welcome to another walkthrough for computer architecture for everybody.
+
+00:00:05.480 --> 00:00:08.020
+ In this, I wanna do an assignment.
+
+00:00:08.020 --> 00:00:12.320
+ And so, sometimes when you launch this, you will have an assignment.
+
+00:00:12.320 --> 00:00:14.160
+ And that assignment will be auto-graded.
+
+00:00:14.160 --> 00:00:19.640
+ So we're going to build a simple AND gate circuit with two inputs and one output.
+
+00:00:19.640 --> 00:00:20.640
+ So let's go ahead and do that.
+
+00:00:20.640 --> 00:00:21.880
+ Let's place an AND gate.
+
+00:00:21.880 --> 00:00:27.440
+ No, let's turn on the command and let's use, let's say, place AND.
+
+00:00:29.640 --> 00:00:40.600
+ And then say place input, place input, so we got some inputs.
+
+00:00:40.600 --> 00:00:43.800
+ I don't remember the syntax to connect them, so we got,
+
+00:00:43.800 --> 00:00:46.800
+ I'm gonna move them around and make them line up a little bit.
+
+00:00:46.800 --> 00:00:50.720
+ I'm gonna connect the inputs to the, the two inputs to the AND gate.
+
+00:00:50.720 --> 00:00:56.400
+ And then I'm gonna place an output, put the output here.
+
+00:00:57.680 --> 00:01:04.160
+ And then we'll test to see, oh, come on, connect.
+
+00:01:04.160 --> 00:01:08.120
+ There we go, now it's connected.
+
+00:01:08.120 --> 00:01:16.840
+ Okay, so we've got our AND gate working, 0, 1, 1, 0, 1, 1, and it's a 1, okay?
+
+00:01:16.840 --> 00:01:19.960
+ So let's go ahead and do the auto-grader.
+
+00:01:19.960 --> 00:01:23.160
+ So we haven't done everything yet, it gives you a truth table.
+
+00:01:23.160 --> 00:01:26.640
+ So we can say start grading, and it's going to say, ooh,
+
+00:01:26.640 --> 00:01:30.200
+ it's looking for input labeled A, I found inputs 1 and input 2.
+
+00:01:30.200 --> 00:01:34.440
+ Please use the tag tool to label your inputs, okay?
+
+00:01:34.440 --> 00:01:36.680
+ And so we are going to do that.
+
+00:01:36.680 --> 00:01:41.920
+ We're gonna use the tag tool to call this one input A, okay.
+
+00:01:41.920 --> 00:01:45.240
+ And we're gonna use the tag tool to mention this one is B.
+
+00:01:45.240 --> 00:01:46.960
+ This is a pretty simple assignment.
+
+00:01:46.960 --> 00:01:48.280
+ And let's still make a mistake.
+
+00:01:48.280 --> 00:01:51.720
+ We gotta connect the output to Q, but let's just, let's start the grading.
+
+00:01:51.720 --> 00:01:54.960
+ Missing output label Q.
+
+00:01:54.960 --> 00:01:56.920
+ Fix that, fix it with the tag tool.
+
+00:01:56.920 --> 00:01:59.880
+ So we'll go ahead and call this Q.
+
+00:01:59.880 --> 00:02:03.360
+ And then you can see it's going to auto-grade, and
+
+00:02:03.360 --> 00:02:05.760
+ this time it's going to hopefully work.
+
+00:02:05.760 --> 00:02:09.280
+ So it says, okay, we found all the required components.
+
+00:02:09.280 --> 00:02:12.720
+ All the required components are properly labeled A, B, and Q.
+
+00:02:12.720 --> 00:02:15.960
+ Then it says it's got it, we got an AND gate, that's cool.
+
+00:02:15.960 --> 00:02:22.400
+ So let's just see if A of 0, B of 0 results in an output of 0, and it does.
+
+00:02:22.400 --> 00:02:27.160
+ Let's try an A of 0 and B of 1, does it cruise an output of 0?
+
+00:02:27.160 --> 00:02:28.640
+ Yes, it does.
+
+00:02:28.640 --> 00:02:31.960
+ And does an A of 1 and B of 0 produce a 0?
+
+00:02:31.960 --> 00:02:32.720
+ Yes, it does.
+
+00:02:32.720 --> 00:02:37.960
+ And the last test is the 1 and the 1, and it gives us an AND and
+
+00:02:37.960 --> 00:02:40.680
+ sends great back to the learning management system.
+
+00:02:40.680 --> 00:02:43.800
+ So I hope you found this useful, cheers.
+
+00:02:43.800 --> 00:02:51.720
+ [MUSIC]
+

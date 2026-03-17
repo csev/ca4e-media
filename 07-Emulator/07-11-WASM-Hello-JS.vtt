@@ -1,0 +1,155 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.040
+ Hello and welcome to another walkthrough for computer architecture for everybody.
+
+00:00:04.040 --> 00:00:08.920
+ In this walkthrough we are going to talk about WASM and we're going to talk a little bit
+
+00:00:08.920 --> 00:00:10.720
+ about the hello world code.
+
+00:00:10.720 --> 00:00:16.760
+ Now the first thing to say is that WASM, now Watt is just a sort of syntax, it's the assembly
+
+00:00:16.760 --> 00:00:22.280
+ language for the machine language and the first thing to say is that unlike microprocessors
+
+00:00:22.280 --> 00:00:26.680
+ and assembly language and machine language it was never intended to be handwritten and
+
+00:00:26.680 --> 00:00:31.160
+ so this is a lot less convenient than even assembly language.
+
+00:00:31.160 --> 00:00:38.960
+ Its goal is to be sort of verifiable and safe because JavaScript and WASM are intended to
+
+00:00:38.960 --> 00:00:44.520
+ run with code from many different sources that doesn't necessarily want to trust each
+
+00:00:44.520 --> 00:00:48.640
+ other or have one piece of code affect the other piece of code.
+
+00:00:48.640 --> 00:00:53.600
+ So it has this concept of sandboxed execution so that no matter what you do in your little
+
+00:00:53.600 --> 00:00:58.140
+ sandbox you can take stuff in and give stuff back but in your sandbox you can't sort of
+
+00:00:58.140 --> 00:01:01.760
+ mess with anybody else's sandbox so there's a goal of isolation.
+
+00:01:01.760 --> 00:01:05.820
+ So this language is designed for like isolation first.
+
+00:01:05.820 --> 00:01:11.960
+ It's designed to not allow you to write code that could touch memory that doesn't belong
+
+00:01:11.960 --> 00:01:16.340
+ to you or anything like that and so it's about this isolation.
+
+00:01:16.340 --> 00:01:20.920
+ The actual code model, first off you can see that it's very parenthesis based and the parenthesis
+
+00:01:20.920 --> 00:01:23.720
+ are kind of like curly braces, they're beginnings and ends.
+
+00:01:23.720 --> 00:01:29.340
+ So what we're looking at is Hello World WASM, it's not C, AI gave me just some simple Hello
+
+00:01:29.340 --> 00:01:30.340
+ World WASM.
+
+00:01:30.340 --> 00:01:35.620
+ Now in this case we are using things like console.log from JavaScript and passing into
+
+00:01:35.620 --> 00:01:39.600
+ that console the log message and the length of the log message.
+
+00:01:39.600 --> 00:01:46.320
+ So this is code that is expecting to run in a JavaScript environment and that console.log
+
+00:01:46.320 --> 00:01:47.520
+ will be available to it.
+
+00:01:47.520 --> 00:01:52.980
+ And so there's an import statement that basically says pull in some code from JavaScript or
+
+00:01:52.980 --> 00:01:59.960
+ give me access to a log function from console.log function from JavaScript itself.
+
+00:01:59.960 --> 00:02:03.120
+ We're going to declare that we need some memory, we're going to fill that memory up starting
+
+00:02:03.120 --> 00:02:05.720
+ at zero with the string Hello World.
+
+00:02:05.720 --> 00:02:10.880
+ These are actually not zero terminated, this is really a string that's 13 long and you'll
+
+00:02:10.880 --> 00:02:16.960
+ see this 13 come in in a second and then we're going to make it so that the memory is available
+
+00:02:16.960 --> 00:02:19.060
+ to the JavaScript that's going to call us.
+
+00:02:19.060 --> 00:02:24.340
+ And then we have a main function that's going to be called by the JavaScript and we're going
+
+00:02:24.340 --> 00:02:28.860
+ to call our log function and pass the string and the length of the string and then we're
+
+00:02:28.860 --> 00:02:33.120
+ going to return 42 even main functions like in C return values and then we're going to
+
+00:02:33.120 --> 00:02:37.560
+ export the function main and then there's JavaScript that's going to call this function
+
+00:02:37.560 --> 00:02:38.560
+ main.
+
+00:02:38.560 --> 00:02:40.500
+ So let's go ahead and compile and run this.
+
+00:02:40.500 --> 00:02:47.480
+ In this browser there is a full Watt to Wasm compiler and then Wasm to machine code and
+
+00:02:47.480 --> 00:02:52.000
+ then JavaScript to execute the resulting machine code.
+
+00:02:52.000 --> 00:02:53.840
+ And here is the actual Wasm.
+
+00:02:53.840 --> 00:03:00.200
+ So Watt is sort of the assembly language but the ultimate thing is this is just a few bytes
+
+00:03:00.200 --> 00:03:06.920
+ looks like about 6 times 16 about 100 bytes of character and these are these are kind
+
+00:03:06.920 --> 00:03:12.080
+ of like machine code but it is interpreted so this is kind of like a byte code in Java
+
+00:03:12.080 --> 00:03:16.680
+ but it's also intended that it can be just in time compiled into the real machine code
+
+00:03:16.680 --> 00:03:19.840
+ after validating the safety of it.
+
+00:03:19.840 --> 00:03:27.600
+ And so we go from the Watt to the Wasm and then we execute this Wasm in JavaScript and
+
+00:03:27.600 --> 00:03:33.800
+ JavaScript has a Wasm execution environment for it and then the output comes back to JavaScript
+
+00:03:33.800 --> 00:03:35.240
+ and away we go.
+
+00:03:35.240 --> 00:03:42.080
+ So that is the hello world simple hello world not a C hello world I'll show you that in
+
+00:03:42.080 --> 00:03:49.200
+ a bit but a Wasm and JavaScript hello world that does its printing using console.log.
+
+00:03:49.200 --> 00:03:50.280
+ Cheers.
+

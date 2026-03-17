@@ -1,0 +1,136 @@
+ Hello and welcome to another walkthrough for computer architecture for everybody. We're continuing on our
+ CDC 6504 emulator and now we're going to load our most complex sample. So let's take a look at its assembly language
+ Here we have it and let's move it over here and let's move it up
+ So we see all of the instructions. There we go. We can just barely see all the instructions
+ This is our first thing that's so long that we're gonna end up in the second column of the instructions
+ So to start at what we've got here, we got a data pseudo operation that fills the data memory with the string
+ Hello, H-E-L-L-O with H being uppercase already and E-L-L-O. When we're done
+ We want all these characters to be uppercase and so we're gonna write a loop
+ That's going to go through from zero until it's and it's gonna stop at a zero byte and it's gonna load the value check
+ If it's already uppercase if it's not it's gonna subtract 20 to it
+ Which we did before because that's the mapping between uppercase and lowercase and we're gonna store it back in so we're done
+ 48 won't change because that's already uppercase 65 will become 45 a 6c will become 4c, etc
+ And then it'll stop and it'll print out the uppercase
+ So this is just kind of like a an uppercase method in Python or whatever
+ Okay, so let's take a look at the code
+ We have a top of a loop and we have a jump to the top of the loop at the bottom
+ We're using X as our iteration variable X because we have this really cool load that says I want to load from zero
+ Offset by the current value in X
+ Okay, so X is gonna start at zero because we're gonna clear it and then we're gonna slowly but surely add X
+ So this is like X equals X plus 1 each time through the loop
+ So this is the bottom of the loop kind of the continue area where we're saying X plus plus or X equals X plus 1 to
+ Advance X through the string because we're gonna use X as the array offset as it's going through our little array
+ we're gonna load the value offset by X and
+ Then we're gonna immediately check to see if we got a zero byte and that's how we terminate this loop
+ When we hit a zero byte, so we only want to go through memory until we hit a zero byte
+ Okay, so we don't want to run out of memory or blow up or run into something else
+ We stop at a zero byte and then we're gonna check to see if the letter we just got is already uppercase
+ If it is that means it's less than lowercase a that's how ASCII works, right?
+ So let me go ahead and show you the ASCII stuff
+ The lowercase characters are higher by a factor of 20 hex
+ So a lowercase a is 61 and uppercase a is
+ 41 you subtract 0 X 20 to get from lowercase to upper and our code is going to upper
+ so we're checking to see if
+ We are above or below lowercase a if we're below lowercase a already
+ we're gonna do a branch minus down here and then increment to go to the next one if on the other hand we are
+ Above the letter a then we're going to subtract 20 and then we're gonna store that using our index again as X
+ So X is really cool. It's just gonna be our counter
+ And so this register is kind of like the iteration variable. Well, it is the iteration variable of our loop
+ So let's go ahead and get started. So I'll turn on narration of execution line ourselves up here
+ Take a first step clear the X register
+ So now we're at the top of the loop and we're gonna do a load from memory location 0
+ Offset by X register. The X register is actually part of this instruction. Okay, so let's go ahead and load that
+ X
+ Okay, so now you see that the accumulator is 0 X 4 8 and that is the uppercase hello and that load
+ Set the Z flag in the end flag and it's neither 0 nor negative
+ And so let's go ahead and run the if test to see if we're done with the loop
+ Now 0 X 1 0 would have been this exit of the loop but it didn't because we're not we're not minus yet
+ and so that's our top tested loop and now we're gonna do is we're gonna say if
+ this is
+ Greater than a if it's less than a we're gonna skip these next two lines and the next two lines are a subtract of 0 X
+ 20 and then an indexed store into memory locations 0 offset by X but X is still position 0
+ So this is the letter H and it is already uppercase. So we're gonna skip around this subtraction calculation
+ And now we're gonna branch because it is n so we're gonna branch if minus and that means we're already uppercase
+ So it went to 0 X 0 D which skipped around the subtraction and now we're at the kind of continue or the loop bottom the
+ Increment part of the loop and we're gonna add 1 to X
+ PC 0 X 0 D
+ increment X register PC 0 X 0 E
+ Jump to address one. Oh
+ I it went and did it automatically so we went up to the top of the loop and I didn't catch it fast enough
+ So it already went and X is now 1 so it's loading memory location 1 into the accumulator
+ Okay, and so the accumulator now is non zero. So we're we're gonna check to see if the loop is done
+ PC 0 X 0 3 branch if equal address 0 X 1 0
+ And it didn't so now we're gonna check to see the case of our current character PC 0 X 0 5
+ Comparative we later will immediate 0 X 6 1 so that is checking to see if it's above or below a and this one is
+ Above a and so we're gonna have to map it into uppercase
+ So you'll notice that this BMI does not jump to the co NT label this one falls through PC 0 X 0 7
+ Branch if minus address 0 X 0 D
+ So now we're at 0 X 0 9 not 0 X 0 D and now we're gonna do the subtract of 20
+ And then we're going to store it into the memory
+ PC 0 X 0 9 subtract will carry immediate 0 X 2 0 and now we're going to store it
+ PC 0 X 0 B
+ Store accumulator to address 0 index with X so now in location 1 we took this 45
+ That was our calculated uppercase character, and now it has been stored in
+ position 1
+ and so the next thing we do is add one and then
+ Jump to the top of the loop PC 0 X 0 D
+ increment X register
+ PC 0 X 0 E
+ Jump to address 1 so now we're at the top of the loop
+ We're gonna grab the next character because X is now 2 so we're gonna grab the 2 offset from our array
+ PC 0 X 0 1 load the accumulator from address 0 index with X so we got 60
+ So I'm gonna just run this a bit okay
+ Now try to stop it so I can show you kind of the last iteration of the loop so we'll watch X
+ I'll probably try to catch it while X sub the fourth iteration the well the fifth iteration
+ But sub 4 is running. Let's see if I can start it and then catch it
+ PC 0 X 0 3
+ Branch if equal address 0 X 1 0 PC 0 X 0 5 compare a accumulator with immediate 0 X
+ 6 1 PC 0 X 0 7
+ Branch if minus address 0 X 0 D
+ We're on a series of things that have to be converted to uppercase now PC 0 X 0 B
+ Store accumulator to address 0 index with X PC 0 X 0 D
+ Increment X register PC 0 X 0 E
+ Jump to address 1 PC 0 X 0 1 load the accumulator from address 0 index with X
+ PC 0 X 0 3
+ Branch if equal address 0 X 1 0 PC 0 X 0 5
+ Compare a accumulator with immediate 0 X 6 1 PC 0 X 0 7
+ Branch if minus address 0 X 0 D PC 0 X 0 9
+ Subtract with carry immediate 0 X 2 0 PC 0 X 0 B
+ Store accumulator to address 0 index with X PC 0 X 0 D
+ Increment X register PC 0 X 0 E
+ Jump to address 1 PC 0 X 0 1
+ Load the accumulator from address 0 index with X PC 0 X 0 3
+ Branch if equal address 0 X 1 0 PC 0 X 0 5
+ Compare a accumulator with immediate 0 X 6 1 PC 0 X 0 7
+ Branch if minus address 0 X 0 D PC 0 X 0
+ Okay, so I kind of stopped it. So where are we at here?
+ We're about to store this last character. We got it subtracted
+ So it's now uppercase and we're about to store it into position offset by X our iteration variable is 4
+ PC 0 X 0 B
+ Store accumulator to address 0 index with X
+ The next thing we're going to do is increment X and so X is going to become 5 PC 0 X 0 D
+ increment X register
+ And now we're going to jump to the top of the loop PC 0 X 0 E
+ Jump to address 1. So now we're at the top of the loop
+ So X is 5 and we're going to load the character at offset 5 and so now you'll notice as soon as we do this
+ Accumulator is going to be 0 and the Z flag is going to be set
+ PC 0 X 0 1
+ Load the accumulator from address 0 index with X so see you got a accumulator of 0 and we got Z
+ so now
+ We are going to do a BEQ to done
+ So we're going to jump right out of this loop because now we've hit the 0 byte in our character array
+ PC 0 X 0 3 branch if equal address 0 X 1 0
+ One more PC 0 X 1 0 break printed output. Hello
+ So it finished it finished and look it printed out an uppercase version of the word
+ Hello, so I recommend that you go in and you play with this and you load this and you control the reset the narrate the stepping
+ You kind of see how I'm doing it
+ I'll tell you I know what I'm doing and it's really hard to read these things and that's why I kind of think of
+ This from an assembly language perspective. I'm trying to figure out it doesn't hurt to sort of hover over and say oh
+ that's the compare instruction and that is the letter a and you can hover over these things and
+ Learn some stuff about what each of the locations is
+ So this is a nice little bit of code that is a loop with an F test. It's got increments
+ It's got a continue in it
+ And so it is you know kind of a non-trivial piece of code the smallest non-trivial piece of code that I could fit
+ Into this particular emulator on a screen that's small enough that maybe that you can see this on a mobile device
+ So I hope you found this useful
+ Cheers

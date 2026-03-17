@@ -1,0 +1,716 @@
+1
+00:00:00,000 --> 00:00:06,920
+ Hello, and welcome to another code walkthrough for computer architecture for everybody.
+
+2
+00:00:06,920 --> 00:00:10,140
+ In this walkthrough we're going to walk through the uppercase converter.
+
+3
+00:00:10,140 --> 00:00:15,280
+ So what this is, is this is, again, WASM in the JavaScript environment, so its output
+
+4
+00:00:15,280 --> 00:00:17,760
+ is console.log, and that's about it.
+
+5
+00:00:17,760 --> 00:00:21,160
+ We're not even taking some input, we're going to hard code our input, and then what we're
+
+6
+00:00:21,160 --> 00:00:28,220
+ going to do is write a function called make an uppercase copy of the string, okay?
+
+7
+00:00:28,220 --> 00:00:33,640
+ And so this gives us a little bit more time to take a bit more look at WASM, not that
+
+8
+00:00:33,640 --> 00:00:37,720
+ I want you to understand or code WASM.
+
+9
+00:00:37,720 --> 00:00:40,600
+ You may even use AI to help solve this one assignment.
+
+10
+00:00:40,600 --> 00:00:45,560
+ So you're going to take this uppercase code and you're going to write a lowercase version
+
+11
+00:00:45,560 --> 00:00:46,560
+ of it.
+
+12
+00:00:46,560 --> 00:00:49,660
+ So you got to kind of dig through this code and figure out where it's doing the uppercase,
+
+13
+00:00:49,660 --> 00:00:52,120
+ and then switch it to doing lowercase.
+
+14
+00:00:52,120 --> 00:00:56,120
+ And it might be a little bit of work, and you might even use AI a little bit to help
+
+15
+00:00:56,120 --> 00:00:57,120
+ you do this.
+
+16
+00:00:57,120 --> 00:01:00,300
+ So I'm just going to walk through this code to help you out.
+
+17
+00:01:00,300 --> 00:01:04,600
+ Our output is going to go to console.log, we're going to create some memory, we're going
+
+18
+00:01:04,600 --> 00:01:09,560
+ to put a string in there at location zero, and then we're going to make it so JavaScript
+
+19
+00:01:09,560 --> 00:01:10,560
+ can execute it.
+
+20
+00:01:10,560 --> 00:01:16,160
+ And so we are going to then say copy and go to uppercase, and we're taking some input
+
+21
+00:01:16,160 --> 00:01:19,240
+ variables, some making some local variables.
+
+22
+00:01:19,240 --> 00:01:25,760
+ So this parentheses func, it basically, WASM is a stack-oriented language.
+
+23
+00:01:25,760 --> 00:01:30,320
+ So when you go into a func, you can think of a new stack frame being created, just like
+
+24
+00:01:30,320 --> 00:01:33,040
+ you would in any other programming language.
+
+25
+00:01:33,040 --> 00:01:37,680
+ So in that stack frame, there are variables that belong in that stack frame, and that's
+
+26
+00:01:37,680 --> 00:01:39,300
+ what we're talking about here.
+
+27
+00:01:39,300 --> 00:01:41,740
+ And we're setting some values and getting things done.
+
+28
+00:01:41,740 --> 00:01:46,400
+ And then we have some two instructions, or two instructions that might look a little
+
+29
+00:01:46,400 --> 00:01:47,400
+ weird to you.
+
+30
+00:01:47,400 --> 00:01:55,960
+ So this is the block, and so the idea, there are no labels in WASM.
+
+31
+00:01:55,960 --> 00:01:59,960
+ There are constructs, there is an execution stack.
+
+32
+00:01:59,960 --> 00:02:03,840
+ And so when you start a block, and we'll go down to the bottom of this block, where's
+
+33
+00:02:03,840 --> 00:02:04,840
+ the end of the block?
+
+34
+00:02:04,840 --> 00:02:07,560
+ I think the end of the block is right here.
+
+35
+00:02:07,560 --> 00:02:11,720
+ Oh wait, oh, I missed it, missed it, come back, come back, okay, I think the end of
+
+36
+00:02:11,720 --> 00:02:12,720
+ the block is here.
+
+37
+00:02:12,720 --> 00:02:16,300
+ Yeah, no, the end of the block is here, and this is the end of the loop.
+
+38
+00:02:16,300 --> 00:02:24,200
+ And so what happens here is the block creates a temporary label that only exists in this
+
+39
+00:02:24,200 --> 00:02:28,840
+ block, and you can branch to the loop end.
+
+40
+00:02:28,840 --> 00:02:33,080
+ It doesn't have to be named copy loop end, they just named it copy loop end because that's
+
+41
+00:02:33,080 --> 00:02:34,080
+ what's going on.
+
+42
+00:02:34,080 --> 00:02:39,800
+ So if this branch, if true, this is doing a comparison between the character to see
+
+43
+00:02:39,800 --> 00:02:41,560
+ if it was a zero byte, right?
+
+44
+00:02:41,560 --> 00:02:45,280
+ And if we hit the zero byte, we're going to exit the loop, and we're going to branch
+
+45
+00:02:45,280 --> 00:02:47,160
+ to this copy end.
+
+46
+00:02:47,160 --> 00:02:53,220
+ Now copy end is not the top of this, it is the next statement after the end of the block.
+
+47
+00:02:53,220 --> 00:02:57,160
+ So when you say branch if copy loop end, you're exiting.
+
+48
+00:02:57,160 --> 00:03:02,960
+ So branches in WASM are more about exiting where you're at and going to the next place.
+
+49
+00:03:02,960 --> 00:03:05,780
+ So that branch goes to here, there is no label here.
+
+50
+00:03:05,780 --> 00:03:09,280
+ So if we were doing this in assembly language, we would put a label here, and we would jump
+
+51
+00:03:09,280 --> 00:03:10,280
+ to the label.
+
+52
+00:03:10,280 --> 00:03:16,840
+ We're only allowed to jump out of things or to the top of things, and so that's the way
+
+53
+00:03:16,840 --> 00:03:18,120
+ we exit it.
+
+54
+00:03:18,120 --> 00:03:22,680
+ So this is a loop that's reading the data and checking for a zero byte, and if we get
+
+55
+00:03:22,680 --> 00:03:24,840
+ a zero byte, we're done with the loop.
+
+56
+00:03:24,840 --> 00:03:28,400
+ So that is a block.
+
+57
+00:03:28,400 --> 00:03:31,460
+ Block is something that can be exited.
+
+58
+00:03:31,460 --> 00:03:37,960
+ Think of it from a C perspective and a Python perspective as this is like a break.
+
+59
+00:03:37,960 --> 00:03:40,640
+ It's a break out of this block.
+
+60
+00:03:40,640 --> 00:03:47,320
+ BRF, dollar copy loop end, breaks out of the block that has the label dollar copy loop
+
+61
+00:03:47,320 --> 00:03:48,320
+ end.
+
+62
+00:03:48,320 --> 00:03:51,800
+ So that is just a way to start a block and get out of the block.
+
+63
+00:03:51,800 --> 00:03:53,960
+ So that's like a break statement.
+
+64
+00:03:53,960 --> 00:04:01,960
+ All of the looping in WASM is basically kind of like a wild true loop, both in Python and
+
+65
+00:04:01,960 --> 00:04:06,640
+ in C. It's like an infinite loop, and all we're doing with this loop statement, it has
+
+66
+00:04:06,640 --> 00:04:08,120
+ no logic to it.
+
+67
+00:04:08,120 --> 00:04:10,240
+ It is defining another label.
+
+68
+00:04:10,240 --> 00:04:15,800
+ This label is only accessible between the beginning and the end of the loop.
+
+69
+00:04:15,800 --> 00:04:19,480
+ So here is the end of the loop, and we're jumping to the top.
+
+70
+00:04:19,480 --> 00:04:25,240
+ If you don't have this BR dollar copy underscore loop, it's not going to go back up.
+
+71
+00:04:25,240 --> 00:04:27,680
+ So the while loop is not automatic.
+
+72
+00:04:27,680 --> 00:04:31,580
+ You have to do something at the bottom of the loop to go up.
+
+73
+00:04:31,580 --> 00:04:36,000
+ This is like a continue in either Python or C.
+
+74
+00:04:36,000 --> 00:04:37,440
+ So continue the loop.
+
+75
+00:04:37,440 --> 00:04:38,640
+ Go up to the top.
+
+76
+00:04:38,640 --> 00:04:41,320
+ Now there is no automatic incrementing.
+
+77
+00:04:41,320 --> 00:04:47,940
+ There is no plus plus in here, no auto ion range of five, nothing.
+
+78
+00:04:47,940 --> 00:04:56,600
+ You have got to add one to your, yeah, so we're going to add one to our counter.
+
+79
+00:04:56,600 --> 00:05:01,700
+ They're adding one to the counter with this little for statement bit of code, for instruction
+
+80
+00:05:01,700 --> 00:05:02,900
+ piece of code.
+
+81
+00:05:02,900 --> 00:05:07,480
+ So they're doing the plus plus as it were, or advancing the iterator.
+
+82
+00:05:07,480 --> 00:05:12,040
+ You have to do it in Watt, and you're seeing quickly like, whoa, this is a pain.
+
+83
+00:05:12,040 --> 00:05:14,420
+ Why isn't there just an increment instruction?
+
+84
+00:05:14,420 --> 00:05:15,560
+ There isn't.
+
+85
+00:05:15,560 --> 00:05:16,880
+ There's an add one.
+
+86
+00:05:16,880 --> 00:05:22,200
+ You put the current value of I on the stack, you put the one on the stack, you add the
+
+87
+00:05:22,200 --> 00:05:27,260
+ top two items of the stack, and then you set it back into the I variable, and then you
+
+88
+00:05:27,260 --> 00:05:28,800
+ go up to the top of the loop.
+
+89
+00:05:28,800 --> 00:05:35,720
+ So this is like an infinite loop, and it goes until at the top, of course, it reads the
+
+90
+00:05:35,720 --> 00:05:42,080
+ offset piece of the, it takes the, it takes, it doesn't even have an offset lookup.
+
+91
+00:05:42,080 --> 00:05:48,880
+ 6502 had an offset lookup in it, and it says give me the variable and add the I to it.
+
+92
+00:05:48,880 --> 00:05:51,280
+ It's why you have zero based arrays.
+
+93
+00:05:51,280 --> 00:05:53,080
+ Add it, and then load that.
+
+94
+00:05:53,080 --> 00:05:57,720
+ I don't know what this T does, but then we're going to check to see if the character we
+
+95
+00:05:57,720 --> 00:06:02,580
+ just got is a zero, and then we're going to branch out of the loop.
+
+96
+00:06:02,580 --> 00:06:05,240
+ And you know, then there are things like, like this dollar char.
+
+97
+00:06:05,240 --> 00:06:07,020
+ This is a local variable.
+
+98
+00:06:07,020 --> 00:06:12,320
+ And then when we finally get done with this function, we are going to return at the end
+
+99
+00:06:12,320 --> 00:06:16,560
+ of the function, and then that's going to kind of clear all that local stuff off the
+
+100
+00:06:16,560 --> 00:06:20,200
+ stack, the stack frame, and then we're going to go.
+
+101
+00:06:20,200 --> 00:06:23,480
+ So if we got our main function, and this main function is what is going to be called from
+
+102
+00:06:23,480 --> 00:06:28,320
+ the JavaScript, so we're going to grab the string, we're going to grab its length, and
+
+103
+00:06:28,320 --> 00:06:33,120
+ we're going to call the copy and uppercase routine, push some things in and call copy
+
+104
+00:06:33,120 --> 00:06:42,760
+ and uppercase, and then we're going to print out the output of our function and the length,
+
+105
+00:06:42,760 --> 00:06:44,920
+ and then we're going to be done.
+
+106
+00:06:44,920 --> 00:06:46,080
+ Okay?
+
+107
+00:06:46,080 --> 00:06:49,960
+ So this is, oh, I need to talk about if.
+
+108
+00:06:49,960 --> 00:06:51,400
+ I didn't talk about if.
+
+109
+00:06:51,400 --> 00:06:53,520
+ Oh, here we go.
+
+110
+00:06:53,520 --> 00:06:54,800
+ This is the if.
+
+111
+00:06:54,800 --> 00:06:56,040
+ So this if looks okay.
+
+112
+00:06:56,040 --> 00:06:57,400
+ It's got an if then else.
+
+113
+00:06:57,400 --> 00:06:59,240
+ By the way, there is no LF.
+
+114
+00:06:59,240 --> 00:07:02,920
+ You just have to keep nesting your else's, else, else, else, else.
+
+115
+00:07:02,920 --> 00:07:07,120
+ It's like going back 20 years, 30 years.
+
+116
+00:07:07,120 --> 00:07:08,120
+ Okay.
+
+117
+00:07:08,120 --> 00:07:17,160
+ If, and then this, checking to see if it's greater, this is really, this is a logic statement.
+
+118
+00:07:17,160 --> 00:07:19,000
+ We're grabbing the character.
+
+119
+00:07:19,000 --> 00:07:24,920
+ We're checking to see if it's greater than a lowercase a, or is it greater than lowercase
+
+120
+00:07:24,920 --> 00:07:29,080
+ a and less than lowercase c, less than or equal to.
+
+121
+00:07:29,080 --> 00:07:32,760
+ So it's doing a greater than or equal to, and a less than or equal to, and this and
+
+122
+00:07:32,760 --> 00:07:38,440
+ is taking the two logic results that are sitting on the stack and then being true or false
+
+123
+00:07:38,440 --> 00:07:41,160
+ based on those two logic results popping it off.
+
+124
+00:07:41,160 --> 00:07:48,440
+ So it's a stack-oriented computation, and so if this resulted in a true, meaning it's
+
+125
+00:07:48,440 --> 00:07:53,580
+ greater than or equal to a, and less than or equal to z, if it's true, we're going
+
+126
+00:07:53,580 --> 00:07:58,760
+ to convert that character by subtracting 32, and then we're going to store it back in.
+
+127
+00:07:58,760 --> 00:08:01,000
+ And so that is what we're going to do.
+
+128
+00:08:01,000 --> 00:08:04,400
+ Well, we're going to calculate the character, then we're going to store it here.
+
+129
+00:08:04,400 --> 00:08:05,560
+ It's just really wordy.
+
+130
+00:08:05,560 --> 00:08:08,080
+ I mean, a center language seems easier.
+
+131
+00:08:08,080 --> 00:08:12,640
+ Now, the reality is most browsers don't execute this literally.
+
+132
+00:08:12,640 --> 00:08:14,600
+ It can, and it's still pretty fast.
+
+133
+00:08:14,600 --> 00:08:18,880
+ You can execute this with an interpreter and it runs plenty fine, but you can also do what's
+
+134
+00:08:18,880 --> 00:08:21,400
+ called cross-compiling it into native code.
+
+135
+00:08:21,400 --> 00:08:28,040
+ The key is that the way it's written, a compiler can verify that this is not like doing naughty
+
+136
+00:08:28,040 --> 00:08:29,040
+ things.
+
+137
+00:08:29,040 --> 00:08:31,060
+ It's not like reading memory doesn't belong to it.
+
+138
+00:08:31,060 --> 00:08:33,820
+ You can't jump to places that don't belong to you.
+
+139
+00:08:33,820 --> 00:08:35,600
+ You can't execute code.
+
+140
+00:08:35,600 --> 00:08:39,640
+ There's so many things that stops you from doing, which is that sandboxing thing.
+
+141
+00:08:39,640 --> 00:08:40,840
+ So we have gone through our loop.
+
+142
+00:08:40,840 --> 00:08:44,760
+ We've converted all the stuff to uppercase, left the letters that are already uppercase
+
+143
+00:08:44,760 --> 00:08:47,280
+ alone, and then we print it all out.
+
+144
+00:08:47,280 --> 00:08:51,400
+ So with all that, let's compile it and run it.
+
+145
+00:08:51,400 --> 00:08:57,080
+ So remember in this screen, the Watt is being assembled inside the JavaScript.
+
+146
+00:08:57,080 --> 00:08:58,480
+ This is just a JavaScript button.
+
+147
+00:08:58,480 --> 00:09:05,680
+ The Watt is being assembled inside the JavaScript and then it is being executed inside the browser
+
+148
+00:09:05,680 --> 00:09:09,240
+ and the results are coming back to JavaScript.
+
+149
+00:09:09,240 --> 00:09:10,240
+ And that's it.
+
+150
+00:09:10,240 --> 00:09:17,380
+ So we got our uppercase and your assignment is to adapt this and adapt it so it does lower
+
+151
+00:09:17,380 --> 00:09:18,380
+ case.
+
+152
+00:09:18,380 --> 00:09:21,040
+ It even tells you like, oh, it's a slightly different number.
+
+153
+00:09:21,040 --> 00:09:22,880
+ Maybe you want to do a different if.
+
+154
+00:09:22,880 --> 00:09:23,880
+ There you go.
+
+155
+00:09:23,880 --> 00:09:27,840
+ So it's not trying to make it super hard for you, but you got to dig through here and look
+
+156
+00:09:27,840 --> 00:09:32,480
+ enough and you'll mess it up and then you just go reload the sample code and then you
+
+157
+00:09:32,480 --> 00:09:38,760
+ fix it again until when you run it, it says the correct output happens, right?
+
+158
+00:09:38,760 --> 00:09:43,040
+ So that this could all be lowercase and then you will have passed the autograder.
+
+159
+00:09:43,040 --> 00:09:45,080
+ Let's go ahead and run the autograder on this.
+
+160
+00:09:45,080 --> 00:09:46,080
+ It's going to fail.
+
+161
+00:09:46,080 --> 00:09:49,480
+ It was, you got to keep the original string.
+
+162
+00:09:49,480 --> 00:09:50,480
+ It compiled it.
+
+163
+00:09:50,480 --> 00:09:51,680
+ No, it didn't.
+
+164
+00:09:51,680 --> 00:09:52,860
+ We got the wrong one.
+
+165
+00:09:52,860 --> 00:09:54,280
+ That's because I didn't change the code.
+
+166
+00:09:54,280 --> 00:09:55,280
+ So there you go.
+
+167
+00:09:55,280 --> 00:09:56,280
+ Now that's your job.
+
+168
+00:09:56,280 --> 00:09:58,040
+ You're going to, you're going to fix that in the autograder.
+
+169
+00:09:58,040 --> 00:09:59,040
+ Okay.
+
+170
+00:09:59,040 --> 00:10:02,960
+ So this is a little more detail in the walkthrough where we build a function.
+
+171
+00:10:02,960 --> 00:10:04,560
+ We talk about the block.
+
+172
+00:10:04,560 --> 00:10:10,600
+ We talk about how break works, how continue works, and then how if then there is an else,
+
+173
+00:10:10,600 --> 00:10:12,320
+ but there is no else if.
+
+174
+00:10:12,320 --> 00:10:15,280
+ And we talked about the stack and stack approach.
+
+175
+00:10:15,280 --> 00:10:20,080
+ You can talk a bunch to AI about this and learn as much or as little as you want about
+
+176
+00:10:20,080 --> 00:10:21,080
+ WASM.
+
+177
+00:10:21,080 --> 00:10:27,240
+ I just wanted to expose you to WASM because it is going to be increasingly important going
+
+178
+00:10:27,240 --> 00:10:30,800
+ forward when we talk about different kinds of software systems.
+
+179
+00:10:30,800 --> 00:10:35,800
+ Cheers.
+

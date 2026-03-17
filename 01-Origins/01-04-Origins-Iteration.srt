@@ -1,0 +1,360 @@
+1
+00:00:00,000 --> 00:00:17,080
+ the Babbage Difference Engine was an example of mechanical iteration where you make a motor or a crank or something to do something one of the earliest most powerful mechanical computers ever built was called the Bamba and it was used to
+
+2
+00:00:17,080 --> 00:00:23,560
+ crack encrypted communications in World War II with Germans and Japanese that used a device called
+
+3
+00:00:23,560 --> 00:00:28,600
+ the Enigma to encrypt these messages and send them using Morse code and radio. And the Bomba was a
+
+4
+00:00:28,600 --> 00:00:33,960
+ British, Polish device that repeatedly tried to guess these settings for a day, like guessing a
+
+5
+00:00:33,960 --> 00:00:41,960
+ password based only on the encrypted text. And so when you listen to a Bomba moving, it is lots of
+
+6
+00:00:41,960 --> 00:00:48,600
+ clicking, lots of spinning, and lots of rotation because the iteration is kind of rotation.
+
+7
+00:01:12,920 --> 00:01:19,160
+ So we think of a for-loop as iteration, but in a physical computer a for-loop is often rotation.
+
+8
+00:01:19,160 --> 00:01:25,560
+ Another device that kind of approximates this same kind of computation with a little less high end
+
+9
+00:01:25,560 --> 00:01:33,560
+ is a pinball machine. So the Bomba was a very fast electromechanical computer in the 30s and the 40s.
+
+10
+00:01:33,560 --> 00:01:39,880
+ The pinball machine is kind of like the 50s and the 60s, and it's just a kind of a good example of
+
+11
+00:01:39,880 --> 00:01:45,800
+ how state-of-the-art military technology becomes games later. Because a pinball machine uses
+
+12
+00:01:45,800 --> 00:01:53,480
+ switches and relays and physical storage like piles of balls to track a score, award free games,
+
+13
+00:01:53,480 --> 00:01:58,520
+ and count the number of balls, start the game, stop the games, take your money, and give you credits.
+
+14
+00:01:58,520 --> 00:02:07,080
+ And these are all built by using relays and wiring and knowing things like the response time of a
+
+15
+00:02:07,080 --> 00:02:12,600
+ relay when it's switching from sort of off to on, and then relay feedback that once the relay goes
+
+16
+00:02:12,600 --> 00:02:31,240
+ to on it stays on. And in many ways it's a throwback to the kind of technology that the
+
+17
+00:02:31,240 --> 00:02:37,160
+ electromechanical computational technology is similar to the Bomba. But the problem is that
+
+18
+00:02:37,160 --> 00:02:47,720
+ the pure mechanical computations were just too slow. And if you take a machine like the Babbage
+
+19
+00:02:47,720 --> 00:02:56,760
+ engine and you just make it go up 20 times faster, it's gonna fall apart in like less than a minute.
+
+20
+00:02:56,760 --> 00:03:01,720
+ Might take you years to build, you go too fast in it, and all the pieces come flying off.
+
+21
+00:03:01,720 --> 00:03:06,360
+ And that's because the the energy to change the state, right, so changing state, again going back
+
+22
+00:03:06,360 --> 00:03:13,960
+ to this, the changing of the state is me pushing on the thumb thing. But if I all of a sudden made
+
+23
+00:03:13,960 --> 00:03:19,400
+ a really fast engine that would push this thing a thousand times a second, it would probably break.
+
+24
+00:03:19,400 --> 00:03:26,120
+ It couldn't take the stress. And so the problem is is that physical and electromechanical computing
+
+25
+00:03:26,120 --> 00:03:33,320
+ had just a limit of, there's like inertia, you know, physical problems like inertia. And so you
+
+26
+00:03:33,320 --> 00:03:40,120
+ can, you have to limit the speed of like the difference engine, so you don't, or the Bomba,
+
+27
+00:03:40,120 --> 00:03:44,520
+ so you don't just physically damage the machine. If you go to the maximum speed and double it,
+
+28
+00:03:44,520 --> 00:03:53,160
+ you will break the machine very, very quickly. So what happened was is instead of storing data and
+
+29
+00:03:53,160 --> 00:04:01,320
+ storing the zero or the one in something mechanical like a relay, they started using, again in World
+
+30
+00:04:01,320 --> 00:04:09,080
+ War II at Bletchley Park, electronic switching using tubes. Now tubes are interesting devices.
+
+31
+00:04:09,080 --> 00:04:14,520
+ They are, generally have a vacuum in them. And let me show you, let me show you this a little
+
+32
+00:04:14,520 --> 00:04:23,560
+ bit more close up. So here's a tube, okay. And this is a vac, this is glass. It has a vacuum in it.
+
+33
+00:04:23,560 --> 00:04:30,280
+ And there are little plates in this tube that are heated up and glow, and electrons flow between the
+
+34
+00:04:30,280 --> 00:04:35,960
+ plates. There's a base and an emitter, and then a grid that speeds or slows up the electrons.
+
+35
+00:04:35,960 --> 00:04:43,720
+ And, you know, there's electric, electric is sent in. Sometimes it's heating, sometimes it's sort of
+
+36
+00:04:43,720 --> 00:04:50,360
+ just a positive or negative. Sometimes it's to control it. Now the original idea of tubes
+
+37
+00:04:50,360 --> 00:04:59,320
+ was to take sound waves from, say, a microphone and amplify them to be louder to go to a speaker.
+
+38
+00:04:59,320 --> 00:05:09,480
+ And so tubes are analog and continuous amplifiers, meaning whatever you put in,
+
+39
+00:05:09,480 --> 00:05:14,200
+ whatever signal you put in, could be a sort of a flat signal or a moving signal,
+
+40
+00:05:14,200 --> 00:05:21,960
+ it's going to come out louder, increased. What happens is they can do some feedback in these
+
+41
+00:05:21,960 --> 00:05:28,360
+ tubes and sort of tune them in such a way that you can have a certain level of voltage,
+
+42
+00:05:28,360 --> 00:05:32,680
+ that is the zero, and a certain level of voltage is the one. And then with a little feedback,
+
+43
+00:05:32,680 --> 00:05:40,200
+ you can make the zero and the one sticky. And so it takes power, and they generate heat, but they
+
+44
+00:05:40,200 --> 00:05:46,600
+ have no moving parts, so they can switch way faster than any kind of a physical storage device.
+
+45
+00:05:46,600 --> 00:05:53,480
+ So one of the first tube-based electronic computers was called the Colossus, also at
+
+46
+00:05:53,480 --> 00:06:00,840
+ Bletchley Park, currently at the National Museum of Computing History at Bletchley Park. But it could
+
+47
+00:06:00,840 --> 00:06:07,240
+ do the other computations way faster than the other electro-mechanical computer called the Bomba.
+
+48
+00:06:07,240 --> 00:06:12,840
+ But they're they're pretty hot. If you stand by this thing, you can feel heat coming off of it.
+
+49
+00:06:12,840 --> 00:06:19,080
+ Power consumption and heat dissipation for tube-based computers, even though they're much faster,
+
+50
+00:06:19,080 --> 00:06:24,040
+ are still a challenge. This is an electronic computer, the world's first computer for many
+
+51
+00:06:24,040 --> 00:06:29,320
+ years because of the secrecy. And you can assume that the American ENIAC computer was the world's
+
+52
+00:06:29,320 --> 00:06:34,920
+ first computer, very check. In fact, that computer was there from this colleague of mine. This
+
+53
+00:06:34,920 --> 00:06:40,280
+ computer predated it by three years, but nobody knew that. So this man who designed and built the
+
+54
+00:06:40,280 --> 00:06:44,040
+ world's first electronic computer went back to Donald Trump, and no one ever heard of him. He's
+
+55
+00:06:44,040 --> 00:06:49,720
+ carried on designing telephoto exchanges, which was a real tragedy indeed. Now many years later,
+
+56
+00:06:49,720 --> 00:06:55,880
+ just walking by, very kindly, I'd always wanted to build one of these things. But how do you build
+
+57
+00:06:55,880 --> 00:07:00,920
+ something if there are no records? Well, not quite. How many flowers were put alive? And he
+
+58
+00:07:00,920 --> 00:07:09,080
+ offered to help. There were still 89 black and white setographs. I managed to find some of the
+
+59
+00:07:09,080 --> 00:07:15,160
+ engineers who were still alive. I was surprised to find so he had kept notebooks. That second
+
+60
+00:07:15,160 --> 00:07:20,200
+ fragment up there had been kept. So he managed to get them all together in a, in a modern
+
+61
+00:07:20,200 --> 00:07:25,400
+ computer design package. They redesigned across the floor too from the ground up. Having redesigned
+
+62
+00:07:25,400 --> 00:07:31,640
+ it, I hope I'm not making any mistakes. Having designed across it from the ground up, of course,
+
+63
+00:07:31,640 --> 00:07:37,160
+ they had to build it. Now this gentleman was clevered up. They, like with the telephone
+
+64
+00:07:37,160 --> 00:07:41,160
+ exchanges, were de-commissioning all their own exchanges. They took a lorry, went to the back
+
+65
+00:07:41,160 --> 00:07:45,560
+ door and said, "I'll get rid of all that old crap for free." And for free acquired the stock of
+
+66
+00:07:45,560 --> 00:07:53,720
+ valves. I believe they started with the metalwork, the ground up, but a mere 14 years, 15 years of
+
+67
+00:07:53,720 --> 00:08:00,200
+ it. 16 years. 16 years I had a working machine. But to prove this is a rebuild, this is not a
+
+68
+00:08:00,200 --> 00:08:05,240
+ model or a simulation, you need to make it with what it was designed to do, work out the break
+
+69
+00:08:05,240 --> 00:08:09,720
+ for Lorenz type of machine. Now we had a General Lorenz machine. They were capturing at the end
+
+70
+00:08:09,720 --> 00:08:15,080
+ of the war by the Gilmarch al-Pesarin, from Gilmarch al-Pesarin. The machine would send to
+
+71
+00:08:15,080 --> 00:08:21,400
+ the Heinz-Dittsdorf competing museum in Germany. It generated a test message, intercepted here,
+
+72
+00:08:21,400 --> 00:08:25,320
+ put a bunch of tape, put the tape on the machine, three and a half hours later it would be a
+
+73
+00:08:25,320 --> 00:08:29,240
+ decrypted finessus. Okay.
+
+74
+00:08:51,400 --> 00:09:13,320
+ Now, going back to programming, a big subplot in the Hidden Figures movie is the transition
+
+75
+00:09:13,320 --> 00:09:19,160
+ from doing complex calculations manually by humans in a room with adding machines to doing
+
+76
+00:09:19,160 --> 00:09:25,720
+ them by writing Fortran programs on IBM 7090. This was NASA. Now the interesting thing is
+
+77
+00:09:25,720 --> 00:09:31,560
+ there's such a natural parallel to writing Fortran instructions, to following some written
+
+78
+00:09:31,560 --> 00:09:36,520
+ instructions by doing all the calculations. And it was very natural for these people who
+
+79
+00:09:36,520 --> 00:09:42,520
+ had years of experience following instructions precisely to then start writing Fortran code
+
+80
+00:09:42,520 --> 00:09:48,360
+ that the computer would follow. And so being a human computer was a natural training ground
+
+81
+00:09:48,360 --> 00:09:54,120
+ for the emerging programming field. The basic idea of this first phase is kind of fun. We
+
+82
+00:09:54,120 --> 00:09:59,320
+ have built endless physical devices over time to help us better understand our world. Things like
+
+83
+00:09:59,320 --> 00:10:07,320
+ the passage of time, things like the solar systems, stars in the night sky, things like how fast you
+
+84
+00:10:07,320 --> 00:10:13,560
+ can go through air, whether it's a boat or an airplane. We've always been interested in money.
+
+85
+00:10:13,560 --> 00:10:18,680
+ Things like curved motion under the effect of gravity, spacecraft, like in the movie Hidden
+
+86
+00:10:18,680 --> 00:10:25,160
+ Figures. There was a lot of calculations that happened. And by the way, the IBM 7090 in Hidden
+
+87
+00:10:25,160 --> 00:10:30,840
+ Figures was built using transistors, solid state electronics that greatly reduced heat and power
+
+88
+00:10:30,840 --> 00:10:38,040
+ consumption and increased speed. And they could do basically 24,000 multiplications per second.
+
+89
+00:10:38,760 --> 00:10:45,720
+ So in upcoming lectures, we're going to start exploring how we go from relays and motors
+
+90
+00:10:45,720 --> 00:10:57,560
+ to solid state computation.
+

@@ -1,0 +1,192 @@
+ So you just finished some in-depth work on a 6502 CPU emulator.
+ Now you might think that the only reason we ever use CPU emulators are for learning.
+ And they're great for learning, right? So I can give you a screen, and it has a program counter,
+ and a Z flag, and an N flag, and instruction memory, and you can go change the instruction memory,
+ you can start it, you can stop it, it prints a lot of stuff out.
+ You can hover over an instruction, and it shows you what the instruction is,
+ and what the ASCII character might be stored there, et cetera, et cetera, et cetera.
+ It keeps it really simple, so we can write pretty small programs.
+ We can also look at the emulator code itself, and I've got in the upper corner a
+ URL that is the actual machine code emulator that's running when you're doing your assignments,
+ or just playing with it. So if you go look at that, it's JavaScript,
+ and you've learned JavaScript, and it has to run in the browser.
+ So I have implemented a 6502 instruction set in JavaScript in a browser.
+ The core of this is a function called execute_step, which should be called like
+ fetch_execute_cycle, because what it really does is it's going to run one instruction.
+ So which instruction is it going to run? Well, you can see in that first line,
+ it's going to look at this.cpu.pc, the program counter.
+ Where are the instructions? Well, they're in an array.
+ So we're going to use the PC to look up the instruction in the array.
+ What's the instruction? It's an integer from 0 through 255.
+ It's a single 8-bit number. And so the next thing it's going to do is
+ have a big long if-then-else with like 40 or 50 different instructions.
+ The first instruction it checks to see is if we got all zeros.
+ Well, the 000 instruction is the break, the halt.
+ And so what happens is the emulator prints the output from the data memory,
+ and then it sets itself to not running, and then the fetch_execute_cycle stops.
+ And there's a bunch more else, else, else, else.
+ If it doesn't find an instruction that it understands, it has one last else
+ that blows up and sets it to running equals false.
+ You might just go have some fun and see if you can figure out a bit pattern
+ that will cause the emulator to blow up with an unknown instruction.
+ And after we've processed one instruction, well, we advance the program counter.
+ It's what we do with the fetch_execute_cycle.
+ Now, if there was a jump, if one of those instructions was jump instruction,
+ it already changed the PC. Do you remember how I told you that
+ a jump instruction is kind of like a load into the PC?
+ It's almost like a load immediate into the PC.
+ So that code up in the instruction processing sets the PC increment to 0
+ to indicate that it's already been changed to a completely new location by a jump.
+ So if the PC increment is greater than 0, we simply say add the PC increment.
+ That little mask is there to make sure it doesn't get bigger than 256
+ because there's only 256 instructions in the instruction memory.
+ And the PC increment is going to either be 1 if it's an 8-bit instruction
+ or 2 if it's a 16-bit instruction.
+ Digging a little more deeply into some of those else-if, else-if, else-if, else-ifs,
+ you can see the load accumulator immediate instruction.
+ It's a 0x89.
+ And what we do is we say, oh, let's get that immediate value.
+ Take that CPU instructions and go 1 beyond the PC and grab it.
+ So that's the number that we're loading.
+ And what do we do?
+ Well, we take the immediate value and we put it in the accumulator.
+ And every time you change the accumulator, you've got to update the Z and the N flags.
+ So we've got a function to do that.
+ And then we say, hey, this was a 16-bit instruction.
+ Increment the PC by 2.
+ Subtract immediate.
+ Again, we grab the immediate, which is the immediately following after the program counter.
+ We compute the difference.
+ And then we set the accumulator to be the difference.
+ Update the status flags because we changed the accumulator and set the PC increment to 2.
+ And we do like something a little more complex,
+ which is a load with an address and an offset by the X register.
+ Again, the base address is an immediate.
+ So we go 1 beyond the program counter and grab that.
+ Then we grab the X register.
+ Make sure it's a number, not a string.
+ That's probably just conservative programming.
+ Then we take the base address plus the X value.
+ That's our offsetting to our index by X.
+ And then we go grab the real memory, CPU.memory of the effective address.
+ What is memory?
+ Here's a 256-byte array.
+ And then we set the accumulator to whatever came out of that memory.
+ And we update the status flags and we set the P increment to 2.
+ So again, this is about 1300 lines of code.
+ I would not claim it's a perfect emulator.
+ I just did it well enough to make it so that you can learn what you need to learn in this class.
+ I would say probably I could make it a lot more accurate if I made it
+ 2500 lines of code.
+ If I did things like made all the memory mapping for sound and stuff work,
+ it'd probably be three or four times larger, maybe 5000 lines of code.
+ That's not a lot of code.
+ The interesting thing is that most modern processors on phones and computers
+ are so fast that even if we're writing something in JavaScript
+ that's emulating historical machine code,
+ it can do that far faster than the original hardware.
+ So if you build an emulator for a 6502 and you want to do 1 MHz,
+ well, you probably will have to slow it down.
+ And things like graphics are way better in modern environments
+ and they don't take a lot of resources.
+ So if we go back to the 70s and the 80s,
+ people would buy things like Atari 2600s and play them on their televisions.
+ They would have these plug-in ROM modules that had the code in it.
+ That's the machine code.
+ And so there's an effort to capture these
+ and you can actually disassemble these.
+ ROMs are things you can read with ROM readers
+ and then you can extract the machine code
+ and then you can build an emulator
+ and it turns out that the Atari 2600 has a 6502 in it.
+ So the console that you plugged into the Atari 2600,
+ that machine code is 6502 machine code.
+ So you build an emulator including all the graphics capabilities of the 2600
+ and so you can emulate a game like Space Invaders on the Atari 2600
+ in your browsers and completely play it.
+ I encourage you to go ahead and play it.
+ If you slow down the startup,
+ once things get cached in your browsers,
+ this screen goes by so fast you won't even see it.
+ I had to record it to catch it.
+ You can see what's going on as the game is being loaded.
+ It's looking at the files,
+ it's the machine code for the game
+ and it's running it in the browser
+ using a piece of software written in WASM.
+ Now it's not written in JavaScript, it's written in WASM.
+ What is WASM?
+ WASM is Web Assembly.
+ So I built a machine language emulator in JavaScript that you were using
+ but there is a low-level high-performance machine language emulator
+ built into web browsers,
+ recent web browsers called Web Assembly.
+ So Web Assembly is a machine code
+ that is not intended to be built in hardware
+ but intended to be emulated very, very rapidly by hardware.
+ So for a wide range of software,
+ you can do surprisingly complex things
+ and then compile them to WASM,
+ download them into a browser
+ and run them in a browser
+ with a little JavaScript library
+ that provides things like file opening, et cetera, et cetera.
+ Now I want to show you a bit of WASM.
+ It's got a little bit different syntax than most assembly languages
+ but it still is a very succinct
+ one-to-one correspondence to binary machine code.
+ I will also show you in the C Programming for Everybody course
+ that I teach at www.ccfree.com,
+ the C Playground actually doesn't run the code in the server.
+ It compiles C to WASM in the server
+ and then runs WASM in the user's browser.
+ So you can't run an infinite loop in my C Programming for Everybody course
+ and break my server.
+ You can write an infinite loop and break your browser
+ but that is your browser.
+ So let's take a little bit of a look at WebAssembly.
+ WASM is a little bit different.
+ So you don't see, for example, an accumulator.
+ It actually has a stack and it has operands on the stack
+ and you put operands on the stack
+ and then you operate on the operands of the stack
+ and then replace things on the stack.
+ It's a very simple execution model
+ but it's still very, very low level.
+ And what this is, is this is printing Hello World.
+ You see this sort of indentation.
+ It still is machine code. If you look below,
+ there's about 90 bytes of machine code that I dumped
+ from this particular bit of code compiled into WASM.
+ It uses a little different syntax
+ because it really doesn't want to expose labels in WASM.
+ It really wants there to be a stack.
+ It wants to be a set of nested modules
+ and variable scopes and things like that.
+ But still it's an assembly language and it is got nesting.
+ So you tend not to use labels in the same way
+ that we use labels in more traditional assembly language
+ and machine language.
+ And here is a simple example of a thing.
+ You can just go to this website and play with it.
+ You can write C code, you hit the run code button.
+ It uploads the C code to a server,
+ which then compiles it to WASM.
+ That takes very little time and it downloads that WASM
+ and then it runs that WASM as output and shows the output of it.
+ That also means that in that WASM compiler for C,
+ there's a whole standard library,
+ includes stdio.h and the printf.
+ That's been compiled to WASM as well.
+ So the WASM you get back from Inscriptum
+ is much larger than just a pure WASM bit of code
+ because it's compiled the C library as well
+ so that you can do things like printf and scanf
+ and other kinds of things that you would do in a C application.
+ So emulators going forward are so fast and becoming ubiquitous
+ that it's kind of foolish to write native code
+ for certain things like video games and other things.
+ And so the fact that you're playing with an emulator
+ going forward in the future,
+ you may be writing code for production that runs in an emulator.
+ (jazz piano music)

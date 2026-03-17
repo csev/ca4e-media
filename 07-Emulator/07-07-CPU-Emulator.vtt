@@ -1,0 +1,578 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.800
+ So you just finished some in-depth work on a 6502 CPU emulator.
+
+00:00:06.800 --> 00:00:12.560
+ Now you might think that the only reason we ever use CPU emulators are for learning.
+
+00:00:12.560 --> 00:00:18.080
+ And they're great for learning, right? So I can give you a screen, and it has a program counter,
+
+00:00:18.080 --> 00:00:22.800
+ and a Z flag, and an N flag, and instruction memory, and you can go change the instruction memory,
+
+00:00:22.800 --> 00:00:26.240
+ you can start it, you can stop it, it prints a lot of stuff out.
+
+00:00:26.240 --> 00:00:29.520
+ You can hover over an instruction, and it shows you what the instruction is,
+
+00:00:29.520 --> 00:00:34.000
+ and what the ASCII character might be stored there, et cetera, et cetera, et cetera.
+
+00:00:34.000 --> 00:00:37.200
+ It keeps it really simple, so we can write pretty small programs.
+
+00:00:37.200 --> 00:00:40.960
+ We can also look at the emulator code itself, and I've got in the upper corner a
+
+00:00:40.960 --> 00:00:48.320
+ URL that is the actual machine code emulator that's running when you're doing your assignments,
+
+00:00:48.320 --> 00:00:52.160
+ or just playing with it. So if you go look at that, it's JavaScript,
+
+00:00:52.160 --> 00:00:55.200
+ and you've learned JavaScript, and it has to run in the browser.
+
+00:00:55.200 --> 00:01:02.640
+ So I have implemented a 6502 instruction set in JavaScript in a browser.
+
+00:01:02.640 --> 00:01:06.720
+ The core of this is a function called execute_step, which should be called like
+
+00:01:06.720 --> 00:01:11.440
+ fetch_execute_cycle, because what it really does is it's going to run one instruction.
+
+00:01:11.440 --> 00:01:15.440
+ So which instruction is it going to run? Well, you can see in that first line,
+
+00:01:15.440 --> 00:01:19.040
+ it's going to look at this.cpu.pc, the program counter.
+
+00:01:19.040 --> 00:01:21.520
+ Where are the instructions? Well, they're in an array.
+
+00:01:21.520 --> 00:01:24.880
+ So we're going to use the PC to look up the instruction in the array.
+
+00:01:24.880 --> 00:01:29.040
+ What's the instruction? It's an integer from 0 through 255.
+
+00:01:29.040 --> 00:01:32.880
+ It's a single 8-bit number. And so the next thing it's going to do is
+
+00:01:32.880 --> 00:01:38.240
+ have a big long if-then-else with like 40 or 50 different instructions.
+
+00:01:38.240 --> 00:01:41.440
+ The first instruction it checks to see is if we got all zeros.
+
+00:01:41.440 --> 00:01:46.160
+ Well, the 000 instruction is the break, the halt.
+
+00:01:46.160 --> 00:01:52.080
+ And so what happens is the emulator prints the output from the data memory,
+
+00:01:52.080 --> 00:01:57.040
+ and then it sets itself to not running, and then the fetch_execute_cycle stops.
+
+00:01:57.040 --> 00:02:00.080
+ And there's a bunch more else, else, else, else.
+
+00:02:00.080 --> 00:02:04.000
+ If it doesn't find an instruction that it understands, it has one last else
+
+00:02:04.000 --> 00:02:07.040
+ that blows up and sets it to running equals false.
+
+00:02:07.040 --> 00:02:11.200
+ You might just go have some fun and see if you can figure out a bit pattern
+
+00:02:11.200 --> 00:02:16.000
+ that will cause the emulator to blow up with an unknown instruction.
+
+00:02:16.000 --> 00:02:20.160
+ And after we've processed one instruction, well, we advance the program counter.
+
+00:02:20.160 --> 00:02:22.960
+ It's what we do with the fetch_execute_cycle.
+
+00:02:22.960 --> 00:02:26.640
+ Now, if there was a jump, if one of those instructions was jump instruction,
+
+00:02:26.640 --> 00:02:30.080
+ it already changed the PC. Do you remember how I told you that
+
+00:02:30.080 --> 00:02:33.120
+ a jump instruction is kind of like a load into the PC?
+
+00:02:33.120 --> 00:02:35.760
+ It's almost like a load immediate into the PC.
+
+00:02:35.760 --> 00:02:40.960
+ So that code up in the instruction processing sets the PC increment to 0
+
+00:02:40.960 --> 00:02:46.880
+ to indicate that it's already been changed to a completely new location by a jump.
+
+00:02:46.880 --> 00:02:53.760
+ So if the PC increment is greater than 0, we simply say add the PC increment.
+
+00:02:53.760 --> 00:02:57.680
+ That little mask is there to make sure it doesn't get bigger than 256
+
+00:02:57.680 --> 00:03:01.120
+ because there's only 256 instructions in the instruction memory.
+
+00:03:01.120 --> 00:03:06.000
+ And the PC increment is going to either be 1 if it's an 8-bit instruction
+
+00:03:06.000 --> 00:03:09.680
+ or 2 if it's a 16-bit instruction.
+
+00:03:09.680 --> 00:03:14.320
+ Digging a little more deeply into some of those else-if, else-if, else-if, else-ifs,
+
+00:03:14.320 --> 00:03:17.920
+ you can see the load accumulator immediate instruction.
+
+00:03:17.920 --> 00:03:19.920
+ It's a 0x89.
+
+00:03:19.920 --> 00:03:23.760
+ And what we do is we say, oh, let's get that immediate value.
+
+00:03:23.760 --> 00:03:28.800
+ Take that CPU instructions and go 1 beyond the PC and grab it.
+
+00:03:28.800 --> 00:03:30.880
+ So that's the number that we're loading.
+
+00:03:30.880 --> 00:03:32.160
+ And what do we do?
+
+00:03:32.160 --> 00:03:35.120
+ Well, we take the immediate value and we put it in the accumulator.
+
+00:03:35.120 --> 00:03:38.240
+ And every time you change the accumulator, you've got to update the Z and the N flags.
+
+00:03:38.240 --> 00:03:39.920
+ So we've got a function to do that.
+
+00:03:39.920 --> 00:03:42.160
+ And then we say, hey, this was a 16-bit instruction.
+
+00:03:42.960 --> 00:03:44.480
+ Increment the PC by 2.
+
+00:03:44.480 --> 00:03:46.400
+ Subtract immediate.
+
+00:03:46.400 --> 00:03:51.680
+ Again, we grab the immediate, which is the immediately following after the program counter.
+
+00:03:51.680 --> 00:03:52.800
+ We compute the difference.
+
+00:03:52.800 --> 00:03:57.440
+ And then we set the accumulator to be the difference.
+
+00:03:57.440 --> 00:04:02.960
+ Update the status flags because we changed the accumulator and set the PC increment to 2.
+
+00:04:02.960 --> 00:04:04.720
+ And we do like something a little more complex,
+
+00:04:04.720 --> 00:04:09.360
+ which is a load with an address and an offset by the X register.
+
+00:04:10.800 --> 00:04:13.200
+ Again, the base address is an immediate.
+
+00:04:13.200 --> 00:04:17.120
+ So we go 1 beyond the program counter and grab that.
+
+00:04:17.120 --> 00:04:19.520
+ Then we grab the X register.
+
+00:04:19.520 --> 00:04:21.360
+ Make sure it's a number, not a string.
+
+00:04:21.360 --> 00:04:24.080
+ That's probably just conservative programming.
+
+00:04:24.080 --> 00:04:27.440
+ Then we take the base address plus the X value.
+
+00:04:27.440 --> 00:04:31.520
+ That's our offsetting to our index by X.
+
+00:04:31.520 --> 00:04:36.960
+ And then we go grab the real memory, CPU.memory of the effective address.
+
+00:04:36.960 --> 00:04:38.080
+ What is memory?
+
+00:04:38.080 --> 00:04:41.520
+ Here's a 256-byte array.
+
+00:04:41.520 --> 00:04:44.640
+ And then we set the accumulator to whatever came out of that memory.
+
+00:04:44.640 --> 00:04:48.640
+ And we update the status flags and we set the P increment to 2.
+
+00:04:48.640 --> 00:04:53.360
+ So again, this is about 1300 lines of code.
+
+00:04:53.360 --> 00:04:55.760
+ I would not claim it's a perfect emulator.
+
+00:04:55.760 --> 00:05:01.200
+ I just did it well enough to make it so that you can learn what you need to learn in this class.
+
+00:05:01.200 --> 00:05:06.880
+ I would say probably I could make it a lot more accurate if I made it
+
+00:05:07.440 --> 00:05:09.120
+ 2500 lines of code.
+
+00:05:09.120 --> 00:05:12.400
+ If I did things like made all the memory mapping for sound and stuff work,
+
+00:05:12.400 --> 00:05:16.400
+ it'd probably be three or four times larger, maybe 5000 lines of code.
+
+00:05:16.400 --> 00:05:18.640
+ That's not a lot of code.
+
+00:05:18.640 --> 00:05:22.480
+ The interesting thing is that most modern processors on phones and computers
+
+00:05:22.480 --> 00:05:26.400
+ are so fast that even if we're writing something in JavaScript
+
+00:05:26.400 --> 00:05:28.800
+ that's emulating historical machine code,
+
+00:05:28.800 --> 00:05:31.920
+ it can do that far faster than the original hardware.
+
+00:05:31.920 --> 00:05:37.040
+ So if you build an emulator for a 6502 and you want to do 1 MHz,
+
+00:05:37.040 --> 00:05:39.680
+ well, you probably will have to slow it down.
+
+00:05:39.680 --> 00:05:44.640
+ And things like graphics are way better in modern environments
+
+00:05:44.640 --> 00:05:46.880
+ and they don't take a lot of resources.
+
+00:05:46.880 --> 00:05:50.880
+ So if we go back to the 70s and the 80s,
+
+00:05:50.880 --> 00:05:55.760
+ people would buy things like Atari 2600s and play them on their televisions.
+
+00:05:55.760 --> 00:05:59.840
+ They would have these plug-in ROM modules that had the code in it.
+
+00:05:59.840 --> 00:06:00.880
+ That's the machine code.
+
+00:06:00.880 --> 00:06:04.240
+ And so there's an effort to capture these
+
+00:06:04.240 --> 00:06:07.360
+ and you can actually disassemble these.
+
+00:06:07.360 --> 00:06:10.720
+ ROMs are things you can read with ROM readers
+
+00:06:10.720 --> 00:06:12.800
+ and then you can extract the machine code
+
+00:06:12.800 --> 00:06:15.280
+ and then you can build an emulator
+
+00:06:15.280 --> 00:06:21.280
+ and it turns out that the Atari 2600 has a 6502 in it.
+
+00:06:21.280 --> 00:06:24.720
+ So the console that you plugged into the Atari 2600,
+
+00:06:24.720 --> 00:06:28.560
+ that machine code is 6502 machine code.
+
+00:06:28.560 --> 00:06:33.280
+ So you build an emulator including all the graphics capabilities of the 2600
+
+00:06:33.280 --> 00:06:39.280
+ and so you can emulate a game like Space Invaders on the Atari 2600
+
+00:06:39.280 --> 00:06:41.920
+ in your browsers and completely play it.
+
+00:06:41.920 --> 00:06:44.160
+ I encourage you to go ahead and play it.
+
+00:06:44.160 --> 00:06:48.080
+ If you slow down the startup,
+
+00:06:48.080 --> 00:06:49.680
+ once things get cached in your browsers,
+
+00:06:49.680 --> 00:06:52.080
+ this screen goes by so fast you won't even see it.
+
+00:06:52.080 --> 00:06:53.520
+ I had to record it to catch it.
+
+00:06:53.520 --> 00:06:57.440
+ You can see what's going on as the game is being loaded.
+
+00:06:57.440 --> 00:06:59.360
+ It's looking at the files,
+
+00:06:59.360 --> 00:07:02.800
+ it's the machine code for the game
+
+00:07:02.800 --> 00:07:05.200
+ and it's running it in the browser
+
+00:07:05.200 --> 00:07:08.640
+ using a piece of software written in WASM.
+
+00:07:08.640 --> 00:07:11.680
+ Now it's not written in JavaScript, it's written in WASM.
+
+00:07:11.680 --> 00:07:13.280
+ What is WASM?
+
+00:07:13.280 --> 00:07:15.120
+ WASM is Web Assembly.
+
+00:07:15.120 --> 00:07:20.560
+ So I built a machine language emulator in JavaScript that you were using
+
+00:07:20.560 --> 00:07:24.160
+ but there is a low-level high-performance machine language emulator
+
+00:07:24.160 --> 00:07:25.680
+ built into web browsers,
+
+00:07:25.680 --> 00:07:29.360
+ recent web browsers called Web Assembly.
+
+00:07:29.360 --> 00:07:31.280
+ So Web Assembly is a machine code
+
+00:07:31.840 --> 00:07:33.920
+ that is not intended to be built in hardware
+
+00:07:33.920 --> 00:07:37.680
+ but intended to be emulated very, very rapidly by hardware.
+
+00:07:37.680 --> 00:07:40.480
+ So for a wide range of software,
+
+00:07:40.480 --> 00:07:44.000
+ you can do surprisingly complex things
+
+00:07:44.000 --> 00:07:46.160
+ and then compile them to WASM,
+
+00:07:46.160 --> 00:07:47.920
+ download them into a browser
+
+00:07:47.920 --> 00:07:50.640
+ and run them in a browser
+
+00:07:50.640 --> 00:07:52.320
+ with a little JavaScript library
+
+00:07:52.320 --> 00:07:55.760
+ that provides things like file opening, et cetera, et cetera.
+
+00:07:55.760 --> 00:07:57.600
+ Now I want to show you a bit of WASM.
+
+00:07:57.600 --> 00:08:01.120
+ It's got a little bit different syntax than most assembly languages
+
+00:08:01.120 --> 00:08:04.240
+ but it still is a very succinct
+
+00:08:04.240 --> 00:08:07.040
+ one-to-one correspondence to binary machine code.
+
+00:08:07.040 --> 00:08:09.920
+ I will also show you in the C Programming for Everybody course
+
+00:08:09.920 --> 00:08:12.880
+ that I teach at www.ccfree.com,
+
+00:08:12.880 --> 00:08:16.000
+ the C Playground actually doesn't run the code in the server.
+
+00:08:16.000 --> 00:08:18.480
+ It compiles C to WASM in the server
+
+00:08:18.480 --> 00:08:21.040
+ and then runs WASM in the user's browser.
+
+00:08:21.040 --> 00:08:25.520
+ So you can't run an infinite loop in my C Programming for Everybody course
+
+00:08:25.520 --> 00:08:27.120
+ and break my server.
+
+00:08:27.120 --> 00:08:29.840
+ You can write an infinite loop and break your browser
+
+00:08:29.840 --> 00:08:32.240
+ but that is your browser.
+
+00:08:32.240 --> 00:08:35.200
+ So let's take a little bit of a look at WebAssembly.
+
+00:08:35.200 --> 00:08:36.640
+ WASM is a little bit different.
+
+00:08:36.640 --> 00:08:38.560
+ So you don't see, for example, an accumulator.
+
+00:08:38.560 --> 00:08:41.920
+ It actually has a stack and it has operands on the stack
+
+00:08:41.920 --> 00:08:43.920
+ and you put operands on the stack
+
+00:08:43.920 --> 00:08:45.680
+ and then you operate on the operands of the stack
+
+00:08:45.680 --> 00:08:47.440
+ and then replace things on the stack.
+
+00:08:47.440 --> 00:08:49.280
+ It's a very simple execution model
+
+00:08:49.280 --> 00:08:51.680
+ but it's still very, very low level.
+
+00:08:51.680 --> 00:08:55.120
+ And what this is, is this is printing Hello World.
+
+00:08:55.120 --> 00:08:57.200
+ You see this sort of indentation.
+
+00:08:58.080 --> 00:08:59.920
+ It still is machine code. If you look below,
+
+00:08:59.920 --> 00:09:03.440
+ there's about 90 bytes of machine code that I dumped
+
+00:09:03.440 --> 00:09:07.120
+ from this particular bit of code compiled into WASM.
+
+00:09:07.120 --> 00:09:09.200
+ It uses a little different syntax
+
+00:09:09.200 --> 00:09:13.040
+ because it really doesn't want to expose labels in WASM.
+
+00:09:13.040 --> 00:09:15.120
+ It really wants there to be a stack.
+
+00:09:15.120 --> 00:09:18.080
+ It wants to be a set of nested modules
+
+00:09:18.080 --> 00:09:20.000
+ and variable scopes and things like that.
+
+00:09:20.000 --> 00:09:25.040
+ But still it's an assembly language and it is got nesting.
+
+00:09:25.040 --> 00:09:28.480
+ So you tend not to use labels in the same way
+
+00:09:28.480 --> 00:09:31.200
+ that we use labels in more traditional assembly language
+
+00:09:31.200 --> 00:09:33.120
+ and machine language.
+
+00:09:33.120 --> 00:09:35.680
+ And here is a simple example of a thing.
+
+00:09:35.680 --> 00:09:38.320
+ You can just go to this website and play with it.
+
+00:09:38.320 --> 00:09:42.160
+ You can write C code, you hit the run code button.
+
+00:09:42.160 --> 00:09:44.480
+ It uploads the C code to a server,
+
+00:09:44.480 --> 00:09:46.480
+ which then compiles it to WASM.
+
+00:09:46.480 --> 00:09:49.600
+ That takes very little time and it downloads that WASM
+
+00:09:49.600 --> 00:09:54.160
+ and then it runs that WASM as output and shows the output of it.
+
+00:09:54.160 --> 00:09:58.320
+ That also means that in that WASM compiler for C,
+
+00:09:58.320 --> 00:10:00.400
+ there's a whole standard library,
+
+00:10:00.400 --> 00:10:02.800
+ includes stdio.h and the printf.
+
+00:10:02.800 --> 00:10:04.800
+ That's been compiled to WASM as well.
+
+00:10:04.800 --> 00:10:07.040
+ So the WASM you get back from Inscriptum
+
+00:10:07.040 --> 00:10:11.120
+ is much larger than just a pure WASM bit of code
+
+00:10:11.120 --> 00:10:14.080
+ because it's compiled the C library as well
+
+00:10:14.080 --> 00:10:16.720
+ so that you can do things like printf and scanf
+
+00:10:16.720 --> 00:10:21.200
+ and other kinds of things that you would do in a C application.
+
+00:10:22.720 --> 00:10:29.600
+ So emulators going forward are so fast and becoming ubiquitous
+
+00:10:29.600 --> 00:10:32.480
+ that it's kind of foolish to write native code
+
+00:10:32.480 --> 00:10:36.320
+ for certain things like video games and other things.
+
+00:10:36.320 --> 00:10:39.440
+ And so the fact that you're playing with an emulator
+
+00:10:39.440 --> 00:10:41.680
+ going forward in the future,
+
+00:10:41.680 --> 00:10:45.680
+ you may be writing code for production that runs in an emulator.
+
+00:10:52.720 --> 00:10:55.640
+ (jazz piano music)
+

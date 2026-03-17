@@ -1,0 +1,179 @@
+ Hello, and welcome to another code walkthrough for computer architecture for everybody.
+ In this walkthrough we're going to walk through the uppercase converter.
+ So what this is, is this is, again, WASM in the JavaScript environment, so its output
+ is console.log, and that's about it.
+ We're not even taking some input, we're going to hard code our input, and then what we're
+ going to do is write a function called make an uppercase copy of the string, okay?
+ And so this gives us a little bit more time to take a bit more look at WASM, not that
+ I want you to understand or code WASM.
+ You may even use AI to help solve this one assignment.
+ So you're going to take this uppercase code and you're going to write a lowercase version
+ of it.
+ So you got to kind of dig through this code and figure out where it's doing the uppercase,
+ and then switch it to doing lowercase.
+ And it might be a little bit of work, and you might even use AI a little bit to help
+ you do this.
+ So I'm just going to walk through this code to help you out.
+ Our output is going to go to console.log, we're going to create some memory, we're going
+ to put a string in there at location zero, and then we're going to make it so JavaScript
+ can execute it.
+ And so we are going to then say copy and go to uppercase, and we're taking some input
+ variables, some making some local variables.
+ So this parentheses func, it basically, WASM is a stack-oriented language.
+ So when you go into a func, you can think of a new stack frame being created, just like
+ you would in any other programming language.
+ So in that stack frame, there are variables that belong in that stack frame, and that's
+ what we're talking about here.
+ And we're setting some values and getting things done.
+ And then we have some two instructions, or two instructions that might look a little
+ weird to you.
+ So this is the block, and so the idea, there are no labels in WASM.
+ There are constructs, there is an execution stack.
+ And so when you start a block, and we'll go down to the bottom of this block, where's
+ the end of the block?
+ I think the end of the block is right here.
+ Oh wait, oh, I missed it, missed it, come back, come back, okay, I think the end of
+ the block is here.
+ Yeah, no, the end of the block is here, and this is the end of the loop.
+ And so what happens here is the block creates a temporary label that only exists in this
+ block, and you can branch to the loop end.
+ It doesn't have to be named copy loop end, they just named it copy loop end because that's
+ what's going on.
+ So if this branch, if true, this is doing a comparison between the character to see
+ if it was a zero byte, right?
+ And if we hit the zero byte, we're going to exit the loop, and we're going to branch
+ to this copy end.
+ Now copy end is not the top of this, it is the next statement after the end of the block.
+ So when you say branch if copy loop end, you're exiting.
+ So branches in WASM are more about exiting where you're at and going to the next place.
+ So that branch goes to here, there is no label here.
+ So if we were doing this in assembly language, we would put a label here, and we would jump
+ to the label.
+ We're only allowed to jump out of things or to the top of things, and so that's the way
+ we exit it.
+ So this is a loop that's reading the data and checking for a zero byte, and if we get
+ a zero byte, we're done with the loop.
+ So that is a block.
+ Block is something that can be exited.
+ Think of it from a C perspective and a Python perspective as this is like a break.
+ It's a break out of this block.
+ BRF, dollar copy loop end, breaks out of the block that has the label dollar copy loop
+ end.
+ So that is just a way to start a block and get out of the block.
+ So that's like a break statement.
+ All of the looping in WASM is basically kind of like a wild true loop, both in Python and
+ in C. It's like an infinite loop, and all we're doing with this loop statement, it has
+ no logic to it.
+ It is defining another label.
+ This label is only accessible between the beginning and the end of the loop.
+ So here is the end of the loop, and we're jumping to the top.
+ If you don't have this BR dollar copy underscore loop, it's not going to go back up.
+ So the while loop is not automatic.
+ You have to do something at the bottom of the loop to go up.
+ This is like a continue in either Python or C.
+ So continue the loop.
+ Go up to the top.
+ Now there is no automatic incrementing.
+ There is no plus plus in here, no auto ion range of five, nothing.
+ You have got to add one to your, yeah, so we're going to add one to our counter.
+ They're adding one to the counter with this little for statement bit of code, for instruction
+ piece of code.
+ So they're doing the plus plus as it were, or advancing the iterator.
+ You have to do it in Watt, and you're seeing quickly like, whoa, this is a pain.
+ Why isn't there just an increment instruction?
+ There isn't.
+ There's an add one.
+ You put the current value of I on the stack, you put the one on the stack, you add the
+ top two items of the stack, and then you set it back into the I variable, and then you
+ go up to the top of the loop.
+ So this is like an infinite loop, and it goes until at the top, of course, it reads the
+ offset piece of the, it takes the, it takes, it doesn't even have an offset lookup.
+ 6502 had an offset lookup in it, and it says give me the variable and add the I to it.
+ It's why you have zero based arrays.
+ Add it, and then load that.
+ I don't know what this T does, but then we're going to check to see if the character we
+ just got is a zero, and then we're going to branch out of the loop.
+ And you know, then there are things like, like this dollar char.
+ This is a local variable.
+ And then when we finally get done with this function, we are going to return at the end
+ of the function, and then that's going to kind of clear all that local stuff off the
+ stack, the stack frame, and then we're going to go.
+ So if we got our main function, and this main function is what is going to be called from
+ the JavaScript, so we're going to grab the string, we're going to grab its length, and
+ we're going to call the copy and uppercase routine, push some things in and call copy
+ and uppercase, and then we're going to print out the output of our function and the length,
+ and then we're going to be done.
+ Okay?
+ So this is, oh, I need to talk about if.
+ I didn't talk about if.
+ Oh, here we go.
+ This is the if.
+ So this if looks okay.
+ It's got an if then else.
+ By the way, there is no LF.
+ You just have to keep nesting your else's, else, else, else, else.
+ It's like going back 20 years, 30 years.
+ Okay.
+ If, and then this, checking to see if it's greater, this is really, this is a logic statement.
+ We're grabbing the character.
+ We're checking to see if it's greater than a lowercase a, or is it greater than lowercase
+ a and less than lowercase c, less than or equal to.
+ So it's doing a greater than or equal to, and a less than or equal to, and this and
+ is taking the two logic results that are sitting on the stack and then being true or false
+ based on those two logic results popping it off.
+ So it's a stack-oriented computation, and so if this resulted in a true, meaning it's
+ greater than or equal to a, and less than or equal to z, if it's true, we're going
+ to convert that character by subtracting 32, and then we're going to store it back in.
+ And so that is what we're going to do.
+ Well, we're going to calculate the character, then we're going to store it here.
+ It's just really wordy.
+ I mean, a center language seems easier.
+ Now, the reality is most browsers don't execute this literally.
+ It can, and it's still pretty fast.
+ You can execute this with an interpreter and it runs plenty fine, but you can also do what's
+ called cross-compiling it into native code.
+ The key is that the way it's written, a compiler can verify that this is not like doing naughty
+ things.
+ It's not like reading memory doesn't belong to it.
+ You can't jump to places that don't belong to you.
+ You can't execute code.
+ There's so many things that stops you from doing, which is that sandboxing thing.
+ So we have gone through our loop.
+ We've converted all the stuff to uppercase, left the letters that are already uppercase
+ alone, and then we print it all out.
+ So with all that, let's compile it and run it.
+ So remember in this screen, the Watt is being assembled inside the JavaScript.
+ This is just a JavaScript button.
+ The Watt is being assembled inside the JavaScript and then it is being executed inside the browser
+ and the results are coming back to JavaScript.
+ And that's it.
+ So we got our uppercase and your assignment is to adapt this and adapt it so it does lower
+ case.
+ It even tells you like, oh, it's a slightly different number.
+ Maybe you want to do a different if.
+ There you go.
+ So it's not trying to make it super hard for you, but you got to dig through here and look
+ enough and you'll mess it up and then you just go reload the sample code and then you
+ fix it again until when you run it, it says the correct output happens, right?
+ So that this could all be lowercase and then you will have passed the autograder.
+ Let's go ahead and run the autograder on this.
+ It's going to fail.
+ It was, you got to keep the original string.
+ It compiled it.
+ No, it didn't.
+ We got the wrong one.
+ That's because I didn't change the code.
+ So there you go.
+ Now that's your job.
+ You're going to, you're going to fix that in the autograder.
+ Okay.
+ So this is a little more detail in the walkthrough where we build a function.
+ We talk about the block.
+ We talk about how break works, how continue works, and then how if then there is an else,
+ but there is no else if.
+ And we talked about the stack and stack approach.
+ You can talk a bunch to AI about this and learn as much or as little as you want about
+ WASM.
+ I just wanted to expose you to WASM because it is going to be increasingly important going
+ forward when we talk about different kinds of software systems.
+ Cheers.

@@ -1,0 +1,377 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.500
+ so welcome to our lecture where we start talking about the speed, clock speed, how circuits have delay
+
+00:00:06.500 --> 00:00:11.000
+ in the previous lecture we introduced for the first time the notion of a clock and that is
+
+00:00:11.000 --> 00:00:16.800
+ a value that is at zero and then when we want something to happen we set it to one and when we're done we set it back to zero
+
+00:00:16.800 --> 00:00:20.320
+ now this is a circuit, it's a combinatoric circuit
+
+00:00:20.320 --> 00:00:27.560
+ and if you play with this online you'll see that it, you change a number and it takes a little bit of time for the
+
+00:00:27.560 --> 00:00:31.720
+ propagation to end up at the output of this circuit
+
+00:00:31.720 --> 00:00:35.600
+ and that's just because it's kinda slow in my online emulator
+
+00:00:35.600 --> 00:00:38.400
+ this is a full adder circuit and
+
+00:00:38.400 --> 00:00:44.620
+ this is not a very long circuit but you can see over time how these are going to get longer especially
+
+00:00:44.620 --> 00:00:46.160
+ when we start chaining them
+
+00:00:46.160 --> 00:00:48.720
+ right so if we make a four bit adder that's
+
+00:00:48.720 --> 00:00:51.960
+ four full adders where the carry out goes to the carry in
+
+00:00:51.960 --> 00:00:57.920
+ the carry out of the second one goes to the carry in of the third and the carry out of the third one goes to the fourth
+
+00:00:57.920 --> 00:00:59.060
+ now
+
+00:00:59.060 --> 00:01:07.000
+ those values will only settle down after the carries have propagated all the way down that chain and that's just a four bit adder
+
+00:01:07.000 --> 00:01:10.460
+ you could have a thirty two bit adder or a sixty four bit adder
+
+00:01:10.460 --> 00:01:13.360
+ or even a multiplier in hardware and so the
+
+00:01:13.360 --> 00:01:16.520
+ propagation through a sixty four bit
+
+00:01:16.520 --> 00:01:18.360
+ multiplier
+
+00:01:18.360 --> 00:01:20.460
+ is going to take a little while
+
+00:01:20.460 --> 00:01:24.220
+ and so these circuits get more complex than what we've done
+
+00:01:24.220 --> 00:01:27.660
+ but when they build them they'll make a sixty four bit adder
+
+00:01:27.660 --> 00:01:30.960
+ it takes two operands and produces a result
+
+00:01:30.960 --> 00:01:34.160
+ and the designers of the chip hardware will
+
+00:01:34.160 --> 00:01:39.120
+ simulate and simulate and tweak it and simulate and simulate it
+
+00:01:39.120 --> 00:01:40.320
+ how long
+
+00:01:40.320 --> 00:01:44.060
+ is it that if you present inputs to a sixty four bit adder
+
+00:01:44.060 --> 00:01:47.360
+ until the outputs are reliable
+
+00:01:47.360 --> 00:01:50.200
+ and no longer changing
+
+00:01:50.200 --> 00:01:52.520
+ and that's called the clock rate
+
+00:01:52.520 --> 00:01:54.000
+ and if we take a
+
+00:01:54.000 --> 00:01:55.460
+ microprocessor
+
+00:01:55.460 --> 00:01:59.620
+ we compute the delay of the slowest element or longest path
+
+00:01:59.620 --> 00:02:02.160
+ in the arithmetic and logic unit
+
+00:02:02.160 --> 00:02:07.400
+ we can determine the number of times per second we can reliably do computations
+
+00:02:07.400 --> 00:02:09.400
+ and then we set the clock rate
+
+00:02:09.400 --> 00:02:12.160
+ to be a little conservative
+
+00:02:12.160 --> 00:02:18.360
+ and so this is another example of the Intel 4004 which is our favorite little first
+
+00:02:18.360 --> 00:02:21.560
+ widely available commercial microprocessor
+
+00:02:21.560 --> 00:02:23.160
+ and so as
+
+00:02:23.160 --> 00:02:27.520
+ microprocessors have gotten smaller as the width of each wire and with the
+
+00:02:27.520 --> 00:02:30.700
+ transistors have gotten smaller you can make the distances between the
+
+00:02:30.700 --> 00:02:32.600
+ transistors smaller
+
+00:02:32.600 --> 00:02:35.960
+ as we went to CMOS and we could manage heat better
+
+00:02:35.960 --> 00:02:40.860
+ we could put things more tightly packed the more tightly packed we do
+
+00:02:40.860 --> 00:02:44.460
+ the faster they go and so
+
+00:02:44.460 --> 00:02:48.060
+ this is a graph of a thing called Moore's law and it was
+
+00:02:48.060 --> 00:02:49.560
+ something that
+
+00:02:49.560 --> 00:02:53.920
+ people just started seeing once we would improve the technology then we would
+
+00:02:53.920 --> 00:02:55.460
+ build microprocessors with
+
+00:02:55.460 --> 00:02:58.960
+ that new technology then we improved the architecture of those microprocessors
+
+00:02:58.960 --> 00:03:01.020
+ and then we would do new technology
+
+00:03:01.020 --> 00:03:02.300
+ it turned out that
+
+00:03:02.300 --> 00:03:06.160
+ the number of integrated circuits and pretty much for a while
+
+00:03:06.160 --> 00:03:09.820
+ the clock speed of them would double about every
+
+00:03:09.820 --> 00:03:12.620
+ every two years
+
+00:03:12.620 --> 00:03:15.600
+ so how do we know what the clock rate is like I mentioned
+
+00:03:15.600 --> 00:03:18.960
+ the size of the chip because when we're doing things this fast the speed of light
+
+00:03:18.960 --> 00:03:19.900
+ matters
+
+00:03:19.900 --> 00:03:24.120
+ the number of transistors because each transistor takes a little while
+
+00:03:24.120 --> 00:03:28.300
+ to flip as you change its input and its output needs to change
+
+00:03:28.300 --> 00:03:29.800
+ the physical length
+
+00:03:29.800 --> 00:03:33.220
+ of any long path and just because a chip is
+
+00:03:33.220 --> 00:03:36.520
+ one inch wide doesn't mean there's not paths that are several inches because
+
+00:03:36.520 --> 00:03:39.520
+ they go round and go back and forth
+
+00:03:39.520 --> 00:03:43.720
+ and the speed at which transistors switch and this depends on the technology
+
+00:03:43.720 --> 00:03:46.060
+ and it gets better over time
+
+00:03:46.060 --> 00:03:50.260
+ and like I said these chips are laid out and simulated endlessly
+
+00:03:50.260 --> 00:03:53.960
+ during development to figure out how we can take this chip
+
+00:03:53.960 --> 00:03:57.200
+ and then you've probably heard about people overclocking their chips
+
+00:03:57.200 --> 00:04:00.100
+ and that's when someone changes the clock
+
+00:04:00.100 --> 00:04:04.720
+ because they think that the factory was being too conservative on the clock
+
+00:04:04.720 --> 00:04:05.760
+ rate so let's
+
+00:04:05.760 --> 00:04:10.860
+ add 10% and see if it starts blowing up and that's called overclocking
+
+00:04:10.860 --> 00:04:15.280
+ so let's play with a simple circuit we're going to take
+
+00:04:15.280 --> 00:04:18.300
+ two of the circuits that we built in previous lectures
+
+00:04:18.300 --> 00:04:21.720
+ and combine them together so what we're going to do is we're going to take an
+
+00:04:21.720 --> 00:04:25.560
+ adder and a clock and a register
+
+00:04:25.560 --> 00:04:30.800
+ so the adder simply takes two three-bit numbers from zero through seven
+
+00:04:30.800 --> 00:04:36.280
+ on the A ones, twos, and fours for the A and ones, twos, and fours for the B
+
+00:04:36.280 --> 00:04:39.680
+ and so we have our two operands we have our
+
+00:04:39.680 --> 00:04:44.120
+ sum values which are the sum and they are copied to the input values
+
+00:04:44.120 --> 00:04:47.960
+ of our latch and we have a clock on the latch because if you recall
+
+00:04:47.960 --> 00:04:52.280
+ while the clock is low we don't care about the input changes
+
+00:04:52.280 --> 00:04:55.600
+ okay so right now our adder is zero
+
+00:04:55.600 --> 00:04:59.560
+ we're adding zero plus zero and getting zero our latch
+
+00:04:59.560 --> 00:05:04.520
+ is still a zero not because the adder is zero but because the clock is zero and the latch
+
+00:05:04.520 --> 00:05:05.920
+ was zero before
+
+00:05:05.920 --> 00:05:10.160
+ if we change the input on the adder we're going to do a
+
+00:05:10.160 --> 00:05:13.760
+ two plus four, A is two, B is four
+
+00:05:13.760 --> 00:05:17.760
+ and the adder now has produced it there's a delay there
+
+00:05:17.760 --> 00:05:21.280
+ but you'll notice the latch hasn't changed because we haven't pressed the
+
+00:05:21.280 --> 00:05:23.320
+ clock yet the clock is still at zero
+
+00:05:23.320 --> 00:05:27.480
+ and the definition of the clock in a latch is that the latch is ignoring its
+
+00:05:27.480 --> 00:05:28.360
+ input change
+
+00:05:28.360 --> 00:05:31.520
+ any changes on input until the clock
+
+00:05:31.520 --> 00:05:36.120
+ goes one so when the clock goes one the sum values are latched
+
+00:05:36.120 --> 00:05:41.120
+ into the latch memory now if you keep the clock one and fiddle with the inputs
+
+00:05:41.120 --> 00:05:42.160
+ of the adder
+
+00:05:42.160 --> 00:05:46.160
+ then you're not sure what's happening because it may take a while to go through
+
+00:05:46.160 --> 00:05:47.520
+ the adder or might come through
+
+00:05:47.520 --> 00:05:50.640
+ very quickly but the smart thing to do is then
+
+00:05:50.640 --> 00:05:54.080
+ set the clock back to zero because we have the sum copied
+
+00:05:54.080 --> 00:05:57.920
+ from the adder and now we can change the inputs
+
+00:05:57.920 --> 00:06:01.040
+ right once we have the clock at zero we can just
+
+00:06:01.040 --> 00:06:05.600
+ feed different inputs into the adder so now we're adding
+
+00:06:05.600 --> 00:06:09.040
+ four plus three now the clock is still zero
+
+00:06:09.040 --> 00:06:12.880
+ and we have changed the inputs to the adder we're now adding
+
+00:06:12.880 --> 00:06:16.640
+ four plus three what the adder is reflecting the sum
+
+00:06:16.640 --> 00:06:19.680
+ as soon as we change those inputs right the adder just as a
+
+00:06:19.680 --> 00:06:23.600
+ combinatoric circuit takes its inputs produces the output
+
+00:06:23.600 --> 00:06:27.440
+ but because the clock is still zero the clock is low
+
+00:06:27.440 --> 00:06:32.480
+ the latch hasn't accepted those values yet right when the clock goes high
+
+00:06:32.480 --> 00:06:35.520
+ the seven is going to be copied into the new
+
+00:06:35.520 --> 00:06:41.120
+ latch value now if we do this you can build this circuit with my
+
+00:06:41.120 --> 00:06:44.080
+ little circuit emulator you can build a circuit where you have
+
+00:06:44.080 --> 00:06:48.880
+ the adder you have a latch and you can interactively play with the
+
+00:06:48.880 --> 00:06:52.320
+ ones twos and fours for both the a input and the b input
+
+00:06:52.320 --> 00:06:57.040
+ but instead of having a button for the clock we have a programmable clock
+
+00:06:57.040 --> 00:07:00.640
+ and the clock object goes from zero to one
+
+00:07:00.640 --> 00:07:04.320
+ back to zero every second so what happens is
+
+00:07:04.320 --> 00:07:08.480
+ you can fiddle with the inputs of this see how fast you can change them
+
+00:07:08.480 --> 00:07:12.720
+ and every second whatever is in the adder is going to be copied
+
+00:07:12.720 --> 00:07:18.080
+ into the latch now we're going to go a little farther in the next lecture
+
+00:07:18.080 --> 00:07:35.600
+ with what we're doing with clocks and gates and adders and latches
+

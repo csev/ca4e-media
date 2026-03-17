@@ -1,0 +1,269 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.120
+ welcome to yet another gate layout walkthrough for computer architecture for everybody. In this we're
+
+00:00:05.120 --> 00:00:10.160
+ going to play with several of the circuits, the counter and the single instruction. So if you go
+
+00:00:10.160 --> 00:00:13.920
+ back and you take a look at the counter, I'm going to build one and then I'm going to actually load
+
+00:00:13.920 --> 00:00:18.640
+ it. So we're just going to do a three bit adder, put the three bit adder in the middle here. And so
+
+00:00:18.640 --> 00:00:24.720
+ the adder takes the one, two, and four, one, two, and four as A and B and then produces a sum, right?
+
+00:00:24.720 --> 00:00:31.520
+ So if I just take an input of one, another input over here of one, and I hook the input to the one
+
+00:00:31.520 --> 00:00:39.200
+ input, and then I hook the other one to the output, and then I change this. And so this is going to,
+
+00:00:39.200 --> 00:00:44.880
+ if I have one plus one is two, so this is kind of a weird layout here, but this is zero plus one
+
+00:00:44.880 --> 00:00:51.280
+ is, should be, one. Okay, so I had to kind of toggle that a little bit, drag it around,
+
+00:00:51.280 --> 00:00:57.040
+ kind of confused it. So there you go. The idea here is we're going to make a counter and we're
+
+00:00:57.040 --> 00:01:04.240
+ going to make a counter by creating a clocked circuit. So let me delete this input, delete
+
+00:01:04.240 --> 00:01:10.000
+ this input. So this is an adder, whatever we present as its input, it's going to sum them
+
+00:01:10.000 --> 00:01:15.280
+ together, zero through seven, produce the output and tell us what the output is. And then we're
+
+00:01:15.280 --> 00:01:21.280
+ going to make a three bit latch, and I'll take the output, the latch is like a little register,
+
+00:01:21.280 --> 00:01:28.160
+ so that the register is, it takes its inputs, it ignores its inputs until you put a one at the
+
+00:01:28.160 --> 00:01:41.680
+ clock. Let's go put a clock here. So when the clock is one, the inputs are being copied to the
+
+00:01:41.680 --> 00:01:53.360
+ outputs, okay? And so let's do this. Let's make an input over here. It's kind of like a bunch of
+
+00:01:53.360 --> 00:02:07.360
+ flip-flops output over here. So the current state of the latch, what's stored in the register is a
+
+00:02:07.360 --> 00:02:13.600
+ value of one, and we can change this all day long and it's ignoring it. That's just like a flip-flop,
+
+00:02:13.600 --> 00:02:19.280
+ it's just like a JK flip-flop, this is a series of JK flip-flops in here, flip on and off. And then
+
+00:02:19.280 --> 00:02:28.560
+ if we want to tell this register to latch in its input values, we can say do that, and then it
+
+00:02:28.560 --> 00:02:33.440
+ latches in its input values. And then when the clock goes low again, then it copies the output
+
+00:02:33.440 --> 00:02:37.920
+ values. So now the internal state is zero, the outputs are zero because the clock is low. So if
+
+00:02:37.920 --> 00:02:42.400
+ I, again, now I can change this and nothing changes because it's a latch, and then I say,
+
+00:02:42.400 --> 00:02:48.640
+ oh let that clock go high, copies it in, then the clock goes low, and it copies it out, okay?
+
+00:02:48.640 --> 00:02:56.320
+ So let's go ahead and build a simple counter where we're just going to take a value and store it in
+
+00:02:56.320 --> 00:03:02.080
+ this register. Okay, so now we got the register, it's still got a one in it. So we're going to
+
+00:03:02.080 --> 00:03:08.000
+ take this and we're going to connect the sum values to the input values of the latch. And this
+
+00:03:08.000 --> 00:03:13.040
+ is a situation where those little waypoints can be really helpful. So I'm going to drag that one
+
+00:03:13.040 --> 00:03:23.120
+ there, connect this one to this one, connect the two values, this second bit, then make a waypoint.
+
+00:03:23.120 --> 00:03:28.320
+ You got to double click to make a waypoint, so we can make a waypoint. And then connect the four
+
+00:03:28.320 --> 00:03:34.400
+ values to the latch and double click to make a waypoint and pull this out to make it so that you
+
+00:03:34.400 --> 00:03:43.040
+ can sort of see it. So all I did is I connected the corresponding outputs of the adder to the input
+
+00:03:43.040 --> 00:03:48.080
+ of the latch. And then we're going to take the output of the latch and connect it to the input
+
+00:03:48.080 --> 00:03:52.080
+ of the adder. Now the thing that's going to make this work so it doesn't just kind of explode and
+
+00:03:52.080 --> 00:03:58.400
+ start on fire is this clock circuit. So I'm going to put an input on the clock circuit, I'm going to
+
+00:03:58.400 --> 00:04:10.800
+ set that to zero. So as long as the clock circuit is zero, the current state of the latch is being
+
+00:04:10.800 --> 00:04:15.520
+ copied to the output values. And then what I'm going to do is I'm going to make this add one
+
+00:04:15.520 --> 00:04:22.960
+ every time. I'll just take an input and connect it to the one value of the b-op brand of the adder.
+
+00:04:22.960 --> 00:04:30.720
+ Let's make this look prettier by putting a waypoint in. Look how pretty that is. Waypoint, nice.
+
+00:04:30.720 --> 00:04:35.120
+ Let's put a waypoint here while we're at it to make it pretty. Look at that. It's a pretty
+
+00:04:35.120 --> 00:04:41.920
+ little clock. So now this is a zero, but I want to turn this to a one. So what happens now is we are
+
+00:04:41.920 --> 00:04:49.120
+ being presented with a one on the a inputs, the number one, one, zero, zero, and a one on the b
+
+00:04:49.120 --> 00:04:54.080
+ input. So the adder is continuously computing. So think of this as three full adders. It's
+
+00:04:54.080 --> 00:05:00.880
+ continuously computing and it's continuously presenting this two, which is zero, one, zero.
+
+00:05:00.880 --> 00:05:06.080
+ It's presenting two at the inputs of the latch, but because the latch currently has a clock of zero,
+
+00:05:06.960 --> 00:05:13.360
+ we are not copying it. So what'll happen here is hit the clock goes to one, we will see that the
+
+00:05:13.360 --> 00:05:19.440
+ two is copied from the adder to the latch, but the two is not copied to the outputs of the latch and
+
+00:05:19.440 --> 00:05:25.760
+ therefore to the inputs of the adder until the clock goes low again. Okay, so now the clock went
+
+00:05:25.760 --> 00:05:30.880
+ low. So now the two is being presented on the inputs of the adder and the plus one. And so we
+
+00:05:30.880 --> 00:05:36.560
+ get three. So if I just start clicking this clock off and on, now remember it, when it goes to one,
+
+00:05:36.560 --> 00:05:41.280
+ it copies from the adder to the latch. When it goes to zero, it copies from the latch back to the
+
+00:05:41.280 --> 00:05:48.800
+ adder. Otherwise it would just go, and the timing would be very, very weird at that point. So this
+
+00:05:48.800 --> 00:05:54.160
+ is a clock circuit and these registers inside CPUs tend to be clocked. And so we'll do this,
+
+00:05:54.160 --> 00:05:58.960
+ but let's just add a clock to it so that we don't have to keep clicking. So let's take a look at
+
+00:05:58.960 --> 00:06:07.360
+ this clock component and hook up an output to it. And so the clock, come on, hook up a happy little
+
+00:06:07.360 --> 00:06:13.760
+ output. There we go. Okay, so the clock is currently off and it's producing a one. So I'm
+
+00:06:13.760 --> 00:06:18.480
+ going to click on the clock to turn it on. So now it's giving high, low, and you'll see that every
+
+00:06:18.480 --> 00:06:24.240
+ second the clock is going from high to low to high to low to high to low. And so what I'm going to do
+
+00:06:24.240 --> 00:06:29.440
+ is I'm going to delete this little manual clock that I put in, goodbye, and delete this little output,
+
+00:06:29.440 --> 00:06:35.920
+ goodbye, and I'm going to connect the high value to the clock value on the latch. And let's go ahead
+
+00:06:35.920 --> 00:06:40.800
+ and put a little waypoint in here to make it a little prettier. You can drag these waypoints
+
+00:06:40.800 --> 00:06:46.240
+ quite nicely. If anybody wants to grab the source to this and give me a better routing algorithm,
+
+00:06:46.240 --> 00:06:50.800
+ I would greatly appreciate it. So now what we're seeing here is this clock is going high to low.
+
+00:06:52.000 --> 00:06:55.680
+ Here, let's go ahead and put a little output here so we can watch what's going on a little better.
+
+00:06:55.680 --> 00:07:02.320
+ Connect the high to the output. So you can see the clock is going from zero to one to zero to one.
+
+00:07:02.320 --> 00:07:07.680
+ And every time it goes to one, it copies into the latch. And then every time it goes to zero,
+
+00:07:07.680 --> 00:07:12.800
+ it copies from the latch to the adder and ignores. The thing that makes this work is like the six is
+
+00:07:12.800 --> 00:07:19.600
+ being ignored until the clock goes high. So we now have a little counter that's counting up to seven
+
+00:07:19.600 --> 00:07:24.320
+ and then resetting itself. You see it kind of says overflow. That's because when you add seven plus
+
+00:07:24.320 --> 00:07:34.000
+ one, it's zero overflow. That's when you carry out of the top full adder. Okay, so we just made
+
+00:07:34.000 --> 00:07:40.720
+ a simple counter that goes from zero through seven and counts up seconds. And so you could think of
+
+00:07:40.720 --> 00:07:45.680
+ this as like a little clock. I think I might be able to put for fun a little Nixie. Let's see
+
+00:07:45.680 --> 00:07:51.920
+ if I can make a Nixie work here. So here's a Nixie tube. And I think that I can copy this.
+
+00:07:51.920 --> 00:07:59.120
+ This is going to look ugly. I'll just kind of copy them here. Copy the Nixie there. Copy. It's still
+
+00:07:59.120 --> 00:08:09.280
+ running. I'm just taking the one, two, and the four values and copying them from the sum output.
+
+00:08:10.160 --> 00:08:18.800
+ There we go. Now all we did is, come on Nixie, move. Okay, so the Nixie is just keeping track
+
+00:08:18.800 --> 00:08:22.480
+ of what's going here. We could actually put a Nixie in between here. So you could see if the
+
+00:08:22.480 --> 00:08:27.520
+ Nixie outputs seven and seven, the adder tells us what its current output value is and the latch
+
+00:08:27.520 --> 00:08:32.560
+ tells us. But you can actually take the Nixie and use it to copy things. But it's pretty and it's
+
+00:08:32.560 --> 00:08:38.160
+ really pretty darn awesome. So that was a counter example. So I hope you found this walkthrough
+
+00:08:38.160 --> 00:08:44.640
+ useful and I hope that you can construct your own counter. Now I'll just say I got a cheat code in
+
+00:08:44.640 --> 00:08:52.240
+ here. Okay. So if you really want to, you can just, you can load a counter. I stored a counter inside
+
+00:08:52.240 --> 00:08:58.720
+ of it. And so there goes a counter. The clock's off. It's got everything we just said. It's got
+
+00:08:58.720 --> 00:09:02.560
+ all the stuff connected. It's a little prettier than the one I just drew, but I'll turn it on
+
+00:09:02.560 --> 00:09:08.320
+ and it's starting. It's just counting every second. Right. And the actual data here is the data in the
+
+00:09:08.320 --> 00:09:12.560
+ latch. And that would be the thing that you would be just seeing if you were building like a digital
+
+00:09:12.560 --> 00:09:17.120
+ wristwatch or something like that. Okay. So again, thanks for listening. I hope you found
+
+00:09:17.120 --> 00:09:26.000
+ this walkthrough useful.
+
