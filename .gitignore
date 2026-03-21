@@ -2,3 +2,4 @@
 *.mp4
 *.mov
 *.whisper-temp.wav
+.DS_Store
