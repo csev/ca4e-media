@@ -1,4 +1,4 @@
-Batch started: Tue Mar 17 12:26:42 EDT 2026
+Batch started: Sat Mar 21 13:29:02 EDT 2026
 ROOT=/Users/csev/Desktop/teach/ca4e-media
 WHISPER=whisper-cli
 MODEL=/Users/csev/models/ggml-medium.bin
@@ -10,544 +10,19 @@ TEMP_SUFFIX=.whisper-temp.wav
 SKIP: /Users/csev/Desktop/teach/ca4e-media/00-Welcome/00-01-Intro.m4v (found 00-01-Intro.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-01-Origins-StoneHenge.m4v (found 01-01-Origins-StoneHenge.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-02-Origins-SlideRule.m4v (found 01-02-Origins-SlideRule.txt)
-
-==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital
-STEP 1: Extracting audio with ffmpeg...
-STEP 2: Running whisper-cli...
-whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
-whisper_init_with_params_no_state: use gpu    = 1
-whisper_init_with_params_no_state: flash attn = 1
-whisper_init_with_params_no_state: gpu_device = 0
-whisper_init_with_params_no_state: dtw        = 0
-ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
-ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
-ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
-ggml_metal_device_init: GPU name:   Apple M1 Pro
-ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
-ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
-ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
-ggml_metal_device_init: simdgroup reduction   = true
-ggml_metal_device_init: simdgroup matrix mul. = true
-ggml_metal_device_init: has unified memory    = true
-ggml_metal_device_init: has bfloat            = true
-ggml_metal_device_init: has tensor            = false
-ggml_metal_device_init: use residency sets    = true
-ggml_metal_device_init: use shared buffers    = true
-ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB
-whisper_init_with_params_no_state: devices    = 3
-whisper_init_with_params_no_state: backends   = 3
-whisper_model_load: loading model
-whisper_model_load: n_vocab       = 51865
-whisper_model_load: n_audio_ctx   = 1500
-whisper_model_load: n_audio_state = 1024
-whisper_model_load: n_audio_head  = 16
-whisper_model_load: n_audio_layer = 24
-whisper_model_load: n_text_ctx    = 448
-whisper_model_load: n_text_state  = 1024
-whisper_model_load: n_text_head   = 16
-whisper_model_load: n_text_layer  = 24
-whisper_model_load: n_mels        = 80
-whisper_model_load: ftype         = 1
-whisper_model_load: qntvr         = 0
-whisper_model_load: type          = 4 (medium)
-whisper_model_load: adding 1608 extra tokens
-whisper_model_load: n_langs       = 99
-whisper_model_load:        Metal total size =  1533.14 MB
-whisper_model_load: model size    = 1533.14 MB
-whisper_backend_init_gpu: device 0: Metal (type: 1)
-whisper_backend_init_gpu: found GPU device 0: Metal (type: 1, cnt: 0)
-whisper_backend_init_gpu: using Metal backend
-ggml_metal_init: allocating
-ggml_metal_init: found device: Apple M1 Pro
-ggml_metal_init: picking default device: Apple M1 Pro
-ggml_metal_init: use fusion         = true
-ggml_metal_init: use concurrency    = true
-ggml_metal_init: use graph optimize = true
-whisper_backend_init: using BLAS backend
-whisper_init_state: kv self size  =   50.33 MB
-whisper_init_state: kv cross size =  150.99 MB
-whisper_init_state: kv pad  size  =    6.29 MB
-whisper_init_state: compute buffer (conv)   =   29.53 MB
-whisper_init_state: compute buffer (encode) =   53.12 MB
-whisper_init_state: compute buffer (cross)  =   20.02 MB
-whisper_init_state: compute buffer (decode) =   99.12 MB
-
-system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
-
-main: processing '/Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.whisper-temp.wav' (10600768 samples, 662.5 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
-
-
-[00:00:00.000 --> 00:00:07.200]   now we're going to talk about physical digital devices so it there are no real digital devices
-[00:00:07.200 --> 00:00:13.840]   everything in this world is analog so we sort of layer an abstraction on top of an analog world
-[00:00:13.840 --> 00:00:22.400]   and so think of digital as analog systems that are built to have two relatively stable states
-[00:00:22.400 --> 00:00:29.120]   and they require some kind of an input to change the state but once the state is changed
-[00:00:29.680 --> 00:00:37.920]   it's stable again okay so it there's a state state transition so if we look at a pen by the way
-[00:00:37.920 --> 00:00:44.080]   capturing the new state the technical term for that is called latching you know you here comes a
-[00:00:44.080 --> 00:00:49.200]   change state you like latch it you grab it and you keep it and then the stable time is when you've
-[00:00:49.200 --> 00:00:55.200]   kept the state so you often find at least in physical digital devices that there is a clicking
-[00:00:55.200 --> 00:01:02.720]   associated with it so here's a pen a retractable pen all right there you go retractable pen
-[00:01:02.720 --> 00:01:12.800]   click click click click okay now so we'll decide that zero is when it's retracted and one is when
-[00:01:12.800 --> 00:01:18.560]   it's not and so it's stable i don't have to touch it to keep the one and when it's zero i don't have
-[00:01:18.560 --> 00:01:25.760]   to touch it to keep the zero but it's also you have to put input to switch it from zero to one
-[00:01:25.760 --> 00:01:31.600]   but if you don't push it far enough it goes back to zero so zero is stable and slight variations
-[00:01:31.600 --> 00:01:38.240]   of input does not disturb the zero it comes back to zero but if you put enough input hear the click
-[00:01:38.240 --> 00:01:47.040]   then it's a one right and so there is a two states and a transition period and that transition period
-[00:01:47.600 --> 00:01:54.880]   is when there is some input required to change the state and so that is the notion of digital
-[00:01:54.880 --> 00:02:01.360]   we call one of the states one and one of the states zero so a classic use of this for
-[00:02:01.360 --> 00:02:09.520]   hundreds of years is clocks so clocks are sort of a digital where the pendulum would go back and
-[00:02:09.520 --> 00:02:18.080]   forth tick tock tick tock and then inside of it a little gear would move for each second and then
-[00:02:18.080 --> 00:02:23.200]   that would count up the seconds to make a minute and then count up to minutes to make an hour with
-[00:02:23.200 --> 00:02:30.960]   a series of gears very much like the antikythera mechanism and what's even cooler for a cuckoo clock
-[00:02:30.960 --> 00:02:37.120]   is that at particular moments in time it runs a little mechanical program to make a little birdie
-[00:02:37.120 --> 00:02:44.000]   come out and tweet so cuckoo clocks are an early form of of programming that's all hardware and
-[00:02:44.000 --> 00:02:49.520]   all analog but it's analog digital because of the tick tock and the counters that count the ticks
-[00:02:49.520 --> 00:03:01.120]   and the tocks so another device that is a counter that carries and frankly this device could be the
-[00:03:01.120 --> 00:03:06.640]   inside of a cuckoo clock it's just a little easier for us to understand it so what these are let me
-[00:03:06.640 --> 00:03:13.280]   show you close up here so these are little devices that are used for shopping and they have dollars
-[00:03:13.280 --> 00:03:19.360]   let me get my pen here they have dollars dimes and cents and if you're going to buy something for
-[00:03:19.360 --> 00:03:27.040]   15 cents you can put the five in for five cents and then one in and then I buy something for
-[00:03:27.040 --> 00:03:36.640]   25 cents put two dimes and five five cents and it's carrying all along okay now how does this work it
-[00:03:36.640 --> 00:03:43.200]   is a physical digital device you can see that it's clicking so let's take a look inside the device
-[00:03:43.200 --> 00:03:51.120]   so here's the inside of the device and you can see right away that there is some springs in here
-[00:03:51.680 --> 00:03:57.920]   each one has a spring and there's a specific shape of the of the thing we're pushing down and there's
-[00:03:57.920 --> 00:04:05.040]   some flexibility in it so all of this is to get to the point where we can press an input and that
-[00:04:05.040 --> 00:04:11.360]   input changes it right so if I press it down it doesn't quite change that's the old stable part
-[00:04:11.360 --> 00:04:16.560]   but if I press it far enough it clicks and then it changes now we're about to see we're on nine
-[00:04:16.560 --> 00:04:21.840]   right now you want to click one more time and we're going to see the carry this is a ripple carry
-[00:04:21.840 --> 00:04:26.080]   we're going to learn about later in half adders and full adders we're going to learn about ripple
-[00:04:26.080 --> 00:04:32.080]   carry but you can watch as the ripple carry happens this little white thing here is going to
-[00:04:32.080 --> 00:04:38.320]   go up and push it's going to act as if it pushed the middle one it's going to move it but instead
-[00:04:38.320 --> 00:04:46.720]   pushing the sense is going to oops I pushed the wrong one pushing the sense is going to move that
-[00:04:46.720 --> 00:04:52.720]   so if I go around and do 10 more of these you'll see it'll come down it's seven and now it's clicked
-[00:04:52.720 --> 00:05:00.800]   to eight so that that's how we carry when we get beyond 10 and so this notion of ripple carry and
-[00:05:00.800 --> 00:05:07.120]   multiple values we're going to build this into actually electronic hardware coming up so once
-[00:05:07.120 --> 00:05:13.360]   you can build an adding machine with some kind of iteration you can turn addition into multiplication
-[00:05:13.360 --> 00:05:19.040]   and that's because multiplication is merely repeated addition now I don't have a multiplier
-[00:05:19.040 --> 00:05:25.680]   but I do have a an adder that's a little tougher this is metal it's many things it can do addition
-[00:05:25.680 --> 00:05:30.880]   it can do subtraction and then eventually you would put something like this with a motor on it
-[00:05:30.880 --> 00:05:38.160]   or a crank on it and then you could build a physical mechanical multiplier addition and
-[00:05:38.160 --> 00:05:43.760]   subtraction and multiplication are not the only things that we needed to do we need to do things
-[00:05:43.760 --> 00:05:52.720]   like logarithms sine and cosine and today we would just use a hand calculator and we put in whatever
-[00:05:52.720 --> 00:05:58.080]   and we click the sign button and out it comes now that does someone in the 1930s would be a miracle
-[00:05:58.080 --> 00:06:03.680]   that you can ask for the sine or cosine or logarithm of any number and it just comes out
-[00:06:03.680 --> 00:06:11.920]   on a little screen this is more powerful than any computer in 1930 so what they had to do though
-[00:06:11.920 --> 00:06:17.200]   those functions are still there sine and cosine and logarithms have to do with things like curves
-[00:06:17.200 --> 00:06:22.960]   and the motion of spacecraft etc and so we needed to know all this stuff so there's a couple ways
-[00:06:22.960 --> 00:06:29.360]   to do it now one of the things we talked about already with logarithms was the fact that we have
-[00:06:29.360 --> 00:06:36.640]   a slide rule and the slide rules so slide rule upside no slide rule is not upside down the slide
-[00:06:36.640 --> 00:06:42.560]   rule that basically just converts linear numbers to logarithmic numbers and then it uses sliding
-[00:06:42.560 --> 00:06:50.320]   and addition adding by moving along this line that equates to multiplication so logarithms we we in
-[00:06:50.320 --> 00:06:58.000]   in the 30s 40s and 50s we use slide rules with carefully crafted scales and movement to turn the
-[00:06:58.000 --> 00:07:04.160]   more complex multiplication into addition but for things like sine and cosine and just looking up
-[00:07:04.160 --> 00:07:10.000]   logarithms a little more precisely we basically created this book we had this book standard
-[00:07:10.000 --> 00:07:15.680]   mathematical tables and this was a thing you every engineer would buy and if you wanted to
-[00:07:15.680 --> 00:07:22.480]   look logarithms up this is a book of four place decimal common logarithms and you would look things
-[00:07:22.480 --> 00:07:28.720]   up and you would find four or five digits of precision and if you keep going you got logarithms
-[00:07:28.720 --> 00:07:35.920]   of trigonometric functions square sine and cosine in their product hyperbolic functions okay we
-[00:07:35.920 --> 00:07:45.600]   didn't want to know that stuff integrals okay so this was the way you did complex calculations
-[00:07:45.600 --> 00:07:50.160]   before we had hand calculators this is all replaced for all intents and purposes
-[00:07:50.160 --> 00:07:58.320]   by modern hand calculators but the transistor hasn't been invented yet now there were devices
-[00:07:58.320 --> 00:08:05.040]   that were designed in a sense to create that book the babbage difference engine was something that
-[00:08:05.040 --> 00:08:12.080]   was imagined in the 1820s that was had gears and little cogs little carry adders just like the stuff
-[00:08:12.080 --> 00:08:19.840]   we just saw that could compute up to seventh order polynomials like x to the seventh x to the six x
-[00:08:19.840 --> 00:08:25.760]   the fifth and the reason that was so important is you can approximate a lot of functions using
-[00:08:25.760 --> 00:08:31.200]   polynomials with various constants on those polynomials so if you could put a seventh order
-[00:08:31.200 --> 00:08:38.400]   polynomial into this machine and then run it for a while you could generate a table of sine or
-[00:08:38.400 --> 00:08:43.680]   different polynomial would generate a table of cosine or logarithms and the cool thing about
-[00:08:43.680 --> 00:08:48.960]   this is this was designed to actually have a printer which would do the computation and then
-[00:08:48.960 --> 00:08:54.160]   print the result out so that you could make a book out of this thing and and charles babbage
-[00:08:54.160 --> 00:08:59.520]   designed it all in the 1800s and he built a tiny prototype but turns out that you know ran out of
-[00:08:59.520 --> 00:09:05.760]   money ran out of time a full-scale system based on his designs was built in 1991 and it worked
-[00:09:05.760 --> 00:09:11.440]   exactly as babbage expected it it was intended to be powered by a steam engine although
-[00:09:11.440 --> 00:09:21.360]   if you ever see one running usually it's a human that's cranking it
-[00:09:21.360 --> 00:09:33.200]   now another way that we built the content of these tables in these books is using computers
-[00:09:33.840 --> 00:09:39.600]   except in the early days computer was a word for a job description for a human being
-[00:09:39.600 --> 00:09:45.120]   so the idea of a computer is they would have some kind of calculator probably could do addition and
-[00:09:45.120 --> 00:09:52.480]   multiplication and this person would carefully put numbers in run the calculator and compute
-[00:09:52.480 --> 00:09:58.880]   using some of those polynomial things often sign and log and then record the results and these
-[00:09:58.880 --> 00:10:04.080]   these rooms full of people would do these calculations over and over and over for different input values
-[00:10:04.080 --> 00:10:08.560]   and get the output values for various functions and then write them down and that's what built
-[00:10:08.560 --> 00:10:16.080]   human computers built many of the early data in or these early books now computers when computers
-[00:10:16.080 --> 00:10:22.240]   started electronic computers started to happen it was natural to think of the task that these
-[00:10:22.240 --> 00:10:27.200]   electronic computers were doing as very similar to the task the repetitive tasks that the human
-[00:10:27.200 --> 00:10:31.600]   computers were doing and so that's how things we call computers today were named computers
-[00:10:31.600 --> 00:10:37.680]   they're named after people and the movie one of my favorite movies hidden figures explores the
-[00:10:37.680 --> 00:10:43.120]   shift from sort of human to electronic computers where they were a bunch of people and they were
-[00:10:43.120 --> 00:11:02.320]   doing human computer work and then they moved into the electronic computer work and using Fortran etc.
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.srt'
-
-whisper_print_timings:     load time =   557.20 ms
-whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   248.55 ms
-whisper_print_timings:   sample time =  3028.56 ms / 11211 runs (     0.27 ms per run)
-whisper_print_timings:   encode time = 10383.37 ms /    26 runs (   399.36 ms per run)
-whisper_print_timings:   decode time =   492.95 ms /    51 runs (     9.67 ms per run)
-whisper_print_timings:   batchd time = 28157.81 ms / 11030 runs (     2.55 ms per run)
-whisper_print_timings:   prompt time =  2021.48 ms /  5902 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 45484.46 ms
-ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.m4v
-TIMING:
-  FFMPEG : 00:00:01
-  WHISPER: 00:00:46
-  TOTAL  : 00:00:47
+SKIP: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-03-Origins-Digital.m4v (found 01-03-Origins-Digital.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/01-Origins/01-04-Origins-Iteration.m4v (found 01-04-Origins-Iteration.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-01-SolidState-Tubes.m4v (found 02-01-SolidState-Tubes.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-02-SolidState-Transistor.m4v (found 02-02-SolidState-Transistor.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-03-SolidState-Gates.m4v (found 02-03-SolidState-Gates.txt)
-
-==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor
-STEP 1: Extracting audio with ffmpeg...
-STEP 2: Running whisper-cli...
-whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
-whisper_init_with_params_no_state: use gpu    = 1
-whisper_init_with_params_no_state: flash attn = 1
-whisper_init_with_params_no_state: gpu_device = 0
-whisper_init_with_params_no_state: dtw        = 0
-ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
-ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
-ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
-ggml_metal_device_init: GPU name:   Apple M1 Pro
-ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
-ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
-ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
-ggml_metal_device_init: simdgroup reduction   = true
-ggml_metal_device_init: simdgroup matrix mul. = true
-ggml_metal_device_init: has unified memory    = true
-ggml_metal_device_init: has bfloat            = true
-ggml_metal_device_init: has tensor            = false
-ggml_metal_device_init: use residency sets    = true
-ggml_metal_device_init: use shared buffers    = true
-ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB
-whisper_init_with_params_no_state: devices    = 3
-whisper_init_with_params_no_state: backends   = 3
-whisper_model_load: loading model
-whisper_model_load: n_vocab       = 51865
-whisper_model_load: n_audio_ctx   = 1500
-whisper_model_load: n_audio_state = 1024
-whisper_model_load: n_audio_head  = 16
-whisper_model_load: n_audio_layer = 24
-whisper_model_load: n_text_ctx    = 448
-whisper_model_load: n_text_state  = 1024
-whisper_model_load: n_text_head   = 16
-whisper_model_load: n_text_layer  = 24
-whisper_model_load: n_mels        = 80
-whisper_model_load: ftype         = 1
-whisper_model_load: qntvr         = 0
-whisper_model_load: type          = 4 (medium)
-whisper_model_load: adding 1608 extra tokens
-whisper_model_load: n_langs       = 99
-whisper_model_load:        Metal total size =  1533.14 MB
-whisper_model_load: model size    = 1533.14 MB
-whisper_backend_init_gpu: device 0: Metal (type: 1)
-whisper_backend_init_gpu: found GPU device 0: Metal (type: 1, cnt: 0)
-whisper_backend_init_gpu: using Metal backend
-ggml_metal_init: allocating
-ggml_metal_init: found device: Apple M1 Pro
-ggml_metal_init: picking default device: Apple M1 Pro
-ggml_metal_init: use fusion         = true
-ggml_metal_init: use concurrency    = true
-ggml_metal_init: use graph optimize = true
-whisper_backend_init: using BLAS backend
-whisper_init_state: kv self size  =   50.33 MB
-whisper_init_state: kv cross size =  150.99 MB
-whisper_init_state: kv pad  size  =    6.29 MB
-whisper_init_state: compute buffer (conv)   =   29.53 MB
-whisper_init_state: compute buffer (encode) =   53.12 MB
-whisper_init_state: compute buffer (cross)  =   20.02 MB
-whisper_init_state: compute buffer (decode) =   99.12 MB
-
-system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
-
-main: processing '/Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.whisper-temp.wav' (7160811 samples, 447.6 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
-
-
-[00:00:00.000 --> 00:00:08.560]   hello and welcome to a hardware layout walkthrough for computer architecture for everybody this
-[00:00:08.560 --> 00:00:15.040]   walkthrough is going to design a CMOS NOR gate circuit which is actually one of the assignments
-[00:00:15.040 --> 00:00:19.840]   but i'm going to use this to show you how the tool works so let's go across the top we have a button
-[00:00:19.840 --> 00:00:26.720]   to add a switch so that's how we give inputs we have a button to add a probe that's how we measure
-[00:00:26.720 --> 00:00:31.040]   outputs so you click the probe button and then you click where the probe is at and you'll notice
-[00:00:31.040 --> 00:00:36.080]   that the switch has a little output dot and the probe has an input and an output dot then you can
-[00:00:36.080 --> 00:00:41.840]   put some transistors down you can put NMOS transistors down the way i remember NMOS transistors
-[00:00:41.840 --> 00:00:47.680]   is NMOS transistors are like the original ones that basically when their input is one they're
-[00:00:47.680 --> 00:00:52.640]   conducting and when their input is zero they're not conducting and then you have a PMOS transistor
-[00:00:52.640 --> 00:00:58.000]   where it's the opposite so let me just connect this little input five volt input to the inputs
-[00:00:58.000 --> 00:01:03.520]   of the NMOS that i put at the bottom and the PMOS that i put at the top and so you'll see that
-[00:01:03.520 --> 00:01:09.200]   when i'm pointing five volts to the NMOS it's on and the PMOS is off and then when i flip it
-[00:01:09.200 --> 00:01:17.600]   to zero volts the PMOS is on and the NMOS is off okay so so you can place all three of these
-[00:01:17.600 --> 00:01:23.760]   components and you can draw wires by basically dragging them to the inputs and then you have
-[00:01:23.760 --> 00:01:28.720]   the ability to move things around all right you can move them around by pressing the little hand
-[00:01:28.720 --> 00:01:33.440]   and then dragging and moving them around you have a little trash can icon that allows you to get rid
-[00:01:33.440 --> 00:01:40.560]   of something you can clear it all you can actually load and store circuits so i can save this one as
-[00:01:41.680 --> 00:01:49.280]   test one and then you can load it back up and so that way you can work on a circuit
-[00:01:49.280 --> 00:01:54.080]   and then reload it now this is the same circuit but this way you can walk away from your computer
-[00:01:54.080 --> 00:01:59.120]   now this actually stores the circuits in local storage on your browser not in the server so the
-[00:01:59.120 --> 00:02:04.480]   same browser will have your circuits now let's just go ahead and delete that circuit delete test one
-[00:02:06.480 --> 00:02:12.160]   okay and you won't see this instructor button but then here's the assignment button so if you
-[00:02:12.160 --> 00:02:16.480]   click on the assignment button it tells you what your assignment is and it also lets you see the
-[00:02:16.480 --> 00:02:22.080]   in this case because it's a NOR gate you can see the truth table and again remember NOR is not OR
-[00:02:22.080 --> 00:02:27.200]   you know if either of them are true then OR would be true but really it's not OR so they're false
-[00:02:27.200 --> 00:02:33.040]   so the only time that this output is supposed to be high is when both A and B are low so let's also
-[00:02:33.040 --> 00:02:38.000]   take a look at the reference image and this is straight from the lecture so we have our voltage
-[00:02:38.000 --> 00:02:46.000]   at the top and then we have two PMOS transistors in series to the common output and then we have
-[00:02:46.000 --> 00:02:51.360]   two NMOS's in parallel and part of this is is remember that NMOS's conduct when they're a one
-[00:02:51.360 --> 00:02:57.760]   so if A is a one or B is a one ground is going to conduct out and the only way a one or a positive
-[00:02:57.760 --> 00:03:04.080]   is going to conduct out is if A and B are both zero okay so that is the definition of NAND and
-[00:03:04.080 --> 00:03:09.760]   so I tend to to draw these and most people tend to draw these with the PMOS's near the top and the
-[00:03:09.760 --> 00:03:15.440]   NMOS's near the bottom in the real world they get laid out much more intricately but that's okay
-[00:03:15.440 --> 00:03:20.880]   right now we're kind of pretending that we have NMOS transistors and PMOS transistors so let's go
-[00:03:20.880 --> 00:03:24.800]   ahead and start putting this together so one of the things we need to do is we need to put in
-[00:03:24.800 --> 00:03:28.880]   two switches so I'm going to put a second switch in and then I'm going to put labels on those
-[00:03:28.880 --> 00:03:34.960]   switches so I'm going to say this switch is A so the top switch is A and then press the label button
-[00:03:34.960 --> 00:03:42.160]   again and then I say that's bottoms I select the bottom switch and that is B and uh let's see here
-[00:03:42.160 --> 00:03:49.920]   I'm gonna I'm gonna start over fresh let me just delete let me delete the transistors so we can
-[00:03:49.920 --> 00:03:56.320]   sort of file the diagram so we've got an A and a B input and then we're going to put two PMOS
-[00:03:56.320 --> 00:04:01.360]   transistors at the top kind of in series so we just kind of connect them end to end and we'll
-[00:04:01.360 --> 00:04:08.400]   just connect from the in between them we take the S and the D and we connect them in between
-[00:04:08.400 --> 00:04:14.480]   and so that's sort of the top part of the circuit so I might as well connect the A input and the B
-[00:04:14.480 --> 00:04:22.800]   input to these guys okay and then we have to put a couple of NMOS's well okay we'll put a couple of
-[00:04:22.800 --> 00:04:27.360]   NMOS's here and we'll put them sort of next to each other just like in the diagram I guess I
-[00:04:27.360 --> 00:04:37.200]   should connect the the positive voltage to the top PMOS transistor and then I am going to connect
-[00:04:37.200 --> 00:04:43.360]   just like in the picture I'm going to connect the bottom of the second PMOS transistor to
-[00:04:43.360 --> 00:04:48.480]   the top of the NMOS transistors but the output of these NMOS transistors is supposed to be
-[00:04:48.480 --> 00:04:53.360]   connected together and so we're going to have a common output and it turns out that when we
-[00:04:53.360 --> 00:05:00.720]   put our probe here we can connect it to any of these connections because they're just one wire
-[00:05:00.720 --> 00:05:05.200]   basically so they're all connected together and so that's our output and then the next thing we need
-[00:05:05.200 --> 00:05:12.880]   to do is connect our input to both of the NMOS transistors at the bottom and you see it's kind of
-[00:05:13.600 --> 00:05:17.760]   toggling on and off and then the last thing we've got to do is we got to connect the ground
-[00:05:17.760 --> 00:05:24.880]   to the bottom of the NMOS transistors so at this point I think that I have replicated this circuit
-[00:05:24.880 --> 00:05:29.440]   on the right hand side so let's take a look at the specifications we're supposed to add a probe
-[00:05:29.440 --> 00:05:36.640]   component and label it Q so we need to go to the label button and put Q on as our label that way
-[00:05:36.640 --> 00:05:42.560]   the grader can grade it connect the inputs the A and B are the inputs let's let's look at the truth
-[00:05:42.560 --> 00:05:49.600]   table and so right now we have A as zero and B is zero so if we make them both zero then we should
-[00:05:49.600 --> 00:05:55.760]   get a one as the output so A and B are now both zero and Q is output of one so now if we turn any
-[00:05:55.760 --> 00:06:02.240]   of these to one the output would be zero so A of one and B of zero is the output of zero A of one
-[00:06:02.240 --> 00:06:10.160]   and B of one output is zero and let's see which one B of one output B of one and A of zero output
-[00:06:10.160 --> 00:06:16.960]   of one and so the only time the output turns to one is when both A and B and so we have correctly
-[00:06:16.960 --> 00:06:26.560]   built replicated the image that we had from class and we have tested it so now let's see if the
-[00:06:26.560 --> 00:06:32.560]   auto grader likes it so let's see what it does so at first it looks to see if we have A and B and Q
-[00:06:32.560 --> 00:06:37.280]   labeled correctly and then it says we're going to go through it looks like it's going to go through
-[00:06:37.280 --> 00:06:44.880]   all the truth tables truth table truth table truth table and we have been successful and let's save
-[00:06:44.880 --> 00:06:53.280]   this before we're done this is a NOR and so if we come back we could load this back up so if you're
-[00:06:53.280 --> 00:06:58.720]   fooling around and you're building your own circuits and so you you can save things or if
-[00:06:58.720 --> 00:07:02.480]   you're working on it and you're not sure you got it right you want to go back and watch the lecture
-[00:07:02.480 --> 00:07:11.040]   so I think that pretty much covers all of the feature of our CMOS layout editor for computer
-[00:07:11.040 --> 00:07:27.520]   architecture for everybody cheers
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.srt'
-
-whisper_print_timings:     load time =   556.21 ms
-whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   169.39 ms
-whisper_print_timings:   sample time =  2384.65 ms /  8502 runs (     0.28 ms per run)
-whisper_print_timings:   encode time =  6810.63 ms /    17 runs (   400.63 ms per run)
-whisper_print_timings:   decode time =   175.42 ms /    18 runs (     9.75 ms per run)
-whisper_print_timings:   batchd time = 21561.99 ms /  8399 runs (     2.57 ms per run)
-whisper_print_timings:   prompt time =  1314.73 ms /  3859 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 33384.89 ms
-ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.m4v
-TIMING:
-  FFMPEG : 00:00:00
-  WHISPER: 00:00:34
-  TOTAL  : 00:00:34
+SKIP: /Users/csev/Desktop/teach/ca4e-media/02-SolidState/02-10-SolidState-CMOS-Nor.m4v (found 02-10-SolidState-CMOS-Nor.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/03-VLSI/03-04-SolidState-Wafers.m4v (found 03-04-SolidState-Wafers.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/03-VLSI/03-05-SolidState-VLSI.m4v (found 03-05-SolidState-VLSI.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/03-VLSI/03-11-SolidState-VLSI-Not.m4v (found 03-11-SolidState-VLSI-Not.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/03-VLSI/03-12-SolidState-VLSI-Nand.m4v (found 03-12-SolidState-VLSI-Nand.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-01-Digital-Arch.m4v (found 04-01-Digital-Arch.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-02-Digital-Gates.m4v (found 04-02-Digital-Gates.txt)
-
-==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch
-STEP 1: Extracting audio with ffmpeg...
-STEP 2: Running whisper-cli...
-whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
-whisper_init_with_params_no_state: use gpu    = 1
-whisper_init_with_params_no_state: flash attn = 1
-whisper_init_with_params_no_state: gpu_device = 0
-whisper_init_with_params_no_state: dtw        = 0
-ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
-ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
-ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
-ggml_metal_device_init: GPU name:   Apple M1 Pro
-ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
-ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
-ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
-ggml_metal_device_init: simdgroup reduction   = true
-ggml_metal_device_init: simdgroup matrix mul. = true
-ggml_metal_device_init: has unified memory    = true
-ggml_metal_device_init: has bfloat            = true
-ggml_metal_device_init: has tensor            = false
-ggml_metal_device_init: use residency sets    = true
-ggml_metal_device_init: use shared buffers    = true
-ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB
-whisper_init_with_params_no_state: devices    = 3
-whisper_init_with_params_no_state: backends   = 3
-whisper_model_load: loading model
-whisper_model_load: n_vocab       = 51865
-whisper_model_load: n_audio_ctx   = 1500
-whisper_model_load: n_audio_state = 1024
-whisper_model_load: n_audio_head  = 16
-whisper_model_load: n_audio_layer = 24
-whisper_model_load: n_text_ctx    = 448
-whisper_model_load: n_text_state  = 1024
-whisper_model_load: n_text_head   = 16
-whisper_model_load: n_text_layer  = 24
-whisper_model_load: n_mels        = 80
-whisper_model_load: ftype         = 1
-whisper_model_load: qntvr         = 0
-whisper_model_load: type          = 4 (medium)
-whisper_model_load: adding 1608 extra tokens
-whisper_model_load: n_langs       = 99
-whisper_model_load:        Metal total size =  1533.14 MB
-whisper_model_load: model size    = 1533.14 MB
-whisper_backend_init_gpu: device 0: Metal (type: 1)
-whisper_backend_init_gpu: found GPU device 0: Metal (type: 1, cnt: 0)
-whisper_backend_init_gpu: using Metal backend
-ggml_metal_init: allocating
-ggml_metal_init: found device: Apple M1 Pro
-ggml_metal_init: picking default device: Apple M1 Pro
-ggml_metal_init: use fusion         = true
-ggml_metal_init: use concurrency    = true
-ggml_metal_init: use graph optimize = true
-whisper_backend_init: using BLAS backend
-whisper_init_state: kv self size  =   50.33 MB
-whisper_init_state: kv cross size =  150.99 MB
-whisper_init_state: kv pad  size  =    6.29 MB
-whisper_init_state: compute buffer (conv)   =   29.53 MB
-whisper_init_state: compute buffer (encode) =   53.12 MB
-whisper_init_state: compute buffer (cross)  =   20.02 MB
-whisper_init_state: compute buffer (decode) =   99.12 MB
-
-system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
-
-main: processing '/Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.whisper-temp.wav' (10676203 samples, 667.3 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
-
-
-[00:00:00.000 --> 00:00:05.840]   so we just got done adding numbers with gates with carry but now we're going to do something a little
-[00:00:05.840 --> 00:00:12.000]   more difficult which is storing data with gates and so that basically is a way we can create memory
-[00:00:12.000 --> 00:00:19.120]   systems whether it's registers inside of the cpu or high speed memory we can create ways to store
-[00:00:19.120 --> 00:00:27.760]   zeros and ones over time the key there is over time so it'll take us a while to develop this concept
-[00:00:27.760 --> 00:00:33.920]   but the key thing here is that we use feedback loops and in this circuit which calls is called
-[00:00:33.920 --> 00:00:42.160]   a set reset latch it basically has this q output and the q not output and you'll notice that the
-[00:00:42.160 --> 00:00:50.560]   there's a top NOR gate and a bottom NOR gate and the top output is get put as one of the inputs
-[00:00:50.560 --> 00:00:55.040]   to the bottom NOR gate and the bottom output is put as one of the inputs to the top NOR gate
-[00:00:56.480 --> 00:01:04.720]   now you'll look at the little srq truth table and and what happens is if q has a value
-[00:01:04.720 --> 00:01:12.960]   and s and r are zero the value of q will be maintained so let's just let's just trace that
-[00:01:12.960 --> 00:01:23.280]   through so let's just assume that r and s are zero and q is one so the the one from q is the
-[00:01:23.280 --> 00:01:33.200]   second input to the lower NOR gate and that is a one input so the output of this lower NOR gate
-[00:01:33.200 --> 00:01:43.920]   is a zero which is then the input to the top NOR gate and as soon as the the the input the
-[00:01:43.920 --> 00:01:50.160]   the q not input to the top NOR gate is zero and r is zero as well then that means that q is one
-[00:01:50.160 --> 00:01:58.400]   because it's a NOR gate and q is one so it goes to the bottom but q q being one and s being zero
-[00:01:58.400 --> 00:02:06.000]   means that q not is zero the zero goes back up r being zero and a zero zero zero equals one
-[00:02:06.000 --> 00:02:16.560]   so what happens is once q is one it stays one it's sticky now you can put in combinations
-[00:02:16.560 --> 00:02:24.720]   of s and r to set the value for q if you look at the truth table if you set s to zero and r to one
-[00:02:24.720 --> 00:02:34.320]   then the q becomes a zero and then if you set the r back to zero it's q stays zero and if you set
-[00:02:34.320 --> 00:02:43.040]   s to one and r to zero then q becomes a one but then if you set that s back to zero then q maintains
-[00:02:43.600 --> 00:02:50.800]   so we can store either a zero in the q or a one in q and then as long as we keep the inputs
-[00:02:50.800 --> 00:02:57.360]   s and r zero that one just goes round and round and round between those two NOR gates
-[00:02:57.360 --> 00:03:02.720]   so we're going to cover this a little bit more here's the truth table now we're just not going
-[00:03:02.720 --> 00:03:07.760]   to show those NOR gates we're just going to call this an sr latch again that's what we do we make
-[00:03:07.760 --> 00:03:14.640]   take two gates and make a component so we can talk about it when s and r are zero the latch
-[00:03:14.640 --> 00:03:21.280]   maintains its internal state that q output of one says that means that we set it to one at some
-[00:03:21.280 --> 00:03:29.280]   previous time and now we're just putting inputs of zero zero and the output stays one so if we have
-[00:03:29.280 --> 00:03:36.240]   s of one and r of zero then that makes the internal storage to one and then what you've got to do
-[00:03:36.240 --> 00:03:43.280]   is you've got to take that s down to zero but then the output maintains so two zeros means
-[00:03:43.280 --> 00:03:51.440]   keep your state now if we make the s be a zero and the r be a one that's going to set the output
-[00:03:51.440 --> 00:03:58.720]   to zero and then the next thing you do is you set r to zero and then the output stays now how we
-[00:03:58.720 --> 00:04:05.120]   do this is a little bit tricky right and we'll we'll make smarter latches but this is the simplest
-[00:04:05.120 --> 00:04:11.520]   latch and it's literally two NOR gates okay that's it now we're gonna have to build some more logic
-[00:04:11.520 --> 00:04:16.640]   because this is kind of inconvenient because that 2-1 situation is kind of a pain in the neck now
-[00:04:16.640 --> 00:04:25.600]   i'll just let you know that you can try to build an sr latch using two NOR gates in my simulator
-[00:04:25.600 --> 00:04:33.040]   and it won't work now maybe someday i will make the circuit emulation of my digital logic simulator
-[00:04:33.040 --> 00:04:41.520]   better but the problem is is that because this is a time-based circuit with feedback you have to build
-[00:04:41.520 --> 00:04:48.000]   a circuit emulation that understands that these two things are happening round and round and round
-[00:04:48.000 --> 00:04:54.080]   and round and you can build them but it's a lot harder to build them because you have to deal with
-[00:04:54.080 --> 00:05:00.000]   time rather than just zeros and ones flowing through a circuit so my circuit emulator because
-[00:05:00.000 --> 00:05:05.120]   i want to keep it simple and easy to use it really deals with what we call combinatoric circuits which
-[00:05:05.120 --> 00:05:11.120]   kind of the ones and the zeros move from one side to the other but the feedback ones i can't do it
-[00:05:11.120 --> 00:05:17.360]   so what you have to do in my circuit emulator is use the sr component which does work because it's
-[00:05:17.360 --> 00:05:24.000]   not really two NOR gates it's a little component that the software understands so don't yell at me
-[00:05:24.000 --> 00:05:31.360]   and don't file a github issue if you try to build an sr latch and it doesn't work and that's under
-[00:05:31.360 --> 00:05:40.800]   under unfortunate okay so i mentioned that the sr latch is kind of clunky right the sr latch is
-[00:05:40.800 --> 00:05:50.880]   you're you're not allowed to give it one one as input okay and so the latch that is more useful
-[00:05:50.880 --> 00:05:58.880]   is what we call a gated d latch and the gated d latch has basically a clock input and a data input
-[00:05:58.880 --> 00:06:06.560]   and the way it works is as long as the clock is zero q stays the same thing right so whatever
-[00:06:06.560 --> 00:06:17.600]   it was before and as soon as clock is set to one that then copies d into the internal state so if
-[00:06:17.600 --> 00:06:24.000]   you set clock to one and d to zero the internal state becomes zero and if you set clock equals one
-[00:06:24.000 --> 00:06:29.360]   and d equals one then the internal state is one and then you set clock back to zero and that zero
-[00:06:29.360 --> 00:06:35.200]   or one stays over time if you look at it there's several ways to build it but in this case i'm
-[00:06:35.200 --> 00:06:40.960]   using two NAND gates with the feedback loop and then you're kind of there's like an s and an r in
-[00:06:40.960 --> 00:06:47.920]   the middle of it but then there's this the d and the c are set up so that it can never send the wrong
-[00:06:47.920 --> 00:06:54.880]   value into the the sr like latch right so you have this bit of logic in the beginning that says
-[00:06:54.880 --> 00:07:04.480]   when c is one copy d into the latch part and when c is zero ignore what is happening on d
-[00:07:04.480 --> 00:07:11.440]   so that's another way to look at this if we start with one in the state in the internal value
-[00:07:11.440 --> 00:07:17.680]   and we have the clock of zero and the d is zero that at this point d is being ignored because the
-[00:07:17.680 --> 00:07:23.600]   clock is zero then what we want to do is we want to store a zero in it so we we pulse the clock to
-[00:07:23.600 --> 00:07:33.280]   be one and that at that moment copies the zero into the one bit latch and then we can set the
-[00:07:33.280 --> 00:07:38.320]   clock back to zero and then the zero will be remembered so we don't really care what the d
-[00:07:38.320 --> 00:07:44.640]   value is once the clock is back to zero you can flip the d value back as much as you like when the
-[00:07:44.640 --> 00:07:52.640]   clock is zero so you can set d to one the clock is still zero and the output is still zero then you
-[00:07:52.640 --> 00:07:59.280]   pulse the clock by setting it to one and then the one is copied into it and to the output and then
-[00:07:59.280 --> 00:08:05.200]   when we're done copying we set the clock back to zero and the d is one but then you can set the d
-[00:08:05.200 --> 00:08:11.920]   to zero because as the while the clock is zero the d is being ignored and so you can see how the
-[00:08:11.920 --> 00:08:20.000]   you put whatever value you want on the d and then you pulse the clock to copy d into the latch
-[00:08:20.000 --> 00:08:27.920]   that's why they called it a gated d latch the clock acts as the gate when the clock is high
-[00:08:27.920 --> 00:08:34.240]   it copies its input when the clock is low it ignores its input and we're going to do what we
-[00:08:34.240 --> 00:08:43.920]   always do and that is combine these things 3d latches and we're going to make a three
-[00:08:43.920 --> 00:08:50.400]   bit register and we're going to represent in this three bit register numbers from zero through seven
-[00:08:51.360 --> 00:08:58.800]   so we have three bits a ones bit a twos bit and a fours bit and we're going to have a switch that
-[00:08:58.800 --> 00:09:03.760]   has ones twos and fours that's going into the d of each of the corresponding ones and then we
-[00:09:03.760 --> 00:09:09.760]   have a single clock pulse we're going to pulse them all at the same time so the internal storage
-[00:09:09.760 --> 00:09:17.440]   of the bits is one zero one and so we can take the output of the three bits and feed it into a nixie
-[00:09:17.440 --> 00:09:24.640]   tube and get it out once we can build this we don't need to make three one bit latches we can
-[00:09:24.640 --> 00:09:31.040]   make a three bit latch and that's what we're going to use going forward and that's pretty much what a
-[00:09:31.040 --> 00:09:40.640]   register is inside of a microprocessor in that it's a three bit latch and somewhere it's getting its
-[00:09:40.640 --> 00:09:47.760]   operands a ones column a twos column and a fours column and then we pulse the clock to copy from
-[00:09:47.760 --> 00:09:53.360]   those inputs into the register so the register then the clock goes back to zero so the register
-[00:09:53.360 --> 00:10:00.400]   stores a value for a while until we hit the clock button and it copies its inputs again then we take
-[00:10:00.400 --> 00:10:07.040]   the clock back to zero and then it stays the same after a while we'll we'll use the convenience
-[00:10:07.040 --> 00:10:12.560]   stuff now we have registers and we have nixie tubes and we can copy the output of the register
-[00:10:12.560 --> 00:10:18.800]   to the nixie tube and we can see what the value is inside of the nixie tube and so you can see
-[00:10:18.800 --> 00:10:26.960]   that we're slowly but surely you know building all the stuff that might eventually become a
-[00:10:26.960 --> 00:10:33.760]   microprocessor right you know we're building logic putting them together i don't know what this might
-[00:10:33.760 --> 00:10:40.400]   be this might be a half adder for all i know from an old 1970s computer but slowly but surely we
-[00:10:40.400 --> 00:10:51.200]   are deciding what to put on our cpu traces which is wires and gates transistors to do addition
-[00:10:51.200 --> 00:11:07.040]   subtraction jumping the kinds of things that computers want to do
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.srt'
-
-whisper_print_timings:     load time =   553.21 ms
-whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   250.65 ms
-whisper_print_timings:   sample time =  3037.38 ms / 11030 runs (     0.28 ms per run)
-whisper_print_timings:   encode time = 10387.82 ms /    26 runs (   399.53 ms per run)
-whisper_print_timings:   decode time =   455.32 ms /    47 runs (     9.69 ms per run)
-whisper_print_timings:   batchd time = 27754.55 ms / 10853 runs (     2.56 ms per run)
-whisper_print_timings:   prompt time =  2019.14 ms /  5902 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 45064.91 ms
-ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.m4v
-TIMING:
-  FFMPEG : 00:00:01
-  WHISPER: 00:00:45
-  TOTAL  : 00:00:46
+SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-03-Digital-Latch.m4v (found 04-03-Digital-Latch.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-11-Digital-Gates-Tool.m4v (found 04-11-Digital-Gates-Tool.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-12-Digital-Gates-And.m4v (found 04-12-Digital-Gates-And.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/04-DigitalLogic/04-13-Digital-Gates-Half.m4v (found 04-13-Digital-Gates-Half.txt)
@@ -558,458 +33,23 @@ SKIP: /Users/csev/Desktop/teach/ca4e-media/05-Clock/05-14-Digital-Gates-Counter.
 SKIP: /Users/csev/Desktop/teach/ca4e-media/05-Clock/05-15-Digital-Gates-Instruction.m4v (found 05-15-Digital-Gates-Instruction.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-01-CPU-Intro.m4v (found 06-01-CPU-Intro.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-02-CPU-Hex.m4v (found 06-02-CPU-Hex.txt)
-
-==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding
-STEP 1: Extracting audio with ffmpeg...
-STEP 2: Running whisper-cli...
-whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
-whisper_init_with_params_no_state: use gpu    = 1
-whisper_init_with_params_no_state: flash attn = 1
-whisper_init_with_params_no_state: gpu_device = 0
-whisper_init_with_params_no_state: dtw        = 0
-ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
-ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
-ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
-ggml_metal_device_init: GPU name:   Apple M1 Pro
-ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
-ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
-ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
-ggml_metal_device_init: simdgroup reduction   = true
-ggml_metal_device_init: simdgroup matrix mul. = true
-ggml_metal_device_init: has unified memory    = true
-ggml_metal_device_init: has bfloat            = true
-ggml_metal_device_init: has tensor            = false
-ggml_metal_device_init: use residency sets    = true
-ggml_metal_device_init: use shared buffers    = true
-ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB
-whisper_init_with_params_no_state: devices    = 3
-whisper_init_with_params_no_state: backends   = 3
-whisper_model_load: loading model
-whisper_model_load: n_vocab       = 51865
-whisper_model_load: n_audio_ctx   = 1500
-whisper_model_load: n_audio_state = 1024
-whisper_model_load: n_audio_head  = 16
-whisper_model_load: n_audio_layer = 24
-whisper_model_load: n_text_ctx    = 448
-whisper_model_load: n_text_state  = 1024
-whisper_model_load: n_text_head   = 16
-whisper_model_load: n_text_layer  = 24
-whisper_model_load: n_mels        = 80
-whisper_model_load: ftype         = 1
-whisper_model_load: qntvr         = 0
-whisper_model_load: type          = 4 (medium)
-whisper_model_load: adding 1608 extra tokens
-whisper_model_load: n_langs       = 99
-whisper_model_load:        Metal total size =  1533.14 MB
-whisper_model_load: model size    = 1533.14 MB
-whisper_backend_init_gpu: device 0: Metal (type: 1)
-whisper_backend_init_gpu: found GPU device 0: Metal (type: 1, cnt: 0)
-whisper_backend_init_gpu: using Metal backend
-ggml_metal_init: allocating
-ggml_metal_init: found device: Apple M1 Pro
-ggml_metal_init: picking default device: Apple M1 Pro
-ggml_metal_init: use fusion         = true
-ggml_metal_init: use concurrency    = true
-ggml_metal_init: use graph optimize = true
-whisper_backend_init: using BLAS backend
-whisper_init_state: kv self size  =   50.33 MB
-whisper_init_state: kv cross size =  150.99 MB
-whisper_init_state: kv pad  size  =    6.29 MB
-whisper_init_state: compute buffer (conv)   =   29.53 MB
-whisper_init_state: compute buffer (encode) =   53.12 MB
-whisper_init_state: compute buffer (cross)  =   20.02 MB
-whisper_init_state: compute buffer (decode) =   99.12 MB
-
-system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
-
-main: processing '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.whisper-temp.wav' (10715456 samples, 669.7 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
-
-
-[00:00:00.000 --> 00:00:05.120]   so in this section we're going to talk about like what is programming and we're going to do so by
-[00:00:05.120 --> 00:00:13.360]   reviewing things like Python and C and the reason we take a look at this is that when we write Python
-[00:00:13.360 --> 00:00:20.880]   or C that code has to execute eventually in machine language so in the end any program that we can write
-[00:00:20.880 --> 00:00:27.040]   must also be representable in machine language so if we look at patterns in high level programming
-[00:00:27.040 --> 00:00:33.200]   we need to be able to replicate those patterns in machine language so I'm going to take you back in
-[00:00:33.200 --> 00:00:40.000]   time to 2008 when I first was teaching the course that would become Python for everybody on campus
-[00:00:40.000 --> 00:00:48.240]   at the University of Michigan this was chapter one slide 19 so this is for people who'd never seen a
-[00:00:48.240 --> 00:00:53.120]   computer never I mean never programmed a computer never didn't know what programming was and I
-[00:00:53.120 --> 00:01:00.560]   introduced computer architecture in slide 19 and why was that well my goal at that point was to
-[00:01:00.560 --> 00:01:07.520]   teach people that to become a programmer you kind of move into the machine your code moves
-[00:01:07.520 --> 00:01:13.920]   into the machine and it provides the instructions to the central processing unit and so your goal
-[00:01:13.920 --> 00:01:19.760]   to becoming a programmer is to be able to provide those instructions so you can have the overall
-[00:01:19.760 --> 00:01:27.840]   machine do the thing that you want to do now the key is those instructions and I said this
-[00:01:27.840 --> 00:01:34.880]   in chapter one slide 19 those instructions are zeros and ones and they are what is called
-[00:01:34.880 --> 00:01:41.440]   machine language and those instructions are moved from the main memory to the central processing unit
-[00:01:42.800 --> 00:01:52.480]   using wires and that was like the first half hour of the first day of programming and now some of
-[00:01:52.480 --> 00:01:58.640]   you have been with me for some time and now we're at the point where we're gonna understand what
-[00:01:58.640 --> 00:02:07.840]   exactly a central processing unit is okay so let me show you some of the artifacts that I used when
-[00:02:07.840 --> 00:02:13.360]   teaching that class so let's start with the central processor I've shown you this AMD central processor
-[00:02:13.360 --> 00:02:18.720]   before we now know how to build this chip we understand that instructions will come into these
-[00:02:18.720 --> 00:02:25.280]   wires right so like if there is eight of them we can represent those eight wires as a hexadecimal
-[00:02:25.280 --> 00:02:31.360]   digit because we just learned how to do hexadecimal now the place that these instructions come from
-[00:02:31.360 --> 00:02:38.560]   in that same picture is the memory and so again you've got wires and four of these wires equals
-[00:02:38.560 --> 00:02:45.600]   one hexadecimal digit right lots of wires we got chips that store but we've also learned how to build
-[00:02:45.600 --> 00:02:52.000]   latches that are ways to store memory electronically and then retrieve that memory
-[00:02:52.000 --> 00:02:59.040]   but then we have to come up with a way to connect these things together and that's what's called a
-[00:02:59.040 --> 00:03:07.600]   motherboard right and so the cpu plugs in to the oops there we go cpu plugs into the cpu slot
-[00:03:07.600 --> 00:03:16.880]   the memory plugs into a memory slot and there are wires on this motherboard that are laid out
-[00:03:16.880 --> 00:03:23.680]   to pull so that the cpu can ask the memory for some data instructions and it comes here and we
-[00:03:23.680 --> 00:03:30.240]   also load and store the you know the things we're going to compute from the memory as well and so if
-[00:03:30.240 --> 00:03:35.760]   you look at this it's got like big and small wires it's mostly wires with these little through holes
-[00:03:35.760 --> 00:03:43.280]   that are soldered into the wires you can see kind of big things they're like roads and lakes but
-[00:03:43.280 --> 00:03:49.840]   these wires go and so again i'm gonna sorry i'm gonna get all stuck on this four of these little
-[00:03:49.840 --> 00:03:56.560]   pins i mean eight of these little pins are two hex digits so we can represent all these pins perhaps
-[00:03:56.560 --> 00:04:02.400]   with a big long hex string and that's kind of why we're so obsessed with hexadecimal i'm clearly
-[00:04:02.400 --> 00:04:08.080]   obsessed with hexadecimal and the other thing that i showed students in the very beginning
-[00:04:08.080 --> 00:04:14.000]   was this disk drive now modern computers don't have disk drives that actually have any physical
-[00:04:14.000 --> 00:04:19.680]   spinning but basically this was magnetic material and this head would go in and out i think this is
-[00:04:19.680 --> 00:04:25.600]   now broken but the head would go in and out and the data would be stored on cylinders up and down
-[00:04:25.600 --> 00:04:30.240]   and so this head would move in and out and if you're old enough you would remember your computer
-[00:04:30.240 --> 00:04:35.120]   while you're reading disk it would go grunt grunt grunt grunt well that grunt is this stuff moving
-[00:04:35.120 --> 00:04:41.360]   back and forth and it seems as though i have had this over 10 years and i've scratched it and i've
-[00:04:41.360 --> 00:04:47.120]   broken it but you get the idea that this was long-term storage and you could store a lot more data
-[00:04:47.120 --> 00:04:54.160]   than you can in ram there the memory is fast and efficient but limited and disk drives are much
-[00:04:54.160 --> 00:04:58.080]   larger in terms of the amount of data they can store and once stored it stays there and doesn't
-[00:04:58.080 --> 00:05:08.720]   require power now the other thing that i showed my students the other thing that i showed my students
-[00:05:08.720 --> 00:05:14.320]   is something a little bit more modern which is a little more like what's in your cell phone etc
-[00:05:14.320 --> 00:05:19.920]   and this is a raspberry pi and what's happened is as they can manufacture more and more stuff on a
-[00:05:19.920 --> 00:05:26.400]   single chip you can get to what's called a single chip computer so in this it's got the cpu it's
-[00:05:26.400 --> 00:05:33.600]   got some long-term storage it's got the ram etc etc and so this is got everything in it because
-[00:05:33.600 --> 00:05:38.320]   it's really just electronic stuff and as the manufacturing capability got better and better
-[00:05:38.320 --> 00:05:43.440]   this is an arm processor which we'll talk about later and some ram etc and this is one of the
-[00:05:43.440 --> 00:05:51.200]   early raspberry pies so 15 years ago it was a little easier to show computer architecture
-[00:05:51.200 --> 00:05:56.400]   by showing the components that made up computer architecture it's not just a picture it was
-[00:05:56.400 --> 00:06:01.760]   physical devices that implemented the computer architecture the instructions were stored in the
-[00:06:01.760 --> 00:06:06.560]   memory the whole program when the computer was off was stored on the hard drive loaded into memory
-[00:06:06.560 --> 00:06:12.640]   etc and the motherboard connected all of these pieces together so the next thing that i described
-[00:06:12.640 --> 00:06:21.600]   to my students in si 502 python for everybody is how we construct programs and these are the
-[00:06:21.600 --> 00:06:27.280]   essential things like a recipe or an installation instructions a program is a sequence of steps to
-[00:06:27.280 --> 00:06:34.160]   be done in order like the macarena some steps are conditional they may be skipped and another way
-[00:06:34.160 --> 00:06:39.360]   you have a group of steps that may want to be repeated and the fourth way is like functions we
-[00:06:39.360 --> 00:06:46.080]   store and retrieve a set of steps we are going to cover the first three of these in machine language
-[00:06:46.080 --> 00:06:51.440]   to sort of prove to you that machine language can do exactly what high level languages do
-[00:06:51.440 --> 00:06:56.640]   just with a different syntax and a different level of detail that you you're limited with
-[00:06:56.640 --> 00:07:01.040]   what you can do in machine language some people feel like machine language's limitations is kind
-[00:07:01.040 --> 00:07:06.720]   of wonderful until you start writing really complex programs okay but the first few machine
-[00:07:06.720 --> 00:07:10.880]   language you're like wow this is kind of nice maybe i should have learned this at the beginning
-[00:07:10.880 --> 00:07:19.360]   so now into some python we have first sequential steps you just write lines of code one after the
-[00:07:19.360 --> 00:07:25.760]   other and like x equals two print x that prints out the two x equals x plus two we just added to two
-[00:07:25.760 --> 00:07:32.800]   to x and then print x so what next what next the cpu through its program counter is advancing
-[00:07:33.360 --> 00:07:38.240]   through the instructions and doing whatever it is until it executes a halt instruction
-[00:07:38.240 --> 00:07:43.840]   which means okay we're now done you the programmer have said we're done there's also conditional
-[00:07:43.840 --> 00:07:50.480]   steps like you know x equals five if x is less than 10 print smaller if x is greater than 20
-[00:07:50.480 --> 00:07:57.680]   print bigger or print funny and so this is things like the print smaller is going to run but the
-[00:07:57.680 --> 00:08:05.360]   print bigger is not going to run and we represent these on the left hand side with a flow chart and
-[00:08:05.360 --> 00:08:09.920]   so i have been teaching with flow charts a lot of people think flow charts are uncool
-[00:08:09.920 --> 00:08:15.840]   but in the next couple of lectures you're going to appreciate flow charts because in a sense we are
-[00:08:15.840 --> 00:08:25.120]   guiding the what next bit to either do something or skip something and so logically they're beautiful
-[00:08:25.120 --> 00:08:29.360]   the the code in python is beautiful there are these blocks they either run or don't run
-[00:08:29.360 --> 00:08:34.960]   but really what we're doing at a lower level is we're manipulating where the computer is
-[00:08:34.960 --> 00:08:41.520]   picking its next instruction from and this all will come together in a little bit and it gets
-[00:08:41.520 --> 00:08:46.640]   even more complex when we do repeated steps right where we have an iteration variable
-[00:08:46.640 --> 00:08:53.360]   we have a loop so n equals five while n greater than zero that's a top tested loop with a question
-[00:08:53.360 --> 00:08:58.320]   mark and if n is still greater than zero we run the body of the loop print it and then subtract
-[00:08:58.320 --> 00:09:04.160]   one from it and now then we know that we go back up to the top of the loop and the first thing we
-[00:09:04.160 --> 00:09:11.040]   do at the top of the loop is test it again is n as changed is n still greater than zero i mean if
-[00:09:11.040 --> 00:09:15.760]   it's not getting zero we skip and finish and print blast off and if it is still greater than zero we
-[00:09:15.760 --> 00:09:20.400]   run the iteration again and again you of course can create infinite loops with this if you don't
-[00:09:20.400 --> 00:09:28.160]   change the iteration variable each time through the loop and that brings us to variables so a
-[00:09:28.160 --> 00:09:32.640]   variable is a place in memory where a programmer can store data and then later retrieve it using
-[00:09:32.640 --> 00:09:42.560]   a variable name like x equals 12.2 y equals 14 and then x equals 100 replaces it now for some of you
-[00:09:42.560 --> 00:09:49.440]   who took my Django course i finally admit that x is not just a drawer that's got a label on it
-[00:09:50.080 --> 00:09:59.520]   x is a pointer to an object so x equals 12.2 means 12.2 is an object and x refers to that object when
-[00:09:59.520 --> 00:10:05.120]   we say x equals 100 there's another object called 100 and x has changed a point to that so if you've
-[00:10:05.120 --> 00:10:12.640]   taken my c class then you realize that with pointers that this is exactly true a variable
-[00:10:12.640 --> 00:10:17.840]   is a place where you can put one in exactly one value and when you reassign it that value is
-[00:10:17.840 --> 00:10:24.880]   replaced just like this picture up next we're going to learn about how variables work in machine
-[00:10:24.880 --> 00:10:30.720]   language and it will probably come as no surprise to you that they work exactly like how c thinks
-[00:10:30.720 --> 00:10:37.040]   about them because c is one of the lowest level programming languages which is just a tiny step
-[00:10:37.040 --> 00:10:42.880]   above machine language and so instead of being python with all its object orientation eventually
-[00:10:42.880 --> 00:10:49.600]   that whole python object orientation turns into machine language but variables don't exactly work
-[00:10:49.600 --> 00:10:58.960]   like this slide tells us but in machine language this slide is exactly correct so let's get to that
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.srt'
-
-whisper_print_timings:     load time =   568.97 ms
-whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   252.18 ms
-whisper_print_timings:   sample time =  3130.76 ms / 11222 runs (     0.28 ms per run)
-whisper_print_timings:   encode time = 10025.43 ms /    25 runs (   401.02 ms per run)
-whisper_print_timings:   decode time =   117.14 ms /    12 runs (     9.76 ms per run)
-whisper_print_timings:   batchd time = 28380.17 ms / 11085 runs (     2.56 ms per run)
-whisper_print_timings:   prompt time =  1939.44 ms /  5675 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 45014.61 ms
-ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.m4v
-TIMING:
-  FFMPEG : 00:00:01
-  WHISPER: 00:00:46
-  TOTAL  : 00:00:47
+SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-03-CPU-Coding.m4v (found 06-03-CPU-Coding.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-04-CPU-Arch.m4v (found 06-04-CPU-Arch.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-05-CPU-Machine.m4v (found 06-05-CPU-Machine.txt)
-
-==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly
-STEP 1: Extracting audio with ffmpeg...
-STEP 2: Running whisper-cli...
-whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
-whisper_init_with_params_no_state: use gpu    = 1
-whisper_init_with_params_no_state: flash attn = 1
-whisper_init_with_params_no_state: gpu_device = 0
-whisper_init_with_params_no_state: dtw        = 0
-ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
-ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
-ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
-ggml_metal_device_init: GPU name:   Apple M1 Pro
-ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
-ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
-ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
-ggml_metal_device_init: simdgroup reduction   = true
-ggml_metal_device_init: simdgroup matrix mul. = true
-ggml_metal_device_init: has unified memory    = true
-ggml_metal_device_init: has bfloat            = true
-ggml_metal_device_init: has tensor            = false
-ggml_metal_device_init: use residency sets    = true
-ggml_metal_device_init: use shared buffers    = true
-ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB
-whisper_init_with_params_no_state: devices    = 3
-whisper_init_with_params_no_state: backends   = 3
-whisper_model_load: loading model
-whisper_model_load: n_vocab       = 51865
-whisper_model_load: n_audio_ctx   = 1500
-whisper_model_load: n_audio_state = 1024
-whisper_model_load: n_audio_head  = 16
-whisper_model_load: n_audio_layer = 24
-whisper_model_load: n_text_ctx    = 448
-whisper_model_load: n_text_state  = 1024
-whisper_model_load: n_text_head   = 16
-whisper_model_load: n_text_layer  = 24
-whisper_model_load: n_mels        = 80
-whisper_model_load: ftype         = 1
-whisper_model_load: qntvr         = 0
-whisper_model_load: type          = 4 (medium)
-whisper_model_load: adding 1608 extra tokens
-whisper_model_load: n_langs       = 99
-whisper_model_load:        Metal total size =  1533.14 MB
-whisper_model_load: model size    = 1533.14 MB
-whisper_backend_init_gpu: device 0: Metal (type: 1)
-whisper_backend_init_gpu: found GPU device 0: Metal (type: 1, cnt: 0)
-whisper_backend_init_gpu: using Metal backend
-ggml_metal_init: allocating
-ggml_metal_init: found device: Apple M1 Pro
-ggml_metal_init: picking default device: Apple M1 Pro
-ggml_metal_init: use fusion         = true
-ggml_metal_init: use concurrency    = true
-ggml_metal_init: use graph optimize = true
-whisper_backend_init: using BLAS backend
-whisper_init_state: kv self size  =   50.33 MB
-whisper_init_state: kv cross size =  150.99 MB
-whisper_init_state: kv pad  size  =    6.29 MB
-whisper_init_state: compute buffer (conv)   =   29.53 MB
-whisper_init_state: compute buffer (encode) =   53.12 MB
-whisper_init_state: compute buffer (cross)  =   20.02 MB
-whisper_init_state: compute buffer (decode) =   99.12 MB
-
-system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
-
-main: processing '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.whisper-temp.wav' (12554901 samples, 784.7 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
-
-
-[00:00:00.000 --> 00:00:06.760]   Now it is time to start building a little more complex machine language, assembly language, applications.
-[00:00:06.760 --> 00:00:10.440]   And as always, these slides are not necessarily the best reference.
-[00:00:10.440 --> 00:00:19.000]   Once you listen to them, you should probably start looking at the online documentation that I provide for the CDC 6504.
-[00:00:19.000 --> 00:00:21.660]   So we'll start with another review of the architecture.
-[00:00:21.660 --> 00:00:24.400]   By now, this should be pretty familiar to you.
-[00:00:24.400 --> 00:00:30.400]   We have a program counter, which is telling us where in the instruction memory to retrieve the next instruction.
-[00:00:30.400 --> 00:00:34.200]   We have the accumulated register, which is kind of the most flexible register.
-[00:00:34.200 --> 00:00:40.460]   We have the Z and the N flags that tells whether last thing we did in a register was zero or negative or a compare instruction.
-[00:00:40.460 --> 00:00:46.100]   The X and the Y registers are registers that are a little less capable than the accumulator.
-[00:00:46.100 --> 00:00:53.860]   We show instruction memory in base two and data memory we show in hex because it usually contains ASCII.
-[00:00:53.860 --> 00:00:59.240]   So there is a new thing that's only in assembly labels or something that's only in assembly.
-[00:00:59.240 --> 00:01:02.800]   And this data directive is the thing that's only in assembly.
-[00:01:02.800 --> 00:01:13.300]   Everything we've done so far in the assembler is populating the instruction memory by parsing the instruction, the assembly language instructions and producing the zeros and ones that are the machine language.
-[00:01:13.300 --> 00:01:21.300]   But there's also this thing called a data directive where we can fill the data memory up with some pre before the program starts, we load.
-[00:01:21.300 --> 00:01:29.200]   There's an act called loading. We load the program into the memory, load the instruction memory, and we can preload the data memory with this data directive.
-[00:01:29.200 --> 00:01:38.260]   But it's not machine code. It is something that assemblers do and give us a loadable image that includes a data segment, basically.
-[00:01:38.260 --> 00:01:42.600]   And it can either be a quoted string or a series of hex digits.
-[00:01:42.600 --> 00:01:55.300]   And we mostly will use quoted strings so you can print hello world by having a single line of machine language break, which means halt, but then have the data filled with hello world.
-[00:01:55.300 --> 00:01:58.700]   And it just turns out that the emulator dumps out the data when it's all done.
-[00:01:58.700 --> 00:02:02.200]   So this is the simplest program.
-[00:02:02.200 --> 00:02:08.600]   It's not really machine language, but it's the simplest program in the emulator to make it print hello world.
-[00:02:08.600 --> 00:02:16.500]   So here's just a couple. So in this one, we're going to add 27 plus 15 and then store it in memory location zero.
-[00:02:16.500 --> 00:02:21.500]   So we load 27, an immediate, immediate constant into the accumulator.
-[00:02:21.500 --> 00:02:25.100]   Then we add 15, which is another immediate constant.
-[00:02:25.100 --> 00:02:29.700]   So that's 42. And then we're going to store that in location memory location zero.
-[00:02:29.700 --> 00:02:32.300]   So you can see by that. And then we halt.
-[00:02:32.300 --> 00:02:40.800]   So by the time the program counter makes 0, 0, 5 hex, there is a single 0x2a, which is 42 in hex.
-[00:02:40.800 --> 00:02:49.000]   And then you can see that that prints out asterisk, because if you go look at your ASCII chart, asterisk is 42 decimal.
-[00:02:49.000 --> 00:02:52.500]   Our next example is just printing hello.
-[00:02:52.500 --> 00:03:00.900]   And so we're going to end up putting this in memory so that the program will dump out the memory, starting at memory location zero after the program finishes.
-[00:03:00.900 --> 00:03:05.300]   So we do an immediate load of the letter H and we start in memory location zero.
-[00:03:05.300 --> 00:03:09.200]   We do an immediate load of the letter E and store that in location one.
-[00:03:09.200 --> 00:03:13.000]   We do immediate load of the letter L and store that in location two.
-[00:03:13.000 --> 00:03:16.100]   And then we store that again in location three because there's two L's.
-[00:03:16.100 --> 00:03:22.400]   And then we do an immediate load of the letter O and we store that in location four and then we quit.
-[00:03:22.400 --> 00:03:26.600]   And then if you look at the memory, there is H-E-L-L-O in the memory in hex.
-[00:03:26.600 --> 00:03:30.300]   And then you can see that the program prints hello out when it's all done.
-[00:03:30.300 --> 00:03:36.000]   And again, this is just exploring some assembly language slash machine language.
-[00:03:36.000 --> 00:03:42.500]   So now we're going to do a little more complicated and a little more practical example.
-[00:03:42.500 --> 00:03:48.700]   So we are going to uppercase a whole string of characters and we're going to take the characters from memory,
-[00:03:48.700 --> 00:03:55.200]   read them all from memory in a loop, check them, convert them to uppercase and then store them back if necessary.
-[00:03:55.200 --> 00:04:03.500]   So the key to this is our data is going to be preloaded using the data directive in memory locations zero through four.
-[00:04:03.500 --> 00:04:07.000]   And that's the hello with the H uppercased already.
-[00:04:07.000 --> 00:04:12.000]   So now we've run it. You can see the status is halted and you see that it printed out an uppercase hello.
-[00:04:12.000 --> 00:04:21.300]   And the only real thing that it changed was memory location one, two, three and four are now the uppercase versions of those letters.
-[00:04:21.300 --> 00:04:27.700]   Now, before we go through that code in some detail, let's think about uppercasing this string in other languages.
-[00:04:27.700 --> 00:04:31.100]   Now, if you're a Python person, you'd be like hello dot upper.
-[00:04:31.100 --> 00:04:33.200]   There's a method. Hello.
-[00:04:33.200 --> 00:04:37.400]   The string is an object and you can call a method dot upper.
-[00:04:37.400 --> 00:04:40.500]   Now, it's not changing the hello to upper.
-[00:04:40.500 --> 00:04:43.000]   It is just giving you a copy of that.
-[00:04:43.000 --> 00:04:47.300]   Now, if we didn't have upper, we would have some pretty ugly Python.
-[00:04:47.300 --> 00:04:51.200]   So we couldn't you can't change a Python string in place.
-[00:04:51.200 --> 00:04:53.600]   So you have to take and make a variable.
-[00:04:53.600 --> 00:04:56.200]   In this case, I'll call it mem because it's like the memory.
-[00:04:56.200 --> 00:04:58.500]   But you can't change memory in Python.
-[00:04:58.500 --> 00:05:00.400]   You got to make a new one.
-[00:05:00.400 --> 00:05:10.400]   So then we're going to have this for loop for XR, which kind of is my way of saying X X register is range len of mem.
-[00:05:10.400 --> 00:05:19.100]   That's zero. That's going to run XR through zero through four up to but not including five.
-[00:05:19.100 --> 00:05:24.700]   And then we're going to retrieve memory one character of memory from XR to XR plus one.
-[00:05:24.700 --> 00:05:26.400]   Put that in the accumulator.
-[00:05:26.400 --> 00:05:32.800]   And if the accumulator is greater than or equal to A and less than or equal to Z,
-[00:05:32.800 --> 00:05:39.300]   which is between A and Z inclusive, then we're going to compute the new character.
-[00:05:39.300 --> 00:05:42.800]   And now you'll see this CHR and ORD.
-[00:05:42.800 --> 00:05:47.100]   And the problem is, is that in Python, we're not even using ASCII.
-[00:05:47.100 --> 00:05:48.900]   The hello is Unicode.
-[00:05:48.900 --> 00:05:54.900]   So ORD says, give me the ordinal of the current character I'm looking at, ACC.
-[00:05:54.900 --> 00:05:59.500]   Subtract the ordinal of lowercase a and add the ordinal uppercase a.
-[00:05:59.500 --> 00:06:06.000]   Now, this wouldn't necessarily work for any set of characters because Unicode can have a lot of things.
-[00:06:06.000 --> 00:06:11.600]   And so the actual uppercase is a little more complex inside of Python.
-[00:06:11.600 --> 00:06:17.600]   So we've computed the uppercase character if we know it's a lowercase character by mathematics.
-[00:06:17.600 --> 00:06:24.300]   And then we append it to the new version of the memory, building that up one string at a time.
-[00:06:24.300 --> 00:06:26.100]   And then we print it out.
-[00:06:26.100 --> 00:06:34.400]   And so you can't even do this because Python is not really designed for low-level array-like things.
-[00:06:34.400 --> 00:06:36.200]   Lists are not arrays.
-[00:06:36.200 --> 00:06:42.500]   Although if you took my C programming class, you would understand that they're kind of arrays, okay?
-[00:06:42.500 --> 00:06:49.200]   So let's take a look at this in C, which is a lot more like assembly language.
-[00:06:49.200 --> 00:06:54.600]   So if we take a look at the top of this, we include the standard I/O and we have a main program.
-[00:06:54.600 --> 00:06:58.500]   And we use the register, register int xr ACC.
-[00:06:58.500 --> 00:07:03.500]   Now, for those of you who don't know C, the register is a keyword in the C language.
-[00:07:03.500 --> 00:07:08.100]   And it says, this is going to be something that I'm going to want to make high performance.
-[00:07:08.100 --> 00:07:11.300]   So put it in a register if you possibly can.
-[00:07:11.300 --> 00:07:15.000]   Then I'm going to create a character array named mem.
-[00:07:15.000 --> 00:07:24.900]   Now, this is going to be a six-character array with a zero termination, the letters hello followed by a zero.
-[00:07:24.900 --> 00:07:31.900]   And so then what we're saying is we're saying for xr equals zero, as long as mem sub xr,
-[00:07:31.900 --> 00:07:40.600]   we're now looking for that zero terminated string, as long as mem xr is non-zero, continue and then add one to xr.
-[00:07:40.600 --> 00:07:46.800]   So then we take our, that's our index variable, our loop iteration variable.
-[00:07:46.800 --> 00:07:53.900]   So we say, oh, let's take the accumulator and load in mem sub xr because xr is our sort of index variable.
-[00:07:53.900 --> 00:07:58.000]   And in this case, we're dealing with ASCII and we know it.
-[00:07:58.000 --> 00:08:02.600]   So if the accumulator minus a is less than zero, we continue.
-[00:08:02.600 --> 00:08:10.600]   And if you recall and see the continue does mean that the increment part of the for loop is executed. So xr plus plus.
-[00:08:10.600 --> 00:08:17.700]   If not, we're going to say mem x sub xr equals the accumulator minus zero x20.
-[00:08:17.700 --> 00:08:22.200]   So we're doing the case conversion there and putting it right back into mem xr.
-[00:08:22.200 --> 00:08:28.200]   That for loops runs five times and then we print out the uppercase.
-[00:08:28.200 --> 00:08:34.500]   So now we are going to finally walk through the assembly language version of this.
-[00:08:34.500 --> 00:08:40.000]   So I've got the code on the left and I've got the before memory and the after memory on the right.
-[00:08:40.000 --> 00:08:44.400]   Now, one of the things that you'll notice is that I have given you on the right hand side,
-[00:08:44.400 --> 00:08:50.800]   I've given you the sort of pseudo code for the C code that corresponds to the assembly language that we're going to do.
-[00:08:50.800 --> 00:08:57.400]   So we're going to effectively construct a for loop that's going to loop through an array of characters.
-[00:08:57.400 --> 00:09:01.000]   So the first thing we do is we're going to set x to zero, clear x.
-[00:09:01.000 --> 00:09:05.700]   And then we're going to have a label to come back up to the top of our for loop.
-[00:09:05.700 --> 00:09:12.600]   The next instruction, lda $00, x, is the new instruction we haven't used so far.
-[00:09:12.600 --> 00:09:16.400]   And this is an index load into the accumulator.
-[00:09:16.400 --> 00:09:20.900]   $00 is the starting address and the x register contains our offset.
-[00:09:20.900 --> 00:09:26.400]   So it basically adds x to wherever we're at and then that becomes the address.
-[00:09:26.400 --> 00:09:29.600]   And then we're going to load that into the accumulator.
-[00:09:29.600 --> 00:09:38.100]   Now, that act of loading into the accumulator is going to set the z flag and the n flag as any change to any register does.
-[00:09:38.100 --> 00:09:41.900]   And so we're going to use a BEQ, which is really kind of branch zero.
-[00:09:41.900 --> 00:09:46.500]   That means if the accumulator is zero, we're going to follow the branch.
-[00:09:46.500 --> 00:09:52.800]   But in this case, the accumulator is going to have uppercase H, 0x48.
-[00:09:52.800 --> 00:09:56.500]   And so BEQ is not going to branch, so we're going to fall through.
-[00:09:56.500 --> 00:09:58.900]   And then we're going to start our if test in a sense.
-[00:09:58.900 --> 00:10:04.000]   Compare the accumulator to lowercase a.
-[00:10:04.000 --> 00:10:12.500]   Now, recall that in ASCII, uppercase a is less than lowercase a in the ASCII chart.
-[00:10:12.500 --> 00:10:19.000]   So if it's already uppercase, that comparison is going to be minus, right?
-[00:10:19.000 --> 00:10:21.200]   It's going to be negative.
-[00:10:21.200 --> 00:10:27.500]   And so we're going to branch to, in effect, a label that I called cont, which is sort of like a continue.
-[00:10:27.500 --> 00:10:33.700]   So we're going to skip the subtract if it's already an uppercase.
-[00:10:33.700 --> 00:10:39.000]   So BMI cont skips the subtraction if it's already uppercase.
-[00:10:39.000 --> 00:10:41.700]   Then we come into the continue label.
-[00:10:41.700 --> 00:10:44.500]   And then we are incrementing x.
-[00:10:44.500 --> 00:10:48.900]   Now, remember that continue actually runs the increment of a for loop.
-[00:10:48.900 --> 00:10:53.700]   And then we're going to jump back up to the top of the loop.
-[00:10:53.700 --> 00:10:55.700]   But x is now 1.
-[00:10:55.700 --> 00:11:04.100]   And now we're going to load index load from at location 0 with x of 1.
-[00:11:04.100 --> 00:11:10.800]   And so now we get the 0x65, which is the lowercase e.
-[00:11:10.800 --> 00:11:13.500]   And we're going to check to see if we're out of the loop or not.
-[00:11:13.500 --> 00:11:14.200]   We're going to fall through.
-[00:11:14.200 --> 00:11:19.700]   We're going to compare the lowercase e to lowercase a.
-[00:11:19.700 --> 00:11:25.700]   And in this case, it's not minus because e is greater than a.
-[00:11:25.700 --> 00:11:27.000]   And so we're going to do the subtraction.
-[00:11:27.000 --> 00:11:32.000]   So we're going to convert that to uppercase by subtracting 20 hex.
-[00:11:32.000 --> 00:11:39.500]   And then we're going to store it right back into that location, which is location 0 indexed by the x register, which is 1.
-[00:11:39.500 --> 00:11:44.000]   And so that's going to put 0x45 into location 1.
-[00:11:44.000 --> 00:11:45.400]   Then we drop into the continue.
-[00:11:45.400 --> 00:11:47.100]   We add 1 to x.
-[00:11:47.100 --> 00:11:48.300]   The x register becomes 2.
-[00:11:48.300 --> 00:11:50.000]   And we jump to the top of the loop.
-[00:11:50.000 --> 00:11:52.300]   So you see how this is kind of working, right?
-[00:11:52.300 --> 00:11:55.000]   So now x is 2.
-[00:11:55.000 --> 00:12:02.100]   And so we do an indexed load of location 0 plus 2.
-[00:12:02.100 --> 00:12:03.500]   Branch if it's equal to done.
-[00:12:03.500 --> 00:12:07.300]   Check to see if it's uppercase already.
-[00:12:07.300 --> 00:12:08.600]   And in this case, it's not.
-[00:12:08.600 --> 00:12:09.800]   So we subtract.
-[00:12:09.800 --> 00:12:11.800]   So at some point, you can follow this.
-[00:12:11.800 --> 00:12:17.700]   It will go round and round until we get to an offset of 5.
-[00:12:17.700 --> 00:12:19.000]   Jump to the top of the loop.
-[00:12:19.000 --> 00:12:24.400]   We're going to load location 0 plus x, which is 5.
-[00:12:24.400 --> 00:12:26.100]   And in this case, it's going to be a 0.
-[00:12:26.100 --> 00:12:29.500]   And then the BEQ is going to be true in a sense.
-[00:12:29.500 --> 00:12:31.600]   And then we're going to jump to done.
-[00:12:31.600 --> 00:12:40.300]   And then the application is going to finish and print out its after data, which is fully uppercased.
-[00:12:40.300 --> 00:12:41.000]   Hello.
-[00:12:41.000 --> 00:12:44.500]   That's a bunch of assembly language and C and Python.
-[00:12:44.500 --> 00:12:47.800]   And I would say that you're going to spend a bunch of time with the emulator
-[00:12:47.800 --> 00:12:50.800]   and a bunch of time with the emulator documentation.
-[00:12:50.800 --> 00:12:55.700]   And hopefully, with some time, this will all make sense to you.
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.srt'
-
-whisper_print_timings:     load time =   565.17 ms
-whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   298.15 ms
-whisper_print_timings:   sample time =  4494.68 ms / 15813 runs (     0.28 ms per run)
-whisper_print_timings:   encode time = 11629.12 ms /    29 runs (   401.00 ms per run)
-whisper_print_timings:   decode time =   402.43 ms /    41 runs (     9.82 ms per run)
-whisper_print_timings:   batchd time = 40005.95 ms / 15627 runs (     2.56 ms per run)
-whisper_print_timings:   prompt time =  2256.59 ms /  6583 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 60358.70 ms
-ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.m4v
-TIMING:
-  FFMPEG : 00:00:00
-  WHISPER: 00:01:01
-  TOTAL  : 00:01:01
+SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-06-CPU-Assembly.m4v (found 06-06-CPU-Assembly.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-11-CPU-6504-UI-Walkthrough.m4v (found 06-11-CPU-6504-UI-Walkthrough.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-12-CPU-6504-Simple-Samples.m4v (found 06-12-CPU-6504-Simple-Samples.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-13-CPU-6504-For-Loop.m4v (found 06-13-CPU-6504-For-Loop.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-14-CPU-6504-If-Test.m4v (found 06-14-CPU-6504-If-Test.txt)
 SKIP: /Users/csev/Desktop/teach/ca4e-media/06-CPU/06-15-CPU-6504-Upper.m4v (found 06-15-CPU-6504-Upper.txt)
+SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.m4v (found 07-07-CPU-Emulator.txt)
+SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-08-CPU-History.m4v (found 07-08-CPU-History.txt)
+SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-11-WASM-Hello-JS.m4v (found 07-11-WASM-Hello-JS.txt)
 
 ==================================================
-MEDIA: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.m4v
-TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.whisper-temp.wav
-OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator
+MEDIA: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.m4v
+TEMP WAV: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.whisper-temp.wav
+OUTPUT BASE: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C
 STEP 1: Extracting audio with ffmpeg...
 STEP 2: Running whisper-cli...
 whisper_init_from_file_with_params_no_state: loading model from '/Users/csev/models/ggml-medium.bin'
@@ -1019,7 +59,7 @@ whisper_init_with_params_no_state: gpu_device = 0
 whisper_init_with_params_no_state: dtw        = 0
 ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
 ggml_metal_library_init: using embedded metal library
-ggml_metal_library_init: loaded in 0.007 sec
+ggml_metal_library_init: loaded in 0.025 sec
 ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
 ggml_metal_device_init: GPU name:   Apple M1 Pro
 ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
@@ -1073,230 +113,94 @@ whisper_init_state: compute buffer (decode) =   99.12 MB
 
 system_info: n_threads = 4 / 10 | WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | 
 
-main: processing '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.whisper-temp.wav' (10495637 samples, 656.0 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
+main: processing '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.whisper-temp.wav' (6541973 samples, 408.9 sec), 4 threads, 1 processors, 5 beams + best of 5, lang = en, task = transcribe, timestamps = 1 ...
 
 
-[00:00:00.000 --> 00:00:06.800]   So you just finished some in-depth work on a 6502 CPU emulator.
-[00:00:06.800 --> 00:00:12.560]   Now you might think that the only reason we ever use CPU emulators are for learning.
-[00:00:12.560 --> 00:00:18.080]   And they're great for learning, right? So I can give you a screen, and it has a program counter,
-[00:00:18.080 --> 00:00:22.800]   and a Z flag, and an N flag, and instruction memory, and you can go change the instruction memory,
-[00:00:22.800 --> 00:00:26.240]   you can start it, you can stop it, it prints a lot of stuff out.
-[00:00:26.240 --> 00:00:29.520]   You can hover over an instruction, and it shows you what the instruction is,
-[00:00:29.520 --> 00:00:34.000]   and what the ASCII character might be stored there, et cetera, et cetera, et cetera.
-[00:00:34.000 --> 00:00:37.200]   It keeps it really simple, so we can write pretty small programs.
-[00:00:37.200 --> 00:00:40.960]   We can also look at the emulator code itself, and I've got in the upper corner a
-[00:00:40.960 --> 00:00:48.320]   URL that is the actual machine code emulator that's running when you're doing your assignments,
-[00:00:48.320 --> 00:00:52.160]   or just playing with it. So if you go look at that, it's JavaScript,
-[00:00:52.160 --> 00:00:55.200]   and you've learned JavaScript, and it has to run in the browser.
-[00:00:55.200 --> 00:01:02.640]   So I have implemented a 6502 instruction set in JavaScript in a browser.
-[00:01:02.640 --> 00:01:06.720]   The core of this is a function called execute_step, which should be called like
-[00:01:06.720 --> 00:01:11.440]   fetch_execute_cycle, because what it really does is it's going to run one instruction.
-[00:01:11.440 --> 00:01:15.440]   So which instruction is it going to run? Well, you can see in that first line,
-[00:01:15.440 --> 00:01:19.040]   it's going to look at this.cpu.pc, the program counter.
-[00:01:19.040 --> 00:01:21.520]   Where are the instructions? Well, they're in an array.
-[00:01:21.520 --> 00:01:24.880]   So we're going to use the PC to look up the instruction in the array.
-[00:01:24.880 --> 00:01:29.040]   What's the instruction? It's an integer from 0 through 255.
-[00:01:29.040 --> 00:01:32.880]   It's a single 8-bit number. And so the next thing it's going to do is
-[00:01:32.880 --> 00:01:38.240]   have a big long if-then-else with like 40 or 50 different instructions.
-[00:01:38.240 --> 00:01:41.440]   The first instruction it checks to see is if we got all zeros.
-[00:01:41.440 --> 00:01:46.160]   Well, the 000 instruction is the break, the halt.
-[00:01:46.160 --> 00:01:52.080]   And so what happens is the emulator prints the output from the data memory,
-[00:01:52.080 --> 00:01:57.040]   and then it sets itself to not running, and then the fetch_execute_cycle stops.
-[00:01:57.040 --> 00:02:00.080]   And there's a bunch more else, else, else, else.
-[00:02:00.080 --> 00:02:04.000]   If it doesn't find an instruction that it understands, it has one last else
-[00:02:04.000 --> 00:02:07.040]   that blows up and sets it to running equals false.
-[00:02:07.040 --> 00:02:11.200]   You might just go have some fun and see if you can figure out a bit pattern
-[00:02:11.200 --> 00:02:16.000]   that will cause the emulator to blow up with an unknown instruction.
-[00:02:16.000 --> 00:02:20.160]   And after we've processed one instruction, well, we advance the program counter.
-[00:02:20.160 --> 00:02:22.960]   It's what we do with the fetch_execute_cycle.
-[00:02:22.960 --> 00:02:26.640]   Now, if there was a jump, if one of those instructions was jump instruction,
-[00:02:26.640 --> 00:02:30.080]   it already changed the PC. Do you remember how I told you that
-[00:02:30.080 --> 00:02:33.120]   a jump instruction is kind of like a load into the PC?
-[00:02:33.120 --> 00:02:35.760]   It's almost like a load immediate into the PC.
-[00:02:35.760 --> 00:02:40.960]   So that code up in the instruction processing sets the PC increment to 0
-[00:02:40.960 --> 00:02:46.880]   to indicate that it's already been changed to a completely new location by a jump.
-[00:02:46.880 --> 00:02:53.760]   So if the PC increment is greater than 0, we simply say add the PC increment.
-[00:02:53.760 --> 00:02:57.680]   That little mask is there to make sure it doesn't get bigger than 256
-[00:02:57.680 --> 00:03:01.120]   because there's only 256 instructions in the instruction memory.
-[00:03:01.120 --> 00:03:06.000]   And the PC increment is going to either be 1 if it's an 8-bit instruction
-[00:03:06.000 --> 00:03:09.680]   or 2 if it's a 16-bit instruction.
-[00:03:09.680 --> 00:03:14.320]   Digging a little more deeply into some of those else-if, else-if, else-if, else-ifs,
-[00:03:14.320 --> 00:03:17.920]   you can see the load accumulator immediate instruction.
-[00:03:17.920 --> 00:03:19.920]   It's a 0x89.
-[00:03:19.920 --> 00:03:23.760]   And what we do is we say, oh, let's get that immediate value.
-[00:03:23.760 --> 00:03:28.800]   Take that CPU instructions and go 1 beyond the PC and grab it.
-[00:03:28.800 --> 00:03:30.880]   So that's the number that we're loading.
-[00:03:30.880 --> 00:03:32.160]   And what do we do?
-[00:03:32.160 --> 00:03:35.120]   Well, we take the immediate value and we put it in the accumulator.
-[00:03:35.120 --> 00:03:38.240]   And every time you change the accumulator, you've got to update the Z and the N flags.
-[00:03:38.240 --> 00:03:39.920]   So we've got a function to do that.
-[00:03:39.920 --> 00:03:42.160]   And then we say, hey, this was a 16-bit instruction.
-[00:03:42.960 --> 00:03:44.480]   Increment the PC by 2.
-[00:03:44.480 --> 00:03:46.400]   Subtract immediate.
-[00:03:46.400 --> 00:03:51.680]   Again, we grab the immediate, which is the immediately following after the program counter.
-[00:03:51.680 --> 00:03:52.800]   We compute the difference.
-[00:03:52.800 --> 00:03:57.440]   And then we set the accumulator to be the difference.
-[00:03:57.440 --> 00:04:02.960]   Update the status flags because we changed the accumulator and set the PC increment to 2.
-[00:04:02.960 --> 00:04:04.720]   And we do like something a little more complex,
-[00:04:04.720 --> 00:04:09.360]   which is a load with an address and an offset by the X register.
-[00:04:10.800 --> 00:04:13.200]   Again, the base address is an immediate.
-[00:04:13.200 --> 00:04:17.120]   So we go 1 beyond the program counter and grab that.
-[00:04:17.120 --> 00:04:19.520]   Then we grab the X register.
-[00:04:19.520 --> 00:04:21.360]   Make sure it's a number, not a string.
-[00:04:21.360 --> 00:04:24.080]   That's probably just conservative programming.
-[00:04:24.080 --> 00:04:27.440]   Then we take the base address plus the X value.
-[00:04:27.440 --> 00:04:31.520]   That's our offsetting to our index by X.
-[00:04:31.520 --> 00:04:36.960]   And then we go grab the real memory, CPU.memory of the effective address.
-[00:04:36.960 --> 00:04:38.080]   What is memory?
-[00:04:38.080 --> 00:04:41.520]   Here's a 256-byte array.
-[00:04:41.520 --> 00:04:44.640]   And then we set the accumulator to whatever came out of that memory.
-[00:04:44.640 --> 00:04:48.640]   And we update the status flags and we set the P increment to 2.
-[00:04:48.640 --> 00:04:53.360]   So again, this is about 1300 lines of code.
-[00:04:53.360 --> 00:04:55.760]   I would not claim it's a perfect emulator.
-[00:04:55.760 --> 00:05:01.200]   I just did it well enough to make it so that you can learn what you need to learn in this class.
-[00:05:01.200 --> 00:05:06.880]   I would say probably I could make it a lot more accurate if I made it
-[00:05:07.440 --> 00:05:09.120]   2500 lines of code.
-[00:05:09.120 --> 00:05:12.400]   If I did things like made all the memory mapping for sound and stuff work,
-[00:05:12.400 --> 00:05:16.400]   it'd probably be three or four times larger, maybe 5000 lines of code.
-[00:05:16.400 --> 00:05:18.640]   That's not a lot of code.
-[00:05:18.640 --> 00:05:22.480]   The interesting thing is that most modern processors on phones and computers
-[00:05:22.480 --> 00:05:26.400]   are so fast that even if we're writing something in JavaScript
-[00:05:26.400 --> 00:05:28.800]   that's emulating historical machine code,
-[00:05:28.800 --> 00:05:31.920]   it can do that far faster than the original hardware.
-[00:05:31.920 --> 00:05:37.040]   So if you build an emulator for a 6502 and you want to do 1 MHz,
-[00:05:37.040 --> 00:05:39.680]   well, you probably will have to slow it down.
-[00:05:39.680 --> 00:05:44.640]   And things like graphics are way better in modern environments
-[00:05:44.640 --> 00:05:46.880]   and they don't take a lot of resources.
-[00:05:46.880 --> 00:05:50.880]   So if we go back to the 70s and the 80s,
-[00:05:50.880 --> 00:05:55.760]   people would buy things like Atari 2600s and play them on their televisions.
-[00:05:55.760 --> 00:05:59.840]   They would have these plug-in ROM modules that had the code in it.
-[00:05:59.840 --> 00:06:00.880]   That's the machine code.
-[00:06:00.880 --> 00:06:04.240]   And so there's an effort to capture these
-[00:06:04.240 --> 00:06:07.360]   and you can actually disassemble these.
-[00:06:07.360 --> 00:06:10.720]   ROMs are things you can read with ROM readers
-[00:06:10.720 --> 00:06:12.800]   and then you can extract the machine code
-[00:06:12.800 --> 00:06:15.280]   and then you can build an emulator
-[00:06:15.280 --> 00:06:21.280]   and it turns out that the Atari 2600 has a 6502 in it.
-[00:06:21.280 --> 00:06:24.720]   So the console that you plugged into the Atari 2600,
-[00:06:24.720 --> 00:06:28.560]   that machine code is 6502 machine code.
-[00:06:28.560 --> 00:06:33.280]   So you build an emulator including all the graphics capabilities of the 2600
-[00:06:33.280 --> 00:06:39.280]   and so you can emulate a game like Space Invaders on the Atari 2600
-[00:06:39.280 --> 00:06:41.920]   in your browsers and completely play it.
-[00:06:41.920 --> 00:06:44.160]   I encourage you to go ahead and play it.
-[00:06:44.160 --> 00:06:48.080]   If you slow down the startup,
-[00:06:48.080 --> 00:06:49.680]   once things get cached in your browsers,
-[00:06:49.680 --> 00:06:52.080]   this screen goes by so fast you won't even see it.
-[00:06:52.080 --> 00:06:53.520]   I had to record it to catch it.
-[00:06:53.520 --> 00:06:57.440]   You can see what's going on as the game is being loaded.
-[00:06:57.440 --> 00:06:59.360]   It's looking at the files,
-[00:06:59.360 --> 00:07:02.800]   it's the machine code for the game
-[00:07:02.800 --> 00:07:05.200]   and it's running it in the browser
-[00:07:05.200 --> 00:07:08.640]   using a piece of software written in WASM.
-[00:07:08.640 --> 00:07:11.680]   Now it's not written in JavaScript, it's written in WASM.
-[00:07:11.680 --> 00:07:13.280]   What is WASM?
-[00:07:13.280 --> 00:07:15.120]   WASM is Web Assembly.
-[00:07:15.120 --> 00:07:20.560]   So I built a machine language emulator in JavaScript that you were using
-[00:07:20.560 --> 00:07:24.160]   but there is a low-level high-performance machine language emulator
-[00:07:24.160 --> 00:07:25.680]   built into web browsers,
-[00:07:25.680 --> 00:07:29.360]   recent web browsers called Web Assembly.
-[00:07:29.360 --> 00:07:31.280]   So Web Assembly is a machine code
-[00:07:31.840 --> 00:07:33.920]   that is not intended to be built in hardware
-[00:07:33.920 --> 00:07:37.680]   but intended to be emulated very, very rapidly by hardware.
-[00:07:37.680 --> 00:07:40.480]   So for a wide range of software,
-[00:07:40.480 --> 00:07:44.000]   you can do surprisingly complex things
-[00:07:44.000 --> 00:07:46.160]   and then compile them to WASM,
-[00:07:46.160 --> 00:07:47.920]   download them into a browser
-[00:07:47.920 --> 00:07:50.640]   and run them in a browser
-[00:07:50.640 --> 00:07:52.320]   with a little JavaScript library
-[00:07:52.320 --> 00:07:55.760]   that provides things like file opening, et cetera, et cetera.
-[00:07:55.760 --> 00:07:57.600]   Now I want to show you a bit of WASM.
-[00:07:57.600 --> 00:08:01.120]   It's got a little bit different syntax than most assembly languages
-[00:08:01.120 --> 00:08:04.240]   but it still is a very succinct
-[00:08:04.240 --> 00:08:07.040]   one-to-one correspondence to binary machine code.
-[00:08:07.040 --> 00:08:09.920]   I will also show you in the C Programming for Everybody course
-[00:08:09.920 --> 00:08:12.880]   that I teach at www.ccfree.com,
-[00:08:12.880 --> 00:08:16.000]   the C Playground actually doesn't run the code in the server.
-[00:08:16.000 --> 00:08:18.480]   It compiles C to WASM in the server
-[00:08:18.480 --> 00:08:21.040]   and then runs WASM in the user's browser.
-[00:08:21.040 --> 00:08:25.520]   So you can't run an infinite loop in my C Programming for Everybody course
-[00:08:25.520 --> 00:08:27.120]   and break my server.
-[00:08:27.120 --> 00:08:29.840]   You can write an infinite loop and break your browser
-[00:08:29.840 --> 00:08:32.240]   but that is your browser.
-[00:08:32.240 --> 00:08:35.200]   So let's take a little bit of a look at WebAssembly.
-[00:08:35.200 --> 00:08:36.640]   WASM is a little bit different.
-[00:08:36.640 --> 00:08:38.560]   So you don't see, for example, an accumulator.
-[00:08:38.560 --> 00:08:41.920]   It actually has a stack and it has operands on the stack
-[00:08:41.920 --> 00:08:43.920]   and you put operands on the stack
-[00:08:43.920 --> 00:08:45.680]   and then you operate on the operands of the stack
-[00:08:45.680 --> 00:08:47.440]   and then replace things on the stack.
-[00:08:47.440 --> 00:08:49.280]   It's a very simple execution model
-[00:08:49.280 --> 00:08:51.680]   but it's still very, very low level.
-[00:08:51.680 --> 00:08:55.120]   And what this is, is this is printing Hello World.
-[00:08:55.120 --> 00:08:57.200]   You see this sort of indentation.
-[00:08:58.080 --> 00:08:59.920]   It still is machine code. If you look below,
-[00:08:59.920 --> 00:09:03.440]   there's about 90 bytes of machine code that I dumped
-[00:09:03.440 --> 00:09:07.120]   from this particular bit of code compiled into WASM.
-[00:09:07.120 --> 00:09:09.200]   It uses a little different syntax
-[00:09:09.200 --> 00:09:13.040]   because it really doesn't want to expose labels in WASM.
-[00:09:13.040 --> 00:09:15.120]   It really wants there to be a stack.
-[00:09:15.120 --> 00:09:18.080]   It wants to be a set of nested modules
-[00:09:18.080 --> 00:09:20.000]   and variable scopes and things like that.
-[00:09:20.000 --> 00:09:25.040]   But still it's an assembly language and it is got nesting.
-[00:09:25.040 --> 00:09:28.480]   So you tend not to use labels in the same way
-[00:09:28.480 --> 00:09:31.200]   that we use labels in more traditional assembly language
-[00:09:31.200 --> 00:09:33.120]   and machine language.
-[00:09:33.120 --> 00:09:35.680]   And here is a simple example of a thing.
-[00:09:35.680 --> 00:09:38.320]   You can just go to this website and play with it.
-[00:09:38.320 --> 00:09:42.160]   You can write C code, you hit the run code button.
-[00:09:42.160 --> 00:09:44.480]   It uploads the C code to a server,
-[00:09:44.480 --> 00:09:46.480]   which then compiles it to WASM.
-[00:09:46.480 --> 00:09:49.600]   That takes very little time and it downloads that WASM
-[00:09:49.600 --> 00:09:54.160]   and then it runs that WASM as output and shows the output of it.
-[00:09:54.160 --> 00:09:58.320]   That also means that in that WASM compiler for C,
-[00:09:58.320 --> 00:10:00.400]   there's a whole standard library,
-[00:10:00.400 --> 00:10:02.800]   includes stdio.h and the printf.
-[00:10:02.800 --> 00:10:04.800]   That's been compiled to WASM as well.
-[00:10:04.800 --> 00:10:07.040]   So the WASM you get back from Inscriptum
-[00:10:07.040 --> 00:10:11.120]   is much larger than just a pure WASM bit of code
-[00:10:11.120 --> 00:10:14.080]   because it's compiled the C library as well
-[00:10:14.080 --> 00:10:16.720]   so that you can do things like printf and scanf
-[00:10:16.720 --> 00:10:21.200]   and other kinds of things that you would do in a C application.
-[00:10:22.720 --> 00:10:29.600]   So emulators going forward are so fast and becoming ubiquitous
-[00:10:29.600 --> 00:10:32.480]   that it's kind of foolish to write native code
-[00:10:32.480 --> 00:10:36.320]   for certain things like video games and other things.
-[00:10:36.320 --> 00:10:39.440]   And so the fact that you're playing with an emulator
-[00:10:39.440 --> 00:10:41.680]   going forward in the future,
-[00:10:41.680 --> 00:10:45.680]   you may be writing code for production that runs in an emulator.
-[00:10:52.720 --> 00:10:55.640]   (jazz piano music)
-output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.txt'
-output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.vtt'
-output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.srt'
+[00:00:00.000 --> 00:00:06.000]   Hello and welcome to another walkthrough for computer architecture for everybody.
+[00:00:06.000 --> 00:00:11.680]   In the previous walkthrough we went through a simple sort of Watt/WASM situation where we're
+[00:00:11.680 --> 00:00:17.200]   talking to JavaScript. This is not really C code. It's hello world but it's not C code. This is
+[00:00:17.200 --> 00:00:24.240]   WASM plus being run in a JavaScript context and the hello world is coming out of a console log
+[00:00:24.240 --> 00:00:30.960]   function in JavaScript. I want to shift gears a little bit focusing still again on hello world
+[00:00:30.960 --> 00:00:36.080]   and show you something for another one of my classes, C programming for everybody
+[00:00:36.080 --> 00:00:41.840]   under the write C option. So in this course I have a C auto grader. Right now I'm just using the
+[00:00:41.840 --> 00:00:47.520]   playground. You can write C programs and then compile them. So let's go ahead and write our C
+[00:00:47.520 --> 00:00:52.640]   program. Now I'm going to hit the run code here and you'll see a little spinner going on and there's
+[00:00:52.640 --> 00:00:57.520]   a bunch of work and if you do the view source and you watch the network I'm not going to show you
+[00:00:57.520 --> 00:01:08.320]   the whole network. What you'll see is this C code is being sent up to the cc4e server using a piece
+[00:01:08.320 --> 00:01:20.960]   of software called mscriptum which compiles C code and other things into WASM. Then this environment
+[00:01:20.960 --> 00:01:26.000]   will download the WASM and I've got it watching for a string WASM in the network request and it
+[00:01:26.000 --> 00:01:31.360]   will download that WASM and then it will execute the WASM and it will put the output here. I mean
+[00:01:31.360 --> 00:01:37.040]   I already executed it but I made a change hello world exclamation. So in the next click it is going
+[00:01:37.040 --> 00:01:45.680]   to compile it compile to WASM inside the server download the WASM back into the browser and then
+[00:01:45.680 --> 00:01:52.240]   execute the WASM in JavaScript. So it's going to be sort of boring it's just going to work.
+[00:01:52.240 --> 00:01:57.280]   Watch for the spinner in the middle here there goes to see the spinner was there for just like
+[00:01:57.280 --> 00:02:04.240]   a quarter of a second. I ought to slow it down but it did that and there is this a.out WASM
+[00:02:04.240 --> 00:02:10.640]   and if we take a look at the response yeah it's not going to show it to us because it's kind of
+[00:02:10.640 --> 00:02:17.360]   binary stuff okay. So that was the WASM that came back. Now that WASM executed with a JavaScript
+[00:02:17.360 --> 00:02:26.160]   framework to start that WASM up and then it printed hello world. Now standard io.h is in C printf is
+[00:02:26.160 --> 00:02:34.080]   in the C standard library. So what has nscriptum done? Well what nscriptum has done is it has
+[00:02:34.080 --> 00:02:42.000]   compiled all of the standard libraries into WASM it has compiled our code into WASM it's linked it
+[00:02:42.000 --> 00:02:48.800]   all together and sent down a really big WASM because this #include if you don't see it just
+[00:02:48.800 --> 00:02:56.160]   pulls a file in and so that got compiled into WASM too. So let's take a look at how much WASM
+[00:02:56.160 --> 00:03:03.520]   really came down. So let's take a look here this is a dump of the WASM for hello world and there's
+[00:03:03.520 --> 00:03:13.360]   a lot here but it's not that much right. It's we got let's see three c zero zero hex I don't know
+[00:03:13.360 --> 00:03:18.560]   how big that is but I just scrolled through the whole thing but this is not just my hello world
+[00:03:18.560 --> 00:03:25.760]   code this is hello world plus some of the standard library and some of the standard io.h all compiled
+[00:03:25.760 --> 00:03:34.640]   into WASM. Now this now is self-contained as WASM code ready to run inside of the browser and that's
+[00:03:34.640 --> 00:03:41.040]   of course what happened when it ran in the browser and out came hello world but there's a lot to it
+[00:03:41.040 --> 00:03:45.680]   because we're pulling in the C libraries and converting them to WASM as well. So this is kind
+[00:03:45.680 --> 00:03:52.640]   of an ugly version of it we can take a look at a little prettier version of it by looking at not
+[00:03:52.640 --> 00:04:00.320]   much prettier we can look at the Watt and so we're looking at the Watt here this was written to be
+[00:04:00.320 --> 00:04:06.320]   readable this is the Watt code editor for the hello world that's a pure WASM JavaScript example
+[00:04:06.320 --> 00:04:11.680]   and you can kind of read it and you'll change it in your autograder in a bit. This is more like
+[00:04:11.680 --> 00:04:17.920]   what WASM does because it ran the inscription compiler and produced the WASM and then I converted
+[00:04:17.920 --> 00:04:23.840]   the WASM to Watt so that we could see it and we're not going to change this there's all kinds of
+[00:04:23.840 --> 00:04:30.400]   stuff fd write fd close fd seek that's part of the standard library and you see it's really
+[00:04:30.400 --> 00:04:36.960]   like busy stuff it's calling things and perhaps setting parameters and pushing them on the stack
+[00:04:36.960 --> 00:04:41.920]   and calling them and making functions and uh do we have any loops here let's see if we can get to a
+[00:04:41.920 --> 00:04:48.960]   loop there's a block right there's some there's some blocks there's some loops right and jumps
+[00:04:48.960 --> 00:04:57.360]   and all kinds of stuff this is this is the output of a compiler that is writing to a pseudo machine
+[00:04:57.360 --> 00:05:08.720]   language in Watt so I'll just scroll through this that is a lot of Watt okay and it's not very easy
+[00:05:08.720 --> 00:05:18.400]   to see but it's pretty yummy and delicious to the runtime environment in JavaScript who has built
+[00:05:18.400 --> 00:05:25.440]   an interpreter much like the interpreter we built for the CDC 6504 and it runs that as the
+[00:05:25.440 --> 00:05:31.600]   interpreter okay so the key thing is is that I'm not going to spend a lot of time having you
+[00:05:31.600 --> 00:05:37.280]   kind of learn to code Watt it's not intended for you to code it it's intended for compilers to
+[00:05:37.280 --> 00:05:43.680]   produce it so just imagine that this C program that we're writing is really like a high performance
+[00:05:43.680 --> 00:05:51.600]   maybe a video game shading library or something that would then get compiled into WASM which
+[00:05:51.600 --> 00:05:58.320]   would be super high performant and then that WASM might be recompiled into raw machine language
+[00:05:58.320 --> 00:06:04.720]   by my browser and then it'd be like super fast in the browser and that's the whole that's literally
+[00:06:04.720 --> 00:06:11.280]   the whole point of WASM the WASM is to make it so you can write approaching machine code speed code
+[00:06:11.280 --> 00:06:18.960]   in a portable safe sandboxed way running in the browser under the rules of JavaScript and
+[00:06:18.960 --> 00:06:26.160]   inside that browser you can mix code from many sources and many trust domains and they can't
+[00:06:26.160 --> 00:06:31.920]   harm each other because they're all running in individualized sandboxes okay so I hope that was
+[00:06:31.920 --> 00:06:37.280]   a bit interesting about how we connect C programming and and WASM and how I use it
+[00:06:37.280 --> 00:06:48.640]   in my C programming for everybody course. Cheers!
+output_txt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.txt'
+output_vtt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.vtt'
+output_srt: saving output to '/Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.srt'
 
-whisper_print_timings:     load time =   551.80 ms
+whisper_print_timings:     load time =   872.87 ms
 whisper_print_timings:     fallbacks =   0 p /   0 h
-whisper_print_timings:      mel time =   246.10 ms
-whisper_print_timings:   sample time =  3646.09 ms / 13527 runs (     0.27 ms per run)
-whisper_print_timings:   encode time =  9588.12 ms /    24 runs (   399.51 ms per run)
-whisper_print_timings:   decode time =   291.45 ms /    30 runs (     9.72 ms per run)
-whisper_print_timings:   batchd time = 34355.76 ms / 13380 runs (     2.57 ms per run)
-whisper_print_timings:   prompt time =  1792.48 ms /  5221 runs (     0.34 ms per run)
-whisper_print_timings:    total time = 51052.33 ms
+whisper_print_timings:      mel time =   156.07 ms
+whisper_print_timings:   sample time =  1968.15 ms /  7076 runs (     0.28 ms per run)
+whisper_print_timings:   encode time =  6424.22 ms /    16 runs (   401.51 ms per run)
+whisper_print_timings:   decode time =   115.52 ms /    12 runs (     9.63 ms per run)
+whisper_print_timings:   batchd time = 17726.35 ms /  6984 runs (     2.54 ms per run)
+whisper_print_timings:   prompt time =  1243.66 ms /  3632 runs (     0.34 ms per run)
+whisper_print_timings:    total time = 28999.27 ms
 ggml_metal_free: deallocating
-DONE: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-07-CPU-Emulator.m4v
+DONE: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.m4v
 TIMING:
   FFMPEG : 00:00:01
-  WHISPER: 00:00:51
-  TOTAL  : 00:00:52
-SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-08-CPU-History.m4v (found 07-08-CPU-History.txt)
-SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-11-WASM-Hello-JS.m4v (found 07-11-WASM-Hello-JS.txt)
-SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-12-WASM-Hello-C.m4v (found 07-12-WASM-Hello-C.txt)
+  WHISPER: 00:00:29
+  TOTAL  : 00:00:30
 SKIP: /Users/csev/Desktop/teach/ca4e-media/07-Emulator/07-13-WASM-Upper.m4v (found 07-13-WASM-Upper.txt)
 
 ==================================================
-Batch finished: Tue Mar 17 12:31:29 EDT 2026
+Batch finished: Sat Mar 21 13:29:32 EDT 2026
 TOTAL=40
-DONE=6
-SKIPPED=34
+DONE=1
+SKIPPED=39
 FAILED=0
 LOG=/Users/csev/Desktop/teach/ca4e-media/whisper-batch.log
 ==================================================

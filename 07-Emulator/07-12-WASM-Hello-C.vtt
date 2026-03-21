@@ -1,2 +1,179 @@
 WEBVTT
 
+00:00:00.000 --> 00:00:06.000
+ Hello and welcome to another walkthrough for computer architecture for everybody.
+
+00:00:06.000 --> 00:00:11.680
+ In the previous walkthrough we went through a simple sort of Watt/WASM situation where we're
+
+00:00:11.680 --> 00:00:17.200
+ talking to JavaScript. This is not really C code. It's hello world but it's not C code. This is
+
+00:00:17.200 --> 00:00:24.240
+ WASM plus being run in a JavaScript context and the hello world is coming out of a console log
+
+00:00:24.240 --> 00:00:30.960
+ function in JavaScript. I want to shift gears a little bit focusing still again on hello world
+
+00:00:30.960 --> 00:00:36.080
+ and show you something for another one of my classes, C programming for everybody
+
+00:00:36.080 --> 00:00:41.840
+ under the write C option. So in this course I have a C auto grader. Right now I'm just using the
+
+00:00:41.840 --> 00:00:47.520
+ playground. You can write C programs and then compile them. So let's go ahead and write our C
+
+00:00:47.520 --> 00:00:52.640
+ program. Now I'm going to hit the run code here and you'll see a little spinner going on and there's
+
+00:00:52.640 --> 00:00:57.520
+ a bunch of work and if you do the view source and you watch the network I'm not going to show you
+
+00:00:57.520 --> 00:01:08.320
+ the whole network. What you'll see is this C code is being sent up to the cc4e server using a piece
+
+00:01:08.320 --> 00:01:20.960
+ of software called mscriptum which compiles C code and other things into WASM. Then this environment
+
+00:01:20.960 --> 00:01:26.000
+ will download the WASM and I've got it watching for a string WASM in the network request and it
+
+00:01:26.000 --> 00:01:31.360
+ will download that WASM and then it will execute the WASM and it will put the output here. I mean
+
+00:01:31.360 --> 00:01:37.040
+ I already executed it but I made a change hello world exclamation. So in the next click it is going
+
+00:01:37.040 --> 00:01:45.680
+ to compile it compile to WASM inside the server download the WASM back into the browser and then
+
+00:01:45.680 --> 00:01:52.240
+ execute the WASM in JavaScript. So it's going to be sort of boring it's just going to work.
+
+00:01:52.240 --> 00:01:57.280
+ Watch for the spinner in the middle here there goes to see the spinner was there for just like
+
+00:01:57.280 --> 00:02:04.240
+ a quarter of a second. I ought to slow it down but it did that and there is this a.out WASM
+
+00:02:04.240 --> 00:02:10.640
+ and if we take a look at the response yeah it's not going to show it to us because it's kind of
+
+00:02:10.640 --> 00:02:17.360
+ binary stuff okay. So that was the WASM that came back. Now that WASM executed with a JavaScript
+
+00:02:17.360 --> 00:02:26.160
+ framework to start that WASM up and then it printed hello world. Now standard io.h is in C printf is
+
+00:02:26.160 --> 00:02:34.080
+ in the C standard library. So what has nscriptum done? Well what nscriptum has done is it has
+
+00:02:34.080 --> 00:02:42.000
+ compiled all of the standard libraries into WASM it has compiled our code into WASM it's linked it
+
+00:02:42.000 --> 00:02:48.800
+ all together and sent down a really big WASM because this #include if you don't see it just
+
+00:02:48.800 --> 00:02:56.160
+ pulls a file in and so that got compiled into WASM too. So let's take a look at how much WASM
+
+00:02:56.160 --> 00:03:03.520
+ really came down. So let's take a look here this is a dump of the WASM for hello world and there's
+
+00:03:03.520 --> 00:03:13.360
+ a lot here but it's not that much right. It's we got let's see three c zero zero hex I don't know
+
+00:03:13.360 --> 00:03:18.560
+ how big that is but I just scrolled through the whole thing but this is not just my hello world
+
+00:03:18.560 --> 00:03:25.760
+ code this is hello world plus some of the standard library and some of the standard io.h all compiled
+
+00:03:25.760 --> 00:03:34.640
+ into WASM. Now this now is self-contained as WASM code ready to run inside of the browser and that's
+
+00:03:34.640 --> 00:03:41.040
+ of course what happened when it ran in the browser and out came hello world but there's a lot to it
+
+00:03:41.040 --> 00:03:45.680
+ because we're pulling in the C libraries and converting them to WASM as well. So this is kind
+
+00:03:45.680 --> 00:03:52.640
+ of an ugly version of it we can take a look at a little prettier version of it by looking at not
+
+00:03:52.640 --> 00:04:00.320
+ much prettier we can look at the Watt and so we're looking at the Watt here this was written to be
+
+00:04:00.320 --> 00:04:06.320
+ readable this is the Watt code editor for the hello world that's a pure WASM JavaScript example
+
+00:04:06.320 --> 00:04:11.680
+ and you can kind of read it and you'll change it in your autograder in a bit. This is more like
+
+00:04:11.680 --> 00:04:17.920
+ what WASM does because it ran the inscription compiler and produced the WASM and then I converted
+
+00:04:17.920 --> 00:04:23.840
+ the WASM to Watt so that we could see it and we're not going to change this there's all kinds of
+
+00:04:23.840 --> 00:04:30.400
+ stuff fd write fd close fd seek that's part of the standard library and you see it's really
+
+00:04:30.400 --> 00:04:36.960
+ like busy stuff it's calling things and perhaps setting parameters and pushing them on the stack
+
+00:04:36.960 --> 00:04:41.920
+ and calling them and making functions and uh do we have any loops here let's see if we can get to a
+
+00:04:41.920 --> 00:04:48.960
+ loop there's a block right there's some there's some blocks there's some loops right and jumps
+
+00:04:48.960 --> 00:04:57.360
+ and all kinds of stuff this is this is the output of a compiler that is writing to a pseudo machine
+
+00:04:57.360 --> 00:05:08.720
+ language in Watt so I'll just scroll through this that is a lot of Watt okay and it's not very easy
+
+00:05:08.720 --> 00:05:18.400
+ to see but it's pretty yummy and delicious to the runtime environment in JavaScript who has built
+
+00:05:18.400 --> 00:05:25.440
+ an interpreter much like the interpreter we built for the CDC 6504 and it runs that as the
+
+00:05:25.440 --> 00:05:31.600
+ interpreter okay so the key thing is is that I'm not going to spend a lot of time having you
+
+00:05:31.600 --> 00:05:37.280
+ kind of learn to code Watt it's not intended for you to code it it's intended for compilers to
+
+00:05:37.280 --> 00:05:43.680
+ produce it so just imagine that this C program that we're writing is really like a high performance
+
+00:05:43.680 --> 00:05:51.600
+ maybe a video game shading library or something that would then get compiled into WASM which
+
+00:05:51.600 --> 00:05:58.320
+ would be super high performant and then that WASM might be recompiled into raw machine language
+
+00:05:58.320 --> 00:06:04.720
+ by my browser and then it'd be like super fast in the browser and that's the whole that's literally
+
+00:06:04.720 --> 00:06:11.280
+ the whole point of WASM the WASM is to make it so you can write approaching machine code speed code
+
+00:06:11.280 --> 00:06:18.960
+ in a portable safe sandboxed way running in the browser under the rules of JavaScript and
+
+00:06:18.960 --> 00:06:26.160
+ inside that browser you can mix code from many sources and many trust domains and they can't
+
+00:06:26.160 --> 00:06:31.920
+ harm each other because they're all running in individualized sandboxes okay so I hope that was
+
+00:06:31.920 --> 00:06:37.280
+ a bit interesting about how we connect C programming and and WASM and how I use it
+
+00:06:37.280 --> 00:06:48.640
+ in my C programming for everybody course. Cheers!
+
